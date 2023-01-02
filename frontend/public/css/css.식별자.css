@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+*{ color: blue; }
+
+
+p{ color: orange; }
+
+.p1{ color: red; }
+
+#p2 { color: green; }
