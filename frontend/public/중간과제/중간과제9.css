@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+
+
+
+.signup{
+	text-align: center;		/* 가운데 정렬 */
+}
+
+.signup_form{	/* form 구역 설정하기 */
+	width: 600px;
+	margin: 0 auto;
+	border-top: solid 1px red;
+	border-bottom: solid 1px red;
+	padding: 25px;
+}
+
+/* 글머리 제거 */
+.colums li{
+	display: inline-block;
+}
+
+.signup_box li{
+	list-style-type: none;
+}
+
+.colums li{display: inline-block;}
+
+.colums .col1{width: 150px; height: 25px; }
+.colums .col2{width: 250px; height: 30px; }
+
+textarea{resize:none;}
+
+.button{text-align:right; padding: 10px;}
