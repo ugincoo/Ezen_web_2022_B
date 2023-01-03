@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<link 
+	href="5.css_dlvspan.css" 
+	rel="stylesheet"
+	
+	>
+
+
+</head>
+<body>
+
+	<!--
+		layout 레이아웃 : 특정 공간 안에서 효과적으로 배치
+	
+		<div> : 
+			1. 한 줄 차지 적용
+			2. display : block
+		
+		<span>
+			1. 같은 줄에 적용
+			2. disply : inline
+			
+		display 속성
+			display : none			표시x
+			display : block		 	한 줄 차지 적용
+			display : inline		같은 줄에 적용
+			display : inline-block	inline+bloc  
+			
+	  -->
+
+	<h3> 헤더 </h3>
+
+	<div> 박스(구역) 구분 태그 </div> boxboxboxboxbox
+	
+	<span> 박스(구역) 구분 태그 </span> boxboxboxbox
+ 
+ 	<!-- 1. div 안에 span inline(기본값) 있는 경우 -->
+ 		<div> 글자1 <span class="s1"> inline 안녕하세요 </span> 글자 2</div>
+
+	<!-- 2. div 안에 span block 있는 경우 -->
+ 		<div> 글자1 <span class="s2"> block 안녕하세요 </span> 글자 2</div>
+
+	<!-- 3. div 안에 span inline-block 있는 경우 -->
+ 		<div> 글자1 <span class="s3"> inline-block 안녕하세요 </span> 글자 2</div>
+
+	<!-- 4. div 안에 span none 있는 경우 -->
+ 		<div> 글자1 <span class="s4"> none 안녕하세요 </span> 글자 2</div>
+
+</body>
+</html>
