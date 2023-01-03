@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+/*
+	식별자
+	1. * 2. 태그명 3. class 4. #id
+*/
+
+.number{
+	font-size:30px;
+	color: orange;	
+}
+
+.contents{
+	width : 500px;
+	background-color: #0F6878;
+	padding: 20px;
+	color: white;
+	line-height: 150%;
+}
+
+.qwe{
+	color: orange;
+	font-weight: bold;
+}

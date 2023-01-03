@@ -1,0 +1,26 @@
+@charset "UTF-8";
+/*
+	1. 하위 선택자 : 띄어쓰기 구분 [ 식별자 하위식별자 ]
+	2. 복수 선택자 : 구분 [ 식별자, 식별자, 식별자 ]
+*/
+
+.fee_t, .fee_t th, .fee_t td {/* 테이블 ,제목, 데이터 - 복수 선택자*/
+		border: solid 2px black;	
+}
+
+.fee_t{
+	border-collapse: collapse;
+	color: black;
+}
+.fee_t th{ /* 해당 클래스 안에 th만 적용 */
+	padding: 10px 20px;			/* 안쪽여백 : 위/아래 왼/오*/
+	background-color: #eeeeee; /*배경색*/
+}
+.fee_t td{
+	padding: 10px;
+	text-align: center;		/*셀 안에 있는 데이터 정렬*/
+}
+
+.fee_t .col1 { width: 50px; } /*1열*/
+.fee_t .col2 , .fee_t .col3 { width: 100px; } /*2열*/
+.fee_t .col4 {width: 200px;}
