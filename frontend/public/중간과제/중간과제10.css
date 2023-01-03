@@ -1,15 +1,7 @@
 @charset "UTF-8";
 
-.s{
+.start {
 	width: 600px;
 	margin: 0 auto;
-	border-top: solid 2px black; 
-}
-
-td{
-	
-}
-
-.col2{
-	
+	border-top: solid 5px black;)
 }
