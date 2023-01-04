@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+/*
+	웹 폰트 : 눈누 사이트 참고
+	1. 기본 베이스 폰트 : 맑은고딕, 굴림
+	2. 강조 폰트 : 외부 폰트 가져오기 [ @font-face ]
+*/
+
+@font-face {
+    font-family: 'GongGothicMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/*--------------------공통--------------*/
+
+a{/*a 태그 기본 색상, 밑줄 제거*/
+	color: black;
+	text-decoration:none;
+}
+li{ list-style-type: none; /*글머리 지우기*/ }
+ul{padding: 0px;}
+
+/*----------------------------------*/
+
+#header{ 
+	width: 1200px; 
+	/* height: 100px; */
+	margin: 0 auto;
+	display: flex;							/*하위요소 가로배치*/
+	justify-content: space-between;			/*양쪽 여백 없이 균등배치*/
+}
+
+/*li 가로배치 [ 자동으로 글머리 제거]*/
+.main_menu li {
+	display: inline-block;	
+	margin-left: 80px; 						/* li끼리의 사이 여백 */
+	font-family: "GongGothicMedium"			/*pc에 설치된 폰드만 가능*/
+}
+
+/*상단메뉴*/
+.top_menu {
+	text-align: right;
+	margin-top: 20px;
+}
+
+/*대표이미지*/
+#main_img{
+	 width: 100%; height: 250px;				/*사이즈*/
+	background-image: url("img/3.png");			/*배경이미지*/
+	background-repeat: no-repeat;	 			/*자동채우기 빠짐*/
+	background-position: center; 				/*배경 위치*/
+	margin: 20px 0px ;		
+}
+
+/*본뮨*/
+#content{
+	width: 1200px; margin: 0 auto;
+	display: flex;justify-content: space-between;
+}
+
+.side_bar{width: 250px; }	/*사이즈*/
+
+.main_content{width: 900px; }	/*사이즈*/
+
+/*사이드바*/
+.side_bar h3{
+	font-size: 20px;	color:#53C6B2;	/* color : 1.RGB 2.HEX 3. keyword */
+	background-color: #516E7F;
+	padding: 10px; 						/*안쪽 여백*/
+}
+/*사이드바 목록*/
+.side_bar li{
+	border-bottom: dotted 1px #eeeeee;
+	padding: 10px
+}
+
+/*메인 본문*/
+.main_content h3{
+	font-size: 20px; 
+	border-bottom: solid 1px #eeeeee;
+	padding: 10px;
+}
+
+/* 푸터 */
+
+#footer{ background-color: #2E2A2A;	margin-top: 50px; }
+#ft_box{width: 1200px; margin:0 auto;
+		display:flex; justify-content:space-between;
+		padding: 10px;
+}
+#ft_box li{ color: white;}
