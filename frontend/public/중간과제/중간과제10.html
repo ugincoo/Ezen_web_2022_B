@@ -10,26 +10,33 @@
 <body>
 
 	<table class="start">
-	
 		<tr>
-			<td>이름</td> 
+			<th>이름</th> 
 			<td > 홍길동 </td>
 		</tr>
-		
+			
 		<tr>
-			<td>제목</td>
+			<th>제목</th>
 			<td> <input type="text" class="col1" /></td>
 		</tr>
 			
 		<tr>
-			<td>내용</td>
-			<td> <input type="text" class="col1" /></td>
-			
+			<th>내용</th>
+			<td> <input type="text" class="col2" /></td>
+				
 		<tr>
-			<td>첨부파일</td> 
-			<td class="col4"> <input type="button" value="파일첨부"/></td>
+			<th>첨부파일</th> 
+			<td class="col2"> <input type="file" value="파일첨부"/></td>
+			<td>
 		</tr>	
-	
+		<tr>
+			<td colspan=3>
+				<div class="btn">
+					<input type="submit" value="저장하기" class="sub1">
+					<input type="button" value="목록보기" class="btn1">
+				</div>	
+			</td>
+		</tr>
 	</table>
 
 </body>

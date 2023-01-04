@@ -10,12 +10,16 @@
 .signup_form{	/* form 구역 설정하기 */
 	width: 600px;
 	margin: 0 auto;
-	border-top: solid 1px red;
-	border-bottom: solid 1px red;
+	border-top: solid 2px red;
+	border-bottom: solid 2px red;
 	padding: 25px;
 }
 
 /* 글머리 제거 */
+
+.signup_box li{ list-style-type: none; }
+
+/* li[ block -> inline-block ] */
 .colums li{
 	display: inline-block;
 }

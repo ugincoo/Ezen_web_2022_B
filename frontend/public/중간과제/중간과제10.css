@@ -3,5 +3,31 @@
 .start {
 	width: 600px;
 	margin: 0 auto;
-	border-top: solid 5px black;)
+	border-top: solid 5px black;
+}
+.start th{
+	text-align: left;
+	margin: 2px;
+}
+
+.col1{
+	width:500px;
+	height: 20px;
+	margin: 2px
+	}
+.col1 input{
+	width:200px;
+	height:25px;
+}
+.col2{
+	width:500px;
+	height: 100px;
+	text-align:  center left;
+}
+.btn{
+	text-align: right;
+	padding:5px;
+}
+.sub .btn{
+	margin: 20px
 }
