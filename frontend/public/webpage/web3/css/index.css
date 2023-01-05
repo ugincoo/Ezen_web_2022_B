@@ -36,7 +36,7 @@ li{list-style:none;}
 .product_ul li{padding: 3px 0px;}
 
 /*------------푸터------------*/
-#footer{ background-color:#292C32; height: 200px;  }
+#footer{ background-color:#292C32;}
 
 .ft_content{
 	width: 1200px; margin: 0 auto;
