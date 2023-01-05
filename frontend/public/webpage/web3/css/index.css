@@ -1,9 +1,7 @@
 @charset "UTF-8";
 
 /*----------공통--------*/
-*{
-	padding: 0px; margin: 0px;
-	font-family: "맑은 고딕"
+*{	padding: 0px; margin: 0px;font-family: "맑은 고딕"
 }
 a{text-decoration: none; color: black;}
 li{list-style:none;}
@@ -27,8 +25,8 @@ li{list-style:none;}
 #content{ 
 	display : flex;	width: 1200px; margin : 0 auto; }
 
-.con{display: flex; width: 450px; margin: 80px 50px;}
-.con img{padding  : 0 10px;}
+.con{display: flex; width: 500px; margin: 80px 50px;}
+.con img{padding  : 0 20px;}
 /*아이템*/
 #item {background-color: #f9f9f9;}
 .product_ul {width: 270px; margin: 30px 30px;}
