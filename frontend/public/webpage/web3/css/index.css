@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+/*----------공통--------*/
+*{
+	padding: 0px; margin: 0px;
+	font-family: "맑은 고딕"
+}
+a{text-decoration: none; color: black;}
+li{list-style:none;}
+/*-----------------------*/
+/*-----------헤더-----------*/
+#header {
+	width: 1200px; height:100px; margin: 0 auto;
+	position: relative;
+}
+
+.h_rogo{position: absolute; left: 0px; top:20px;}
+.h_rogo span{color: skyblue; font-weight: bold;}
+.top_menu {position: absolute; right: 0px; top:20px;}
+.top_menu li{
+	display: inline-block; text-align:right;
+	margin-left: 10px; padding: 10px 0px;
+}
+/*----------대표이미지-----------*/
+#main_image{text-align: center;}
+/*------------본문-----------------*/
+#content{ 
+	display : flex;	width: 1200px; margin : 0 auto; }
+
+.con{display: flex; width: 450px; margin: 80px 50px;}
+.con img{padding  : 0 10px;}
+/*아이템*/
+#item {background-color: #f9f9f9;}
+.product_ul {width: 270px; margin: 30px 30px;}
+.product_ul img{ width: 100%; }
+.product_ul li{padding: 3px 0px;}
+
+/*------------푸터------------*/
+#footer{ background-color:#292C32; height: 200px;  }
+
+.ft_content{
+	width: 1200px; margin: 0 auto;
+	display: flex; justify-content: space-between;
+	padding:  50px 0px;
+	color: white;
+}
+
+.ft_item{ width: 500px; }
+.ft_sns{ width: 200px; }
+.ft_content li{ display: inline-block ;}
+
+
+
+
