@@ -1,5 +1,6 @@
 @charset "UTF-8";
 /*------------공통------------*/
+li{list-style-type: none;}
 body {background-color : #F5F6F7; }
 a{color: black; text-decoration: none;}
 *{font-family: "맑은고딕"}
@@ -56,3 +57,50 @@ h3{ text-align: left; font-size: 14px; margin-bottom: 10px;}
 	color: #8e8e8e;
 	font-weight: normal; /* 진하게 제거 */
 }
+/*인증 버튼 */
+.phonebox{	
+	display: flex; justify-content: space-between; 
+	margin: 10px 0px;}
+.btn_auth{
+	background-color:#03C75A;
+	color: white; 
+	border: none;
+	width: 120px;
+	
+}
+/*휴대전화 입력란*/
+#input_phone { width: 300px; }
+/*인증번호 입력란*/
+#authbox, #input_auth{background-color: #F5F6F7; font-weight: bold;}
+
+
+.btn_signup{
+	width: 460px; margin:30px 0px;
+	background-color:#03C75A; color: white;
+	border: none; height: 50px;
+	font-size: 20px; 
+	font-weight: bold;
+} 
+
+/*--------------푸터-------------*/
+.ft_box{
+	width: 460px;
+	margin: 0 auto;
+	font-size: 15px;
+	text-align: center;
+}
+.ft_top a{ font-size: 8px; }
+.ft_top a:hover{		/* 마우스 올렸을때 */
+	color: #03c75a;		/* 색 */
+	text-decoration: underline; /* 밑줄제거 */
+}
+.ft_sub{
+	display: flex; 	/* 이미지와 텍스트 가로 배치 */
+	justify-content:center; align-items:center;	/*가로 세로 중앙*/
+	margin-top: 10px;
+}
+.ft_sub img{ height: 10px; padding: 10px; } /*가로:비율 깨짐 그래서 세로 설정*/
+
+.ft_sub div{ font-size: 5px; }
+
+.a_line{font-size: 3px; color: #8e8e8e;}

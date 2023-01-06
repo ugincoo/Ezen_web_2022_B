@@ -10,10 +10,10 @@
 
 	<div id="wrap">
 		<div id="header"> <!-- 헤더 -->
-			<div class="logo">	<!-- 헤더 내용물 -->
-				<img src="../img/m_logo_naver.png">
+			<div class="logo">	<!-- 헤더 내용물 -->				
 				<a href="https://www.naver.com/">
-				</a>
+					<img src="../img/m_logo_naver.png">
+				</a>	
 			</div>
 		<form id="join_form">
 		
@@ -80,14 +80,54 @@
 				<span class="signup_input">
 					<input class="input_id" type="text" placeholder="선택입력">
 				</span>
+			</div>	<!-- 이름,생년월일,성별,이메일 end-->
+			
+			<div> 	<!-- 휴대전화 구역 -->
+				<h3> 휴대전화 </h3>
+				
+				<!-- 국가선택 -->
+				<span class="signup_input">
+				<select class="input_id"> 
+					<option> 대한민국 +82 </option>
+				</select>
+				</span>
+				
+			<span class="phonebox">	
+				<!-- 전화번호 -->
+				<span class="signup_input" id="input_phone">
+					<input class="input_id" type="text" placeholder="전화번호 입력" >
+				</span>	
+				<input class="btn_auth"type="button" value="인증번호 받기">
+				
+			</span>	
+			
+				<!--  인증번호 입력란  -->
+			<span class="signup_input" id="authbox">
+				<input readonly class="input_id" id="input_auth" type="text" placeholder="인증번호 입력하세요" >	
+			</span>				
+			</div>	<!-- 휴대전화 구역 end -->
+	
+			<div>
+				<input class="btn_signup" id="signup_btn" type="button" value="가입하기">
 			</div>
 			
 		</form>	
 		
-		<div id="footer"> 푸터 </div>
-	
+		<div id="footer">  <!-- 푸터 -->
+			<div class="ft_box">
+				<div class="ft_top">
+					<a href="#"> 이용약관 </a> <span class="a_line"> | </span>
+					<a href="#"> 개인정보취급방침 </a> <span class="a_line"> | </span>
+					<a href="#"> 책임의 한계와 법적고지  </a> <span class="a_line"> | </span>
+					<a href="#"> 회원정보 고객센터  </a> <span class="a_line"> | </span>	
+				</div>
+			
+				<div class="ft_sub">
+					<img src="../img/m_logo_naver.png">
+					<div> Copyright &copy; NAVER Corp. All Right Reserved. </div>			
+				</div>
+			 </div>
 		</div>
 	</div>
-
 </body>
 </html>
