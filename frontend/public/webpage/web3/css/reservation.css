@@ -11,8 +11,8 @@
 	justify-content: center; /* 가로 가운데 배치 */
 	align-items: center;  /*  세로 가운데 배치 */
 } 
-
-#date{margin-top: 20px;background-color:  #FCF9EA; margin: 25px;}
+#conten_{display : flex;	width: 1500px; margin : 0 auto;}
+#date{margin-top: 20px; height:50%; background-color:  #FCF9EA; margin: 25px;}
 #content h2 {border-left: solid 10px gray;}
 #content p{margin-left: 30px;}
 #text {color: green}
