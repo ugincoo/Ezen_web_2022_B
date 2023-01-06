@@ -30,11 +30,11 @@ a:visited {/*클릭한 적이 있을때*/
 
 .drop_menu{	position: relative; } 			/* 상위 요소에 relative */
 .sub_menu{ 
-	position: absolute; 						/* 하위 요소에 absolute */
-	top:10px; left: -30px; 							/* ! 상위요소와 하위요소의 접접이 있을때 hover 유지 */
-	display: none;								/* 숨기기 [화면에 표시 안함] */
+	position: absolute; 					/* 하위 요소에 absolute */
+	top: 10px; left: -30px; 						/* ! 상위요소와 하위요소의 접접이 있을때 hover 유지 */
+	display: none;							/* 숨기기 [화면에 표시 안함] */
 	
-	padding-top:50px;							/* 상위요소와 하위요소 사이 여백 */
+	padding-top:50px;						/* 상위요소와 하위요소 사이 여백 */
 	
 	border-bottom : 1px solid #eeeeee;
 	border-left : 1px solid #eeeeee;

@@ -1,0 +1,58 @@
+@charset "UTF-8";
+/*------------공통------------*/
+body {background-color : #F5F6F7; }
+a{color: black; text-decoration: none;}
+*{font-family: "맑은고딕"}
+*:focus{outline:none;}	/*input 입력창에 마우스 커서[포커스] 생겼을때 이벤트*/
+/*--------------------------------*/
+
+/*헤더*/
+.logo{ width: 460px;	/* 로고 박스권 */
+	 margin: 0 auto; 	/*로고 가운데정렬*/
+	/* text-align: center;   하위 요소 가윤데 정렬 */   
+	display: flex;		/*하위요소 가운데정렬*/
+	justify-content: center;
+	 
+}
+.logo img {height: 50px; 	/*사진 높이 사이즈*/
+	margin:20px 20px;		/*위아래 여백 높이 */
+	padding: 20px;
+}
+
+/*--------------본문---------------*/
+#join_form{width: 460px; margin: 0 auto;}
+h3{ text-align: left; font-size: 14px; margin-bottom: 10px;}
+
+/*1.입력상자*/
+.signup_input {
+	border: 1px solid #dadada;	/*input,span 의 테두리*/
+	background-color: white;	
+	padding: 10px;
+	display: flex;				/* input,span 정렬 */
+	align-items: center;		/* 세로정렬 */
+}
+.input_id{
+	border: none;		/*input 테두리 지우기*/
+	width: 100%;		/*input 가로 사이즈*/
+	height: 30px;		/*input 세로 사이즈*/	
+}
+.signup_at{color: #8e8e8e; }
+.signup_lock {
+	/* 네이버에서 사용하는 아이콘 주소*/
+	background-image: url("https://static.nid.naver.com/images/ui/join/m_icon_pw_step.png");
+	/* 요소 사이즈 */
+	width: 25px; height: 25px;
+	/* 배경 이미지 사이즈 */
+	background-size: 120px 70px;	/* 가로 세로 */
+	/*border: 1px solid blue;  확인용 */
+}
+/*생년월일*/
+.birthbox{display: flex; justify-content: space-between;}
+#birth_y, #birth_m, #birth_d
+{ width: 120px;}
+#birth_m{margin: 0px 20px;}
+.s_text{
+	font-size: 10px;
+	color: #8e8e8e;
+	font-weight: normal; /* 진하게 제거 */
+}

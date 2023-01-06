@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 네이버 회원가입 </title>
+		<link href="네이버회원가입.css"
+		rel="stylesheet">
+</head>
+<body>
+
+	<div id="wrap">
+		<div id="header"> <!-- 헤더 -->
+			<div class="logo">	<!-- 헤더 내용물 -->
+				<img src="../img/m_logo_naver.png">
+				<a href="https://www.naver.com/">
+				</a>
+			</div>
+		<form id="join_form">
+		
+			<div>	<!--아이디,비밀번호 확인 구역  -->
+			<!-- 1개 입력창 -->
+				<h3> 아이디 </h3>
+				<span class="signup_input">
+				<input class="input_id" type="text">
+				<span class="signup_at">@naver.com</span>
+				</span>	
+				
+				<h3> 비밀번호 </h3>
+				<span class="signup_input">
+				<input class="input_id" type="password">
+				<span class="signup_lock">  </span>
+				</span>
+				
+				<h3> 비밀번호 재확인 </h3>
+				<span class="signup_input">
+				<input class="input_id" type="password">
+				<span class="signup_lock">  </span>
+				</span>
+			</div>
+			
+			<div>	<!-- 이름,생년월일,성별,이메일 -->
+				<h3> 이름 </h3>
+				<span class="signup_input" >
+					<input type="text" class="input_id" >
+				</span>
+				
+				
+				<h3> 생년월일 </h3>
+				<span class="birthbox">
+					<span class="signup_input" id="birth_y">
+						<input class="input_id"  type="text" placeholder="년(4자)">
+					</span>	
+					
+					<span class="signup_input" id="birth_m">
+						<select class="input_id">
+							<option>월</option> <option>1</option> <option>2</option>
+							<option>3</option> <option>4</option> <option>5</option>
+							<option>6</option> <option>7</option> <option>8</option>
+							<option>9</option> <option>10</option> <option>11</option><option>12</option>
+						</select>
+					</span>
+					<span class="signup_input" id="birth_d">	
+						<input class="input_id"  type="text" placeholder="일">
+					</span>
+				</span>	
+			</div>
+			
+			<div>
+				<h3> 성별 </h3>
+				<span class="signup_input" >
+					<select class="input_id">
+						<option> 성별 </option> <option> 남자 </option>
+						<option> 여자 </option> <option> 선택안함 </option>
+					</select>
+				</span>		
+			</div>
+			
+			<div>
+				<h3> 본인 확인 이메일<span class="s_text">(선택)</span></h3>
+				<span class="signup_input">
+					<input class="input_id" type="text" placeholder="선택입력">
+				</span>
+			</div>
+			
+		</form>	
+		
+		<div id="footer"> 푸터 </div>
+	
+		</div>
+	</div>
+
+</body>
+</html>
