@@ -183,7 +183,7 @@ console.log('78점의 등급 :' + 등급)
 	
  */
 
- //문제 9
+ /*//문제 9
  let 정수4=Number(prompt('정수'))
  let 홀짝 = 정수4%2==0 ? '짝수' : '홀수'
  console.log('홀수 또는 짝수:' + 홀짝)
@@ -202,6 +202,14 @@ let max = 정수7 //가장 큰수 변수에 첫번째 값 대입
 max = max < 정수8 ? 정수8 : max // 만약에 맥스보다 더 크면 맥스에 대입
 max = max < 정수9 ? 정수9 : max
 console.log('가장 큰 수:' + max)
- 
+*/ 
  //문제 12
+let value4=Number(prompt('정수4'))
+let value5=Number(prompt('정수5'))
+let value6=Number(prompt('정수6'))
+let max = value4 >value5 ? value4:value5 && value5>value6 ? value5:value6
+console.log('오름차순:' + max && max && max)
+
+
+
  
