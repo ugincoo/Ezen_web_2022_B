@@ -105,7 +105,7 @@ function onAdd(){
 	//추가 코드 1. 입력 값 공백
 	if(stu_numValue==''){console.log('학번을 입력 해주세요.');confirm++ }
 	//추가 코드 2. 입략 값 8자리x
-	if(stu_numValue.lemgth!=8){console.log('8자리 숫자를 입력해주세요.');confirm++ }
+	if(confirm == 0 && stu_numValue.lemgth!=8){console.log('8자리 숫자를 입력해주세요.');confirm++ }
 	
 	
 	
