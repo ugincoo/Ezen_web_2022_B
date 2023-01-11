@@ -68,8 +68,22 @@ function onLogin(){ // 함수[onLogin] 시작 점
 
 // ---------------------------- 2.과제2 함수 ---------------------//
 
-function login(){
-	
+function number(){
+   //<input> 마크업을 js변수로 가져오기 [DOM 객체]
+   let stu_num = document.querySelector('.stu_num') 
+   // <input> 마크업에 입력된 데이터 호출 
+   let stu_ = stu_num.value
+   //배열에 포함 찾기
+   let sIndex = studentArray.indexOf(stu_)
+   
+
+   
+      
+   if (sIndex == -1) { //만약 sIndex가 -1이면
+      document.querySelector ('.box') .innerHTML ='성공' }
+   
+   else {   //else 시작
+      document.querySelector ('.box').innerHTML = '실패'}//else 끝
 	
 }
 
