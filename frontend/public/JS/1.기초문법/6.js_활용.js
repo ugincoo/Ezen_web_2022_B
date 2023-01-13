@@ -14,7 +14,7 @@ function onAdd(){
 	//alert('클릭함수 실행합니다.')
 	
 	/*2. 입력받은input value [값]을 가져오기*/
-	let sname = document.querySelector('.sname')
+	let sname = document.querySelector('.sname').value
 		// sname 변수에 input 마크업 저장
 	/*3. 마크업서 값 가져와서 배열담기*/
 	//alert ( sname.value)	

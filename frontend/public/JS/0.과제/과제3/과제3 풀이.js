@@ -1,6 +1,6 @@
 console.log( '1.js작동')
 
-let contentArray = [ ] // 누적 기록 
+let contentArray = ['1','2'] // 누적 기록 
 // 1. 등록 버튼 클릭 했을때 이벤트 함수
 function addContent(){ // f s
 	//function : 함수 선언[정의]시 사용되는 키워드
