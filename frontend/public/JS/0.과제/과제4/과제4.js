@@ -22,7 +22,7 @@ let 도서목록 = ['혼자공부하는자바','이것이자바다','열혈C언�
 let 대여목록 = ['혼자공부하는자바']
 //console.log('2.'+도서목록) 확인용
 //도서등록
-function btn(){ // f s
+function btn(list){ // f s
 
 	let content = document.querySelector('.content').value
 	let bookName = document.querySelector('.bookName').value
@@ -30,10 +30,10 @@ function btn(){ // f s
 	도서목록.push(bookName)
   console.log('3:'+ 도서목록)
 	
-	if (도서목록.indexOf() >= 0){// 만약 도서목록 중복이면 알림창뜨기
+	if (도서목록.indexOf(list) >= 0){// 만약 도서목록 중복이면 알림창뜨기
 		alert('이미 등록된 도서입니다.')
-		return;
-	}//if 1 e
+		return;			
+	} console.log('4:'+ 도서목록)
 	if (bookName.length<5){//if 2 s
 		alert('5자 이상 입력해주세요.')
 	}else if(bookName.length>10){//else if s
@@ -41,11 +41,11 @@ function btn(){ // f s
 		return;	
 	}//else if e
 	printContent()
-	도서목록.push() //위 조건 달성시 저장)
+	도서목록.push(list) //위 조건 달성시 저장)
 }//f e 
 //삭제버튼 함수
 function del(){
-	도서목록.splice(도서목록.indexOf(),1)
+	도서목록.splice(도서목록.indexOf(list),1)
 	printContent()
 }
 
