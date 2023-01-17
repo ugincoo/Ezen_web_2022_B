@@ -47,7 +47,12 @@ function 수정(i){
 function 출력(){// 1. 작성 성공시 2. 삭제 성공시 적용
 		//4. 배열내 객체 출력
 
-	let html = `<tr><th>번호</th><th>작성자</th><th>내용</th><th>비고</th></tr>`	
+	let html = `<tr>
+					<th>번호</th>
+					<th>작성자</th>
+					<th>내용</th>
+					<th>비고</th>
+				</tr>`	
 		//2. 반복문을 이용한 배열 내 모든 요소를 행 만들어 호출 [누적]
 			//1. 반복 이용해서 배열 내 객체 하나씩 호출 : boardArray[i]
 			//2. 객체 내 속성 호출				 : boardArray[i]
