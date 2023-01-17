@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link 
+		href="과제4취합.css" 
+		rel="stylesheet">
+
+</head>
+<body>
+
+	<div class="wrap">
+	
+		<div class="content">
+			<h6> 관리자 페이지 </h6>
+			도서명 : <input class="bookName" type="text">
+
+			<button onclick="btn()" type="button">등록</button>
+			
+			<table class="table" border="1">
+			</table>
+		</div>
+		
+		<!-- 한결언니 -->
+		<div class="content">
+			<h6> 도서관리시스템(고객)</h6>	
+			<!-- 구현 풀이 -->	
+		
+
+			<div>	
+				도서 : <input class="sno"	 type="text" value="혼자공부하는자바"> 
+
+	
+				<button onclick="rental()" type="button" >대여하기</button>
+				
+				
+				<button onclick="derental()"type="button" >반납하기</button>
+			
+			</div>	
+	
+	
+			<div>	
+				도서 : <input class="sno"	 type="text" value="이것이자바다"> 
+
+	
+				<button onclick="rental()" type="button" >대여하기</button>
+				
+				
+				<button onclick="derental()"type="button" >반납하기</button>
+			
+			</div>	
+		
+	
+			<div>	
+				도서 : <input class="sno"	 type="text" value="열혈c언어"> 
+
+	
+				<button onclick="rental()" type="button" >대여하기</button>
+				
+				
+				<button onclick="derental()"type="button" >반납하기</button>
+			
+			</div>		
+	
+					<div class="resultbox"></div>
+	
+	
+	</div>
+
+	<script src="과제4취합.js"  type="text/javascript"></script>
+</body>
+</html>
