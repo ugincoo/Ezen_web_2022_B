@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+.wrap{
+	display: flex; /*레이아웃 배치 사용*/
+	justify-content: center; /*레이아웃 가운데 정렬*/
+	flex-wrap : wrap;	/*레이아웃 가로 사이즈 넘쳤을때 자동 줄 바꿈*/
+}
+.addbox , .listbox, .updatebox{
+	border: 1px solid black;
+	width: 40%;
+	text-align: center; /*박스권 안 내용 정렬*/
+}
+.addtable, .updatetable{
+	margin: 0 auto;
+}
+.updatebox{ display: none; }	/*기본값으로 숨김[표시안함]*/
