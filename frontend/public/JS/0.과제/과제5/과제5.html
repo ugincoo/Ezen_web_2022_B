@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 버거킹 </title>
+	<link href="과제5.css"  rel="stylesheet">
+</head>
+<body>
+
+	<div class="wrap"> <!--전체 구역 -->
+	
+		<div class="container"> <!-- 키오스크 구현 -->
+			<div class="kioskbox"> <!-- 키오스크 s -->
+			
+				<div class="header">	<!-- 키오스크 헤더 s  -->
+					<img src="img/버거킹 헤더.png" width="100%" height="80%"/>	<!-- 헤더 이미지  -->
+					<div class="categorybox">   <!-- 헤더 카테고리 메뉴 [js에서 html 구성] -->
+						<!-- js 데이터가 들어가는자리 -->
+					</div>
+				</div> <!-- 키오스크 헤더 e  -->
+				
+				<div class="content"> <!-- 본문 구역  -->
+					<div class="productbox">  </div> <!-- 제품 출력 구역  -->
+					
+					<div class="cartbox"> <!-- 카트 출력 구역 -->
+						<div class="cartcontent" >	<!-- 제품개수 , 제품가격 , 제품정보 구역  -->
+							<div class="carttop"><!-- 제품개수 , 제품가격 구역 -->
+								<div> 카트 <span class="pcount">0</span> </div>
+								<div> 총 주문금액 <span class="ptotal">0</span> </div>
+							</div> <!--  제품개수 , 제품가격 구역 end  -->
+							
+							<div class="cartbottom"> <!-- 제품정보 구역  -->
+							
+							</div> <!-- 제품정보 구역 end   -->
+							
+						</div> <!-- end  -->
+						
+						<div class="cartbtn"> <!-- 버튼구역  -->
+							<button onclick="cancel()" class="cancelbtn" type="button">취소</button>
+							<button onclick="order()" class="orderbtn" type="button">주문하기</button>
+						</div>  <!--  버튼구역 end  -->
+					</div> <!-- 카트 end  -->
+					
+				</div> <!-- 본문 end  -->
+			</div>
+		</div>  <!-- 키오스크 end -->
+		
+		<div class="container">  <!-- 포스기 구현 -->
+			<div><!-- 포스기 start -->
+				
+			
+			
+			</div><!-- 포스기 end -->
+		</div>
+		
+	</div> <!-- wrap end  -->
+	
+	<script src="과제5.js" type="text/javascript"></script>
+
+</body>
+</html>
