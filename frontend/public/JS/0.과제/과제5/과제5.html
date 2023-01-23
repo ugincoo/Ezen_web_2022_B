@@ -46,10 +46,22 @@
 		</div>  <!-- 키오스크 end -->
 		
 		<div class="container">  <!-- 포스기 구현 -->
-			<div><!-- 포스기 start -->
+			<div class="posbox"><!-- 포스기 start -->
+				<div class="pos_content"> <!-- 버거등록 -->
+					버거이름 : <input class="b_name" type="text">	 <br/>
+					카테고리 : <input  class="b_cate" type="text"> <br/>
+					가	격 :  <input  class="b_price" type="text"> <br/>
+					이미지 : 
+					<button onclick="pos_btn()" type="button"> 등록 </button>
+				</div> <!-- 버거등록 끝 -->
 				
-			
-			
+				<div class="blist" ><!-- 버거현황 표 -->
+					<table class="b_list" border="1">
+					</table> <!-- 버거현황 표 -->
+				</div> <!-- 버거현황 표 끝 -->
+				<div>
+					<table class="orderList" border="1"></table>
+				</div>
 			</div><!-- 포스기 end -->
 		</div>
 		

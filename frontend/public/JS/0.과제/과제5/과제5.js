@@ -151,15 +151,101 @@ function cart_print(){
 			for( let i = 0 ; i<cartList.length ; i++ ){ 새로운배열.push( cartList[i] ) }
 
 */
+//---------------------------- 포스기 함수 -----------------------------------
+function pos_btn(){
+	
+	let b_name = document.querySelector('.b_name').value
+	let b_cate = document.querySelector('.b_cate').value
+	let b_price = parseInt( document.querySelector('.b_price').value)
+	let b_img = document.querySelector('.b_img').value	
+	
+	check = true; // 
+	// 이름 중복 확인
+		for(let i = 0 ; i < burgerList.length; i++){
+			if(burgerList[i].name == b_name){
+				alert('이미 등록된 이름입니다.') ; return false;
+			}else if (categoryList.indexOf(b_cate) < 0){
+				alert('카테고리를 확인 하세요.') ; return false;
+			}
+		}
+		
+		
+		if(isNaN(b_price)){
+		alert('숫자로 입력해주세요') ; return false;
+		}
+		
+	let newInfo = { //새로운 인포애 저장
+		name : b_name, category : b_cate,
+		price : b_price, img : b_img
+	}
+	
+	if(check){burgerList.push(newInfo)};
+	burgerPrint()
+	category_print();
+	categoey_select( 0 ); // 기본값 : 프리미엄
+	product_print( 0 ); // 기본값 : 프리미엄
 
+}
 
+function bDelete(i){ // 삭제 함수
+	burgerList.splice(i,1);
+	burgerPrint();
+}
 
+function bEdit(i){ //수정 함수
+	let Edit = prompt('수정 가격을 입력해주세요')
+		burgerList[i].price = Edit //속성값수정
+		alert('수정하였습니다.'); 
+		burgerPrint();
+}
 
+//등록,수정,삭제시 출력
+ function burgerPrint(){ 
+	 let html_b = `<tr>
+	 					<th>번호</th>
+	 					<th>버거이름</th>
+	 					<th>카테고리</th>
+	 					<th>가격</th>
+	 					<th>이미지</th>
+	 					<th>비고</th>
+	 				</tr>`
+	 for (let i = 0 ; i < burgerList.length ; i++){
+		 
+		 html_b += `<tr>
+		 				<td>${i+1}</td>	
+		 				<td>${burgerList[i].name}</td>
+		 				<td>${burgerList[i].category}</td>
+		 				<td>${burgerList[i].price}</td>
+		 				<td><img src="img/${burgerList[i].img}" width="30%" height=30%"</td>
+		 				<td>
+		 					<button onclick="bEdit(${i})">가격수정</button>
+		 					<button onclick="bDelete(${i})">삭제</button>
+		 				</td>			
+		 
+		 			</tr>`
+	 }
+	 	document.querySelector('.b_list').innerHTML = html_b
+	  }
 
-
-
-
-
+function burgerOrder(){
+	let order_b = `<tr>
+	 					<th>주문번호</th> <th>버거이름</th>
+	 					<th>상태</th>		<th>비고</th>
+	 				</tr>`
+	 				
+	for(let i = 0; i < orderList.length; i++){
+		for(let u = 0 ; u < itemes.length; u++){
+			let ready = (i) => {if (orderList[i].state == true){return '주문요청'}else(order[i].state == false){return '주문완료'}} 
+			let comlete = (i) => {if (orderList[i].complete = 1){return '주문완료'}}
+		}
+		order_b += `<tr>
+	 					<td>orderList${i}.no</td> <td>orderList${i}.items</td>
+	 					<td>ready${i}</td>		<td><button>주문완료</button></td>
+	 				</tr>`
+	} 	
+	document.querySelector('.orderList').innerHTML = order_b
+	burgerPrint()		
+}
 
 
 
