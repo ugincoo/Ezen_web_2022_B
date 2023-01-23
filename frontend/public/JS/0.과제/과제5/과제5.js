@@ -210,7 +210,7 @@ function bEdit(i){ //수정 함수
 	 					<th>비고</th>
 	 				</tr>`
 	 for (let i = 0 ; i < burgerList.length ; i++){
-		 
+		 //버거 이미지 어떻게 넣지???
 		 html_b += `<tr>
 		 				<td>${i+1}</td>	
 		 				<td>${burgerList[i].name}</td>
@@ -233,14 +233,14 @@ function burgerOrder(){
 	 					<th>상태</th>		<th>비고</th>
 	 				</tr>`
 	 				
-	for(let i = 0; i < orderList.length; i++){
+	for(let i = 0; i < orderList.length; i++){//화살표 함수 맞나... 더 알아보고 수정하자..ㅜ
 		for(let u = 0 ; u < itemes.length; u++){
 			let ready = (i) => {if (orderList[i].state == true){return '주문요청'}else(order[i].state == false){return '주문완료'}} 
 			let comlete = (i) => {if (orderList[i].complete = 1){return '주문완료'}}
 		}
 		order_b += `<tr>
-	 					<td>orderList${i}.no</td> <td>orderList${i}.items</td>
-	 					<td>ready${i}</td>		<td><button>주문완료</button></td>
+	 					<td>${orderList[i].no}</td> <td>${orderList[i].items}</td>
+	 					<td>${ready[i]}</td>		<td><button>주문완료</button></td>
 	 				</tr>`
 	} 	
 	document.querySelector('.orderList').innerHTML = order_b
