@@ -1,0 +1,30 @@
+@charset "UTF-8";
+@font-face {
+    font-family: 'RixInooAriDuriR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2207-01@1.0/RixInooAriDuriR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+	font-family: '맑은 고딕';
+	color: black;
+	margin : 0px ;padding: 0px;
+}
+/*로고 구역*/
+.Logobox{
+	text-align: center;
+}
+
+/*로고 제목*/
+.title{  font-family: 'RixInooAriDuriR'; color:black; font-size: 40px;}
+
+/*하단 메뉴 top 위치변경*/
+.h_bottom{top : 40px !important;} /*부트스트랩보다 우선 순위 or id 사용*/
+/*부트스트랩 class 속성 수정*/
+.nav-link{
+	color: black !important;
+}
+/* 상단메뉴 : 오른쪽배치*/
+.h_topmenu{width: 100%; display: flex; justify-content: flex-end; font-size: 12px;}
+/*하단메뉴 :  가로 수평 정렬*/
+.h_bottommenu{width: 100%; display: flex; justify-content: space-between; font-size: 14px;}
