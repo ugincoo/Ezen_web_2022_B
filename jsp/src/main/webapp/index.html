@@ -14,6 +14,7 @@
 	
 	<!-- 헤더에서 사용되는 경로 : 절대경로 [페이지마다 헤더 사용할때마다 상대경로가 다르기때문] -->
 		<!-- 
+			href,img 포함
 			서버경로 
 				1. http://localhost:8080/프로젝트명
 				2. http://192.168.17.85:8080/프로젝트명
@@ -54,7 +55,7 @@
 			<!-- 콜랩스 적용되는 메뉴 목록 -->
 			<div class="collapse navbar-collapse" id="navContent">			<!-- 숨기기 -->
 				<ul class="navbar-nav h_bottommenu">							<!-- 메뉴목록 -->
-					<li class="nav-item"> <a class="nav-link" href="/jsp/bord/list.html"> 1+1 </a> </li>	<!-- 메뉴항목 -->
+					<li class="nav-item"> <a class="nav-link" href="#"> 1+1 </a> </li>	<!-- 메뉴항목 -->
 					<li class="nav-item"> <a class="nav-link" href="#"> NEW! </a> </li>
 					<li class="nav-item"> <a class="nav-link" href="#"> 건식사료 </a> </li>
 					<li class="nav-item"> <a class="nav-link" href="#"> 습식사료 </a> </li>
@@ -73,19 +74,19 @@
 		<div class="carousel-inner">	<!-- 캐러셀 내용물-사진들 -->
 		
 			<div class="carousel-item active">		<!-- 1개의 사진 active : 활성화-->
-				<img src="img/메인.jpg" class="d-block w-100">
+				<img src="img/나또1.jpg" class="d-block w-80">
 			</div>
 			
 			<div class="carousel-item">		<!-- 1개의 사진 -->
-				<img src="img/ㅁ래.jpg" class="d-block w-100">
+				<img src="img/나또2.jpg" class="d-block w-80">
 			</div>
 			
 			<div class="carousel-item">		<!-- 1개의 사진 -->
-				<img src="img/츄르.jpg" class="d-block w-100">
+				<img src="img/나또3.jpg" class="d-block w-80">
 			</div>
 			
 			<div class="carousel-item">		<!-- 1개의 사진 -->
-				<img src="img/dd.jpg" class="d-block w-100">
+				<img src="img/나또4.jpg" class="d-block w-80">
 			</div>
 		</div>
 		<div>	<!-- 이미지 슬라이드 컨트롤[왼/오 이동버튼] -->
@@ -96,12 +97,23 @@
 				<span class="carousel-control-next-icon"></span>
 			</button>
 		</div>
+	</div> <!-- 캐러셀 e -->
+	
+	<div class="container"> <!-- 구역생성 -->
+		<h3 class="box_title"> BEST </h3>	<!-- 구역 제목 -->
+		
+		<div class="itembox">								<!-- 제품 출력되는 구역 -->
+			
+		</div>
+		
 	</div>
 	
-	<!-- 부트스트랩 : js -->
+	
+	
+	<!-- 부트스트랩 : js body 하단 작성 -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
-
+	<!-- 사용자정의  -->
+	<script src="js/index.js" type="text/javascript"></script>
 
 
 </body>

@@ -6,14 +6,10 @@
     font-style: normal;
 }
 *{
-	font-family: '맑은 고딕';
-	color: black;
-	margin : 0px ;padding: 0px;
+	font-family: '맑은 고딕';	color: black;	margin : 0px ;padding: 0px;
 }
 /*로고 구역*/
-.Logobox{
-	text-align: center;
-}
+.Logobox{text-align: center;}
 
 /*로고 제목*/
 .title{  font-family: 'RixInooAriDuriR'; color:black; font-size: 40px;}
@@ -21,10 +17,82 @@
 /*하단 메뉴 top 위치변경*/
 .h_bottom{top : 40px !important;} /*부트스트랩보다 우선 순위 or id 사용*/
 /*부트스트랩 class 속성 수정*/
-.nav-link{
-	color: black !important;
-}
+.nav-link{	color: black !important;}
 /* 상단메뉴 : 오른쪽배치*/
 .h_topmenu{width: 100%; display: flex; justify-content: flex-end; font-size: 12px;}
 /*하단메뉴 :  가로 수평 정렬*/
 .h_bottommenu{width: 100%; display: flex; justify-content: space-between; font-size: 14px;}
+
+.carousel-item img{
+	margin: 0 auto;
+}
+/*--------------------------------------------------------*/
+
+.itembox{	display: flex; flex-wrap: wrap;	margin-top: 5%;}
+.box_title{
+	text-align: center;
+	font-family: 'RixInooAriDuriR';
+	border-bottom: 2px solid #999999;
+	width: 20%; padding-top: 10px;
+	margin: 0 auto; padding-bottom: 1%;
+}
+
+/*서로 다른 사이즈[디바이스]마다 css 다르게 설정 -> 미디어쿼리*/
+	/*@media(조건){참일경우 css}*/
+/*1200px 이상 기준*/
+.item{ width: 20%; margin: 2%;}
+/*1200px 미만 기준*/
+@media(max-width : 1000px){ /*최대 가로 사이즈가 1000px 아래면 실행*/
+	.item{ 
+	width: 45% !important;
+	margin: 2% !important;}	
+}
+@media(max-width : 500px){
+	.item{ 
+	width: 90% !important;
+	margin: 2% !important;}
+}
+
+
+.item img {
+	width: 100%;
+	border-radius: 20px; /*둥근모서리*/
+	}
+.item :hover{/*해당 요소에 마우스 올렸을때*/
+	opacity: 0.8; /*투명도 1:100%*/
+}
+
+.item_title{
+	font-size: 14px;
+	margin: 5% 0%;	/* 위아래 왼오른쪽 */
+	height: 35px;border-bottom: 1px solid #999999;
+}
+.item_price{
+	text-decoration: line-through; /*취소선*/
+	font-size: 13px;
+	color: gray;
+	margin-top: 3%;
+}
+.item_sale{
+	font-family: 'RixInooAriDuriR';
+	font-size: 15px;
+}
+.item_discount{
+	color: #F0889A;
+	font-size: 15px;
+	font-weight: bold;
+}
+.bottom_item{
+	display: flex;
+	justify-content: space-between;
+	align-items: center; /*하위 요소들 세로 정렬*/
+	margin-top: 3px;
+}
+.item_review{
+	font-size: 10px;
+	color: #999999;
+	text-align: right;
+}
+
+
+
