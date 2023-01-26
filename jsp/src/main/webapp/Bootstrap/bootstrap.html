@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+	<style type="text/css">
+
+	</style>
+</head>
+	<!-- 
+		1. 부트스트랩 설치 cdn 
+			1. <meta name="viewport" content="width=device-width, initial-scale=1">
+			2. <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+			3. <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+	-->
+	<!-- 
+		2. 부트스트랩 class 위주
+			.container 			: 	반응형 박스/구역 
+			.row 				: 	하위 요소 가로배치 = flex
+			그리드 [ 반응형 제작 ]	: 	박스[구역]마다 12조각 
+				 .col-md-조각수	:  760px 이상 에서 작동 [ 주로 pc , tab ]
+				 .col-조각수		:  560px 이하 에서 작동 [ 주로 모바일 ]
+				 .offset-md-여백조각수
+				 .offset-여백조각수
+	 -->
+
+
+	<div>
+		css 없는 상태 박스권
+	</div>
+	<div class="container"> 
+		미리 만들어진 css [부트스트랩] 박스권
+	</div>
+	
+	<div class="container">
+		<div class="row box1">	<!--  -->
+			<div class="col-md-1 col-1"> col-md-1 [열 1칸 ] </div>
+			<div class="col-md-1 col-1"> col-md-1 [열 1칸 ] </div>
+			<div class="col-md-1 col-1"> col-md-1 [열 1칸 ] </div>
+			<div class="col-md-1 col-1"> col-md-1 [열 1칸 ] </div>
+			<div class="col-md-1 col-1"> col-md-1 [열 1칸 ] </div>
+			<div class="col-md-1 col-1"> col-md-1 [열 1칸 ] </div>
+			<div class="col-md-1 col-1"> col-md-1 [열 1칸 ] </div>
+			<div class="col-md-1 col-1"> col-md-1 [열 1칸 ] </div>
+			<div class="col-md-1 col-1"> col-md-1 [열 1칸 ] </div>
+			<div class="col-md-1 col-1"> col-md-1 [열 1칸 ] </div>
+			<div class="col-md-1 col-1"> col-md-1 [열 1칸 ] </div>
+			<div class="col-md-1 col-1"> col-md-1 [열 1칸 ] </div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-8 col-8"> col-md-8 </div>
+			<div class="col-md-4 col-4"> col-md-4 </div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-4 col-4"> col-md-4 </div>
+			<div class="col-md-4 col-4"> col-md-4 </div>
+			<div class="col-md-4 col-4"> col-md-4 </div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6 col-6"> col-md-6 </div>
+			<div class="col-md-6 col-6"> col-md-6 </div>
+		</div>
+
+		<div class="row"> <!-- 12그리드 -->
+			
+			<div class="col-md-8">	<!-- 12그리드 중 8그리드 쪼개기  -->
+				<div class="row">
+					<div class="col-md-4 col-4"> 외부 8 그리드 내 4그리드 </div>
+					<div class="col-md-8 col-8"> 외부 8그리드 내 8그리드 </div>
+				</div>
+			</div>
+			
+			<div class="col-md-4"><!-- 12그리드 중 4그리드 쪼개기  -->
+				<div class="row">
+					<div class="col-md-6 col-6"> 외부4 그리드 내 6그리드 </div>
+					<div class="col-md-6 col-6"> 외부4 그리드 내 6그리드 </div>
+				</div>
+			
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-5 col-6"> col-md-5 </div>
+			<div class="col-md-5 offset-md-2 col-6"> col-md-5 </div>
+		</div>
+		
+		<table class="table">	<!--  테이블 -->
+			<thead>	<!-- 제목 -->
+				<tr> <th>번호</th> <th>제목</th> <th>작성일</th> <th>조회수</th> </tr>
+			</thead>
+			<tbody>	<!-- 내용 -->
+				<tr> <td> 1 </td> <td> 너무졸령ㅜ_ㅜ </td> <td>2023-01-26 </td> <td> 3 </td> </tr>
+				<tr> <td> 2 </td> <td> ㅜ_ㅜ </td> <td>2023-01-26 </td> <td> 3 </td> </tr>
+				<tr> <td> 3 </td> <td> 함냐 </td> <td>2023-01-26 </td> <td> 3 </td> </tr>
+			</tbody>	
+		</table>
+		<!-- 3구역의 테이블 -->
+		<div class="row"> <!-- 하위 요소 가로배치 : flex -->
+			<div class="col-md-4">
+				<table class="table table-striped">
+					<thead> <tr> <th> 번호 </th> <th> 내용 </th> </tr> </thead>
+					<tbody>	<!-- 내용 -->
+						<tr> <td> 1 </td> <td> 너무졸령ㅜ_ㅜ </td> </tr>
+						<tr> <td> 2 </td> <td> ㅜ_ㅜ </td>  </tr>
+						<tr> <td> 3 </td> <td> 함냐 </td> </tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-md-4">
+				<table class="table table-hover">
+					<thead> <tr> <th> 번호 </th> <th> 내용 </th> </tr> </thead>
+					<tbody>	<!-- 내용 -->
+						<tr> <td> 1 </td> <td> 너무졸령ㅜ_ㅜ </td> </tr>
+						<tr> <td> 2 </td> <td> ㅜ_ㅜ </td>  </tr>
+						<tr> <td> 3 </td> <td> 함냐 </td> </tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-md-4">
+				<table class="table table-bordered border-primary-subtle">
+					<thead> <tr> <th> 번호 </th> <th> 내용 </th> </tr> </thead>
+					<tbody>	<!-- 내용 -->
+						<tr> <td> 1 </td> <td> 너무졸령ㅜ_ㅜ </td> </tr>
+						<tr> <td> 2 </td> <td> ㅜ_ㅜ </td>  </tr>
+						<tr> <td> 3 </td> <td> 함냐 </td> </tr>
+					</tbody>
+				</table>
+			</div>
+		
+		</div>
+		
+		
+	</div>
+	
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>
