@@ -1,0 +1,45 @@
+@charset "UTF-8";
+.wrap{/*게임화면 설정*/
+	width: 1000px;	height: 600px;
+	margin: 0 auto;	border: 1px solid skyblue;
+	position: relative; /*상위태그*/
+	background-image: url("img/게임배경.jpg");
+	background-repeat: no-repeat;
+	background-size: 120%;
+}
+.hpbox {
+	width: 1000px;  height: 50px;
+	display:flex; justify-content: space-between; 
+	 margin: 0 auto;
+}
+.m_bar{
+	height: 20px;
+	background-color: #FD518D;
+	margin: 20px 50px;
+}
+
+.u_bar{
+	height: 20px;
+	background-color: #FD518D;
+	margin: 20px 50px;
+}
+
+
+.userbox{/*캐릭터구역*/
+	width: 100px;	height: 100px;
+	position: absolute; /*절대위치 : 상위요소 relative 기준*/
+	left: 10px; top: 460px;
+	background-image: url("img/이동.png");
+	background-repeat: no-repeat;
+	background-size: 50%;
+}
+.monbox{/*몬스터구역 */
+	width:100px; height: 100px;
+	position: absolute;
+	left : 910px; top:460px;
+	background-image: url("img/몬스터.gif");
+	background-repeat: no-repeat;
+	background-size: 70%;
+	/*애니메이션 ㅇㅣ동효과*/
+	transition : all 1s; 
+}
