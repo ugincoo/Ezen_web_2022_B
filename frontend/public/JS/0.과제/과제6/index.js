@@ -111,16 +111,17 @@ function attack(i){
 
    let 거리 =  ( m_left-u_left ) 
    if( 거리 >=0 && 거리 <=80){
-      m_hp-=20;
-      m_bar.style.width =  `${m_hp }px`
+      m_hp-=u_attack*(parseInt(Math.random()*20+1));
+      m_bar.style.width = `${m_hp }px`
    }
+ 	
 	hp();
 }
 /*공격 받을때 */ 
 function dis(){
    let dis =  ( m_left-u_left ) 
    if( dis >=0 && dis <=80){
-      u_hp-=10;
+      u_hp-=m_attack*(parseInt(Math.random()*10+1));
       u_bar.style.width =  `${u_hp }px`
    }
    hp();
