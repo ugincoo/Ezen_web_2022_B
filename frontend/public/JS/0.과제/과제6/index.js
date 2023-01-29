@@ -29,6 +29,8 @@ let monsters= [
 	{m_img : '주황버섯.gif' , hp : 300, left : 910, exp: 300, power:3}
 	]
 
+
+let lev=0
 //2. 문서 안에서 키 입력 이벤트
 document.addEventListener('keydown',(e)=>{
 	//console.log('키입력') 
@@ -127,10 +129,3 @@ function dis(){
    hp();
 }
 
-function monster(i){
-	let monster = document.querySelector('.monbox')
-	monster.style.backgroundImage = `url(img/${monsters[i].img})`
-	monster.style.left = `${monsters[i].left}`
-	monster.style.top = `${monsters[i].top}`
-	monster.style.width = `${monsters[i].hp}.px`
-	}
