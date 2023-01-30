@@ -4,26 +4,19 @@
 	<meta charset="UTF-8">
 	<title> MEOW MARKET </title>
 	<!-- 반응형 : 뷰포트 -->
-	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<meta name="viewport" content="widtd=device-widtd, initial-scale=1">	
 	
 	<!-- 사용자정의 css -->
-	<link href="/jsp/css/index.css" rel="stylesheet">	
+	<link href="/jsp/css/index.css" rel="stylesheet">
 
 	<!-- 부트스트랩 : css -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 	
-	<!-- 헤더에서 사용되는 경로 : 절대경로 [페이지마다 헤더 사용할때마다 상대경로가 다르기때문] -->
-		<!-- 
-			href,img 포함
-			서버경로 
-				1. http://localhost:8080/프로젝트명
-				2. http://192.168.17.85:8080/프로젝트명
-			서버경로 절대경로 표현 [ip주소 , port 생략]
-				1. /프로젝트명[root:최상위경로]/파일명
-		 -->
+	
+	<!-- 썸머노트 : css -->
+	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 </head>
 <body>
-	<!-- 집 테스트 -->
 	<!-- 상단헤더 /sticky-top : 상단고정 /bg : 배경색 -->
 	<div class="navbar navbar-expand-lg sticky-top bg-white h_top" > <!-- 네비게이션[메뉴 -->
 		<div class="container">		<!-- 구역 -->
@@ -67,54 +60,84 @@
 				</ul>
 			</div>
 		</div>	
-	</div>
-	
-	<!-- 이미지 슬라이드 : 캐러셀 / data-bs-ride="carousel : 자동 술라이드 / data-bs-interval="3000" : 밀리 초[1000/1] -->
-	<div id="mainCarousel"class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">		<!-- 캐러셀 구역 -->
-		<div class="carousel-inner">	<!-- 캐러셀 내용물-사진들 -->
+	</div> 	<!-- 헤더 끝 -->
+<!-- 헤더 end -->
+	<div class="container"> <!-- 반응형 구역  -->
+		<h3 class="box_title"> 게시글 작성 </h3>
 		
-			<div class="carousel-item active">		<!-- 1개의 사진 active : 활성화-->
-				<img src="img/나또1.jpg" class="d-block w-80">
-			</div>
-			
-			<div class="carousel-item">		<!-- 1개의 사진 -->
-				<img src="img/나또2.jpg" class="d-block w-80">
-			</div>
-			
-			<div class="carousel-item">		<!-- 1개의 사진 -->
-				<img src="img/나또3.jpg" class="d-block w-80">
-			</div>
-			
-			<div class="carousel-item">		<!-- 1개의 사진 -->
-				<img src="img/나또4.jpg" class="d-block w-80">
-			</div>
-		</div>
-		<div>	<!-- 이미지 슬라이드 컨트롤[왼/오 이동버튼] -->
-			<button class="carousel-control-prev" type="button" data-bs-slide="prev" data-bs-target="#mainCarousel">
-				<span class="carousel-control-prev-icon"></span>
-			</button>
-			<button class="carousel-control-next" type="button" data-bs-slide="next" data-bs-target="#mainCarousel">
-				<span class="carousel-control-next-icon"></span>
-			</button>
-		</div>
-	</div> <!-- 캐러셀 e -->
-	
-	<div class="container"> <!-- 구역생성 -->
-		<h3 class="box_title"> BEST </h3>	<!-- 구역 제목 -->
+		<form class="writerform"> <!-- 입력양식  -->
 		
-		<div class="itembox">								<!-- 제품 출력되는 구역 -->
+			<div class="row my-3"> <!-- 작성자 , 비밀번호 입력 구역  -->
+				<div class="col-md-3">
+					<input class="form-control bwriter" type="text" placeholder="작성자">
+				</div>
+				<div class="col-md-3">
+					<input class="form-control bpassword" type="password" placeholder="비밀번호">
+				</div>
+			</div>
+			<!-- col-md-12 인경우 생략경우 form-control 이 width:100%  -->
+			<input class="form-control my-3 btitle" type="text" placeholder="제목">
 			
-		</div>
-		
-	</div>
-	
-	
-	
-	<!-- 부트스트랩 : js body 하단 작성 -->
+			<!-- 1.기본 textarea -->
+			<textarea class="form-control my-3 bcontent"  rows="10" cols="" placeholder="내용1"></textarea>
+			
+			<!-- 2.썸머노트 textarea -->
+			<textarea id="summernote" class="form-control my-3" rows="10" cols="" placeholder="내용2"></textarea>
+			
+			<div class="row my-3">
+				<div class="col-md-3">
+					<input class="form-control" type="file">
+				</div>
+			</div>
+			
+			<div class="row col-md-4 offset-md-4"> <!-- 버튼 구역  -->
+				<div class="col-md-4"> 
+					<button class="form-control writebtn" onclick="board_write()" type="button">등록</button>
+				</div>
+				<div class="col-md-4" >
+					<button class="form-control resetebtn" type="reset">다시작성</button>
+				</div>
+				<div class="col-md-4">
+					<a href="list.html"> <button class="form-control backbtn" type="button">목록보기</button> </a>
+				</div>
+			</div>
+				
+		</form> <!-- form -->
+	</div> <!--  -->
+
+
+	<!-- 부트스트랩 : js   body 하단 작성 -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-	<!-- 사용자정의  -->
+	
+	<!-- jqeury : js api 라이브러리  -->
+	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+	<!-- 썸머노트 : js -->
+	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+	<!-- 썸머노트 : 한글 js -->
+	<script src=" https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/lang/summernote-ko-KR.min.js"></script>
+	 
+	<!-- 사용자정의 js -->
 	<script src="js/index.js" type="text/javascript"></script>
+	
+	<!-- 사용자정의 js-->
+	<script src="../js/board/write.js" type="text/javascript"></script>
 
 
 </body>
 </html>
+
+<!-- 
+	부트스트랩 여백
+		m : margin
+			m-3 : 위아래왼쪽오른쪽
+			my-3 : 위아래
+			mx-3 : 왼쪽오른쪽 
+			mt-3 : 위
+			mb-3 : 아래
+			ms-3 : 왼쪽
+			me-3 : 오른쪽 
+		p : padding 
+			
+
+ -->

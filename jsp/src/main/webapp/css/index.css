@@ -34,7 +34,7 @@
 	font-family: 'RixInooAriDuriR';
 	border-bottom: 2px solid #999999;
 	width: 20%; padding-top: 10px;
-	margin: 0 auto; padding-bottom: 1%;
+	margin: 3% auto; padding-bottom: 1%;
 }
 
 /*서로 다른 사이즈[디바이스]마다 css 다르게 설정 -> 미디어쿼리*/
