@@ -60,54 +60,51 @@
 			</div>
 		</div>	
 	</div>
-<!-- 본문 -->
-	<!-- 반응형 구역 생성 -->
-	<div class="container">	
-		<h3 class="box_title"> 커뮤니티 </h3>
-			<!-- 반응형 테이블 -->
-		<table class="table text-center">
+	<!-- 반응형 시작 -->
+	<div class="container">
+		<h3 class="box_title"> 문의사항 </h3>
+		<table class="table text-center"> <!-- 테이블 시작 -->
 			<thead>
 				<tr>
-					<th width="5%">번호</th><th width="50%">제목</th><th width="10%">작성자</th>
-					<th width="10%">작성일</th><th width="5%">조회수</th><th width="10%">좋아요</th>
-					<th width="10%">싫어요</th>
+					<th>번호</th><th>제목</th><th>작성자</th>
+					<th>작성일</th><th>조회수</th><th>문의상태</th><th>처리일</th>
 				</tr>
 			</thead>
-			<tbody class="boardlist"> 
-				<!-- js에서 데이터 들어오는 자리 -->
-			</tbody>	
-		</table>
-		
-		<!-- 페이지네이션 -->
-		<div class="row"> <!-- 하단 구역 1 -->
-			<div class="col-md-4 offset-md-5 col-12">
-				<ul class="pagination">
-					<li class="page-item"> <a class="page-link" href ="#" > < </a> </li>
-					<li class="page-item"> <a class="page-link"href ="#" > 1 </a> </li>
-					<li class="page-item"> <a class="page-link" href ="#" > 2 </a> </li>
-					<li class="page-item"> <a class="page-link" href ="#" > 3 </a> </li>
-					<li class="page-item"> <a class="page-link" href ="#" > 4 </a> </li>
-					<li class="page-item"> <a class="page-link" href ="#" > 5 </a> </li>
-					<li class="page-item"> <a class="page-link" href ="#" > > </a> </li>
-				</ul>
-			</div>
-			<div class="col-md-1 offset-md-1 col-12">
-				<a href="write.html"><button class="form-control"type="button"> 글쓰기 </button>  </a>
-			</div>
-		</div>	<!-- roe E -->
-		
-		<div class="row"> <!-- 하단 구역 2 -->
+			<tbody class="qboardlist"> <!-- js 데이터 들어오는 곳 -->
+			
+			</tbody>		
+		</table>	<!-- 테이블 종료 -->
+	<div class="row"> <!-- 페이징 시작 -->
+		<div class="col-md-5 offset-md-4" >
+			<ul class="pagination">
+   				 <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+   				 <li class="page-item"><a class="page-link" href="#">1</a></li>
+   				 <li class="page-item"><a class="page-link" href="#">2</a></li>
+   				 <li class="page-item"><a class="page-link" href="#">3</a></li>
+   				 <li class="page-item"><a class="page-link" href="#">4</a></li>
+   				 <li class="page-item"><a class="page-link" href="#">5</a></li>
+   				 <li class="page-item"><a class="page-link" href="#">Next</a></li>
+ 			 </ul>
+		</div>
+		<div class="col-md-1 offset-md-2">
+			<a href="write.html"><button class="form-control"> 글쓰기 </button></a>
+		</div>	
+	</div> <!-- 페이징 종료 -->
+	
+	<div class="row"> <!-- 하단 구역 2 -->
 			<div class="col-md-5 offset-md-4 row g-0"> <!-- g-0 : 여백제거  -->
 			
 				<div class="col-md-3">
-					<select class="keyword form-select">
-						<option> 키워드 </option>	<option value='no'> 번호 </option>
-						<option value='title'> 제목 </option>	<option value='writer'> 작성자 </option>
+					<select class="searchlist form-select">
+						<option> 검색목록 </option>
+						<option value='no'> 번호 </option>
+						<option value='title'> 제목 </option>	
+						<option value='writer'> 작성자 </option>
 					</select>
 				</div>	
 				
 				<div class="col-md-6">
-					<input class="key form-control" type="text" placeholder="검색어를 입력하세요">
+					<input class="search form-control" type="text" placeholder="검색어를 입력하세요">
 				</div>
 				
 				<div class="col-md-2">	
@@ -117,16 +114,28 @@
 			</div> <!-- row end -->
 		</div>	<!-- row2 e -->
 		
-	</div>	
+		
+</div> <!-- 컨테이너 end -->
 	
 	
-	<!-- 부트스트랩 : js body 하단 작성 -->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-	<!-- 사용자정의  -->
-	<script src="js/index.js" type="text/javascript"></script>
-	<!-- 사용자정의  -->
-	<script src="../js/board/list.js" type="text/javascript"></script>
+	
 
+	<!-- 부트스트랩 : js   body 하단 작성 -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+	
+	<!-- jqeury : js api 라이브러리  -->
+	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+	<!-- 썸머노트 : js -->
+	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+	<!-- 썸머노트 : 한글 js -->
+	<script src=" https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/lang/summernote-ko-KR.min.js"></script>
+	 
+	<!-- 사용자정의 js -->
+	<script src="js/index.js" type="text/javascript"></script>
+	
+	<!-- 사용자정의 js-->
+	<script src="../css/qboard/list.js" type="text/javascript"></script>
 
 </body>
 </html>

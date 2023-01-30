@@ -36,5 +36,5 @@ function product_print(){
 	})
 	
 	
-	document.querySelector('.itembox').innerHTML =html;
+	document.querySelector('.itembox').innerHTML = html;
 }

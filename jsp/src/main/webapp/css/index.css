@@ -5,9 +5,8 @@
     font-weight: normal;
     font-style: normal;
 }
-*{
-	font-family: '맑은 고딕';	color: black;	margin : 0px ;padding: 0px;
-}
+*{	font-family: '맑은 고딕';	color: black;	margin : 0px ;padding: 0px;	}
+a{color: black !important; text-decoration: none !important;}
 /*로고 구역*/
 .Logobox{text-align: center;}
 

@@ -23,7 +23,7 @@ function board_write(){
 	//3. 결과에 따른 이벤트
 	let result = true; //java로부터 전송결과 
 	
-	if(result){alert('글쓰기 성공'); location.href = 'ilst.html';}
+	if(result){alert('글쓰기 성공'); location.href = 'list.html';}
 	else(alert('글쓰기 실패'))
 	/*
 		-페이지 전환 js 실수
