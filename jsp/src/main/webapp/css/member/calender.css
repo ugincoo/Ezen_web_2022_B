@@ -44,6 +44,7 @@
 	border: 1px solid #eeeeee;
 	width: 14%; /*100/7=14.2*/
 	height: 100px;
+	overflow: hidden;
 }
 /*일정박스*/
 .content{
@@ -76,10 +77,9 @@
 	background-color: rgba(0,0,0,0.5);/*검정+투명도50%*/
 	/*rgba(0,0,0,투명도)*/
 	/*자식요소 중앙배치*/
-	display: flex;	justify-content: center;	align-items: center;
+	justify-content: center;	align-items: center;
 	/*헤더에 부트스트랩 sticky-top z-index : 1020*/
 	z-index: 1030; /*겹쳤을대 우선순위*/
-	/*버튼에 따른 표시 여부 flex : 열기 / none : 닫기*/
 	display: none; /*기본값 : 모달 안보이게 하기*/
 }
 /*모달 상자*/
@@ -89,7 +89,7 @@
 }
 
 .modal_date{
-	font-size: 10px; font-weight: normal;
+	font-size: 13px; font-weight: normal;
 }
 /*모달 버튼*/
 .modal_btns{

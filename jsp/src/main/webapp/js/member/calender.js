@@ -58,18 +58,39 @@ function contents_print( fdate ){ console.log( fdate )
 	}) // for end 
 	return html;
 } // f e 
+
+//8. 등록 버튼 이벤트 함수
+document.querySelector('.modal_write').addEventListener('click',(e)=>{
+	//1. 입력 받은 내용과 선택 된 날짜 가져와서 객체화 시키기
+	let content ={
+		date : document.querySelector('.modal_date').innerHTML, //전역변수 사용하기 or html 출력된 인수 사용하기
+		content : document.querySelector('.modal_input').value
+	}; console.log(content);
+	//2. 유효성검사 생략
+	//3. 배열 저장
+	contents.push(content);
+	//4. 화면 업데이트
+		//1. 입력된 데이터 초기화
+		document.querySelector('.modal_input').value = ''
+		//2. 모달 닫기
+		document.querySelector('.modal_wrap').style.display = 'none';
+		//3. 캘린더 재출력[ 재 랜더링 ]
+		cal_print();
+})
+
 //7.모달 닫기 함수 
 document.querySelector('.modal_close').addEventListener('click',(e)=>{
 	//1.모달 배경 구역 숨기기
 	document.querySelector('.modal_wrap').style.display = 'none';
 })
+
 //6. 모달 열기 함수
 function openModal(fdate){
 	//1. 모달 배경 구역 css 변경해서 모달 보이기
 	document.querySelector('.modal_wrap').style.display = 'flex';
-
+	//2. 모달에 선택 된 날짜 표시하기
+	document.querySelector('.modal_date').innerHTML = fdate;
 }
-
 
 //4. 날짜 포멧 함수 [ 인수 :  날짜 ---로직[포멧]----> 반환 : 변경된 날짜형식 (ex:20230101)]
 function date_format( date ){
