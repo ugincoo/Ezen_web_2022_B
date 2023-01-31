@@ -1,7 +1,7 @@
 @charset "UTF-8";
 @font-face {
-    font-family: 'RixInooAriDuriR';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2207-01@1.0/RixInooAriDuriR.woff2') format('woff2');
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -30,10 +30,11 @@ a{color: black !important; text-decoration: none !important;}
 .itembox{	display: flex; flex-wrap: wrap;	margin-top: 5%;}
 .box_title{
 	text-align: center;
-	font-family: 'RixInooAriDuriR';
+	font-family: 'Cafe24Ssurround';
 	border-bottom: 2px solid #999999;
 	width: 20%; padding-top: 10px;
 	margin: 3% auto; padding-bottom: 1%;
+	color: #5E6697;
 }
 
 /*서로 다른 사이즈[디바이스]마다 css 다르게 설정 -> 미디어쿼리*/

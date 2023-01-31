@@ -29,7 +29,7 @@
 }
 /*상단 년/월/일*/
 .top_date{
-	font-family: 'RixInooAriDuriR';
+	font-family: 'Cafe24Ssurround';
 	margin: 0% 3%;
 	color: #AFBCF5;
 }
@@ -68,13 +68,40 @@
 	color: red;
 }
 
+/*모달 배경 구역*/
+.modal_wrap{
+	position: fixed; /*위치 고정*/
+	top : 0; left:0; /*위,왼쪽 0만큼 떨어진 위치에서 시작*/
+	width: 100%; height: 100%;
+	background-color: rgba(0,0,0,0.5);/*검정+투명도50%*/
+	/*rgba(0,0,0,투명도)*/
+	/*자식요소 중앙배치*/
+	display: flex;	justify-content: center;	align-items: center;
+	/*헤더에 부트스트랩 sticky-top z-index : 1020*/
+	z-index: 1030; /*겹쳤을대 우선순위*/
+	/*버튼에 따른 표시 여부 flex : 열기 / none : 닫기*/
+	display: none; /*기본값 : 모달 안보이게 하기*/
+}
+/*모달 상자*/
+.modal_box{
+	background-color: white; width: 40%;
+	padding: 3%; border-radius: 5%;
+}
 
-
-
-
-
-
-
+.modal_date{
+	font-size: 10px; font-weight: normal;
+}
+/*모달 버튼*/
+.modal_btns{
+	display: flex;justify-content: flex-end;
+	margin: 3% 0%;
+}
+.modal_box button{
+	background-color: #E0E4FC; color : gray;
+	padding: 5px 15px; 
+	margin-left: 3%;
+	border: 1px solid #E0E4FC; border-radius: 10px;
+}
 
 
 
