@@ -7,7 +7,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">	
 	
 	<!-- 사용자정의 css -->
-	<link href="/jsp/css/index.css" rel="stylesheet">	
+	<link href="/jsp/css/index.css" rel="stylesheet">
+		<!-- 사용자정의 css -->
+	<link href="../css/member/calender.css" rel="stylesheet">	
 
 	<!-- 부트스트랩 : css -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -32,7 +34,7 @@
 					<li class="nav-item"> <a class="nav-link" href="/jsp/member/login.html">로그인 </a> </li>	<!-- 메뉴 항목 -->
 					<li class="nav-item"> <a class="nav-link" href="/jsp/member/signup.html">회원가입 </a> </li>
 					<li class="nav-item"> <a class="nav-link" href="#">장바구니 </a> </li>
-					<li class="nav-item"> <a class="nav-link" href="/jsp/member/info.html">마이페이지 </a> </li>
+					<li class="nav-item"> <a class="nav-link" href="#">마이페이지 </a> </li>
 					<li class="nav-item"> <a class="nav-link" href="/jsp/board/list.html">커뮤니티 </a> </li>
 					<li class="nav-item"> <a class="nav-link" href="/jsp/qboard/list.html">문의사항 </a> </li>
 					<li class="nav-item"> <a class="nav-link" href="#">리뷰 </a> </li>
@@ -68,52 +70,58 @@
 			</div>
 		</div>	
 	</div>
+	<!-- 반응형구역 -->
+	<div class="container">
+		<h3 class="box_title"> 캘린더 </h3>
+		
+		<div class="calender">  	<!-- 캘린더구역 -->
+			<div class="cal_top">	<!-- 상단구역 -->
+				<button class="previousbtn" type="button"> < </button>	<!-- 이전달 -->
+				<h3 class="top_date"> 2023년 01월 </h3>	<!-- 현재 년/월/일 -->
+				<button class="nextbtn" type="button"> > </button>	<!-- 다음달 -->
+			</div>
+			
+			<div class="cal_day">	<!-- 날짜 표시 구역 -->
+				<div class="day weekday sunday"> 일 </div>
+				<div class="day weekday"> 월 </div> <div class="day weekday"> 화 </div>
+				<div class="day weekday"> 수 </div> <div class="day weekday"> 목 </div> 
+				<div class="day weekday"> 금 </div> <div class="day weekday"> 토 </div>
+				
+				<div class="day"> 1
+				<div class="content">새해맞이 여행</div>
+				<div class="content">새해맞이 여행 새해맞이 여행</div> 
+				</div>	
+				<div class="day"> 2 </div><div class="day"> 3 </div>
+				<div class="day"> 4 </div><div class="day"> 5 </div> <div class="day"> 6 </div>
+				<div class="day"> 7 </div><div class="day"> 8 </div> <div class="day"> 9 </div>		
+			</div>
+			
+			
+			
+		</div>
 	
-	<!-- 이미지 슬라이드 : 캐러셀 / data-bs-ride="carousel : 자동 술라이드 / data-bs-interval="3000" : 밀리 초[1000/1] -->
-	<div id="mainCarousel"class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">		<!-- 캐러셀 구역 -->
-		<div class="carousel-inner">	<!-- 캐러셀 내용물-사진들 -->
-		
-			<div class="carousel-item active">		<!-- 1개의 사진 active : 활성화-->
-				<img src="img/나또1.jpg" class="d-block w-80">
-			</div>
-			
-			<div class="carousel-item">		<!-- 1개의 사진 -->
-				<img src="img/나또2.jpg" class="d-block w-80">
-			</div>
-			
-			<div class="carousel-item">		<!-- 1개의 사진 -->
-				<img src="img/나또3.jpg" class="d-block w-80">
-			</div>
-			
-			<div class="carousel-item">		<!-- 1개의 사진 -->
-				<img src="img/나또4.jpg" class="d-block w-80">
-			</div>
-		</div>
-		<div>	<!-- 이미지 슬라이드 컨트롤[왼/오 이동버튼] -->
-			<button class="carousel-control-prev" type="button" data-bs-slide="prev" data-bs-target="#mainCarousel">
-				<span class="carousel-control-prev-icon"></span>
-			</button>
-			<button class="carousel-control-next" type="button" data-bs-slide="next" data-bs-target="#mainCarousel">
-				<span class="carousel-control-next-icon"></span>
-			</button>
-		</div>
-	</div> <!-- 캐러셀 e -->
 	
-	<div class="container"> <!-- 구역생성 -->
-		<h3 class="box_title"> BEST </h3>	<!-- 구역 제목 -->
-		
-		<div class="itembox">								<!-- 제품 출력되는 구역 -->
-			
-		</div>
-		
 	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
 	<!-- 부트스트랩 : js body 하단 작성 -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- 사용자정의  -->
-	<script src="js/index.js" type="text/javascript"></script>
+	<script src="../js/member/calender.js" type="text/javascript"></script>
 
 
 </body>

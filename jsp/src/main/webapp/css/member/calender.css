@@ -1,0 +1,92 @@
+@charset "EUC-KR";
+@font-face {
+    font-family: 'RixInooAriDuriR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2207-01@1.0/RixInooAriDuriR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*캘린더 구역*/
+.calender{
+	border: 1px solid #eeeeee;
+	padding: 5%;
+	border-radius: 2%; /*둥근모서리*/
+	box-shadow: 0px 0px 3px #8899F0;
+}
+
+/*캘린더 상단 메뉴*/
+.cal_top{
+	display: flex; justify-content: center;
+	margin: 5% 0%;
+}
+/*캘린더 상단 버튼*/
+.previousbtn , .nextbtn{
+	background-color: white;
+	border: 1px solid #eeeeee;
+	padding: 5px 20px;
+	color: #8899F0;
+	font-size: 20px;
+}
+/*상단 년/월/일*/
+.top_date{
+	font-family: 'RixInooAriDuriR';
+	margin: 0% 3%;
+	color: #AFBCF5;
+}
+/*데이구역*/
+.cal_day{
+ 	display: flex; justify-content: flex-start;
+	flex-wrap: wrap; /*하위요소 자동 줄바꿈*/
+}
+/*데이*/
+.day{
+	display: inline-block; /*사이즈 설정 위해 */
+	border: 1px solid #eeeeee;
+	width: 14%; /*100/7=14.2*/
+	height: 100px;
+}
+/*일정박스*/
+.content{
+	background-color: #E0E4FC;
+	margin: 1%;
+	color: gray;  
+	/*내용이 구역 사이즈보다 커졌을때*/
+	white-space : nowrap;	/* 자동 줄바꿈 해제*/
+	overflow: hidden;	/* 넘쳤을때숨김 */
+	text-overflow: ellipsis; /*...*/
+	max-width: 150px;
+}
+/*요일 구역*/
+.weekday{
+	height: 30px; text-align: center;
+	background-color: #E0E4FC;
+	border: 1px solid #eeeeee;
+	margin: 5px 0px;
+}
+/*일요일 구역*/
+.sunday{
+	color: red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
