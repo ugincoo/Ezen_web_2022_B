@@ -1,12 +1,6 @@
 /* DB */
 //일정목록
-let contents = [
-	{ date : '20230101' , content : '새해!' },
-	{ date : '20230103' , content : '친구 만나기 ' },
-	{ date : '20230101' , content : '새해 해돋이 강릉가기 새벽3시 기차' }
-]
-
-
+let contents =[ ]
 /*----------------전역변수 : 모든 함수{} 공용으로 사용되는 메모리 [변수]---------------- */
 //1. js 열렸을때 현재 연도와 월을 구해서 변수에 저장
 let year = new Date().getFullYear();	//현재연도
@@ -53,18 +47,19 @@ function contents_print( fdate ){ console.log( fdate )
 	let html = ``
 	contents.forEach( (o) => { // 일정목록 반복문
 		if( fdate == o.date ){ // 만약에 인수로 전달된 날짜와 일정목록에서 동일한 날짜가 존재하면 
-			html += `<div class="content">${ o.content }</div>`
+			html += `<div class="content" style="background-color : ${o.bg_color}">${ o.content }</div>`
 		}
 	}) // for end 
 	return html;
 } // f e 
 
-//8. 등록 버튼 이벤트 함수
+//8. [등록] 버튼 이벤트 함수
 document.querySelector('.modal_write').addEventListener('click',(e)=>{
 	//1. 입력 받은 내용과 선택 된 날짜 가져와서 객체화 시키기
 	let content ={
 		date : document.querySelector('.modal_date').innerHTML, //전역변수 사용하기 or html 출력된 인수 사용하기
-		content : document.querySelector('.modal_input').value
+		content : document.querySelector('.modal_input').value,
+		bg_color : document.querySelector('.modal_color').value 
 	}; console.log(content);
 	//2. 유효성검사 생략
 	//3. 배열 저장
@@ -76,6 +71,7 @@ document.querySelector('.modal_write').addEventListener('click',(e)=>{
 		document.querySelector('.modal_wrap').style.display = 'none';
 		//3. 캘린더 재출력[ 재 랜더링 ]
 		cal_print();
+		modal_print()
 })
 
 //7.모달 닫기 함수 
@@ -90,6 +86,21 @@ function openModal(fdate){
 	document.querySelector('.modal_wrap').style.display = 'flex';
 	//2. 모달에 선택 된 날짜 표시하기
 	document.querySelector('.modal_date').innerHTML = fdate;
+	//3. 해당 하는 날짜의 일정 모두 출력하기
+	let html=`<tr><th width="5%"> # </th> <th> 일정내용 </th> <th width="15%"> 비고 </th></tr>`
+	let j=0; // [출력용도] j : 동일한 일정[객체]들의 개수
+	contents.forEach( (o,i)=>{
+		 if(fdate == o.date){
+			 j++;
+			 html +=`<tr>
+					<td> ${j} </td>
+					<td> ${o.content} </td>
+					<td> <button type="button" onclick="modal_delete(${i})"> 삭제 </button> </td>
+				</tr>`
+		 }
+	 })
+	
+	document.querySelector('.modal_table').innerHTML = html;			
 }
 
 //4. 날짜 포멧 함수 [ 인수 :  날짜 ---로직[포멧]----> 반환 : 변경된 날짜형식 (ex:20230101)]
@@ -116,7 +127,12 @@ document.querySelector('.nextbtn').addEventListener('click',(e)=>{console.log('�
 	cal_print();	
 })
 
-
+//모달 삭제 함수
+function modal_delete(i){
+	contents.splice(i,1)
+	document.querySelector('.modal_wrap').style.display = 'none'
+	cal_print();
+}
 /*
 	new Date() 날짜/시간 관련된 클래스
 		1. let date = new Date()				: 현재 날짜/시간 객체
