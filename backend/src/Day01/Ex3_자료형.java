@@ -15,7 +15,7 @@ public class Ex3_자료형 {//class s
 		byte b1 = -128;			System.out.println("byte자료형 : "+b1);
 		byte b2 = 127;			System.out.println("byte자료형 : "+b2);
 		//byte b3 = 128;		//오류발생 : 범위 벗어난 데이터
-		
+
 		//3. short 자료형	[ +-3만2천 ]
 		short s1 = 32000; 		System.out.println("short자료형 : "+s1);
 		//short s2 = 33000;		//오류발생 : 범위 벗어난 데이터
