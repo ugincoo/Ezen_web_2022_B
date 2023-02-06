@@ -51,8 +51,8 @@ public class 과제2_키오스크 {// c s
 				int 총가격 = ( (콜라*콜라장바구니)+(사이다*사이다장바구니)+(환타*환타장바구니));
 				int 가격 = scanner.nextInt();
 				if(가격 < 총가격) {
-					System.out.println("결제를 취소합니다."); break;
-				}else {System.out.println("결제 완료 되었습니다."); break;}
+					System.out.println("[안내]결제 실패"); break;
+				}else {System.out.println("결제 완료 " + " 잔돈 : " + (가격-총가격)); break;}
 			}
 			else {System.err.println("없는 메뉴 입니다.");}
 		}//while e
