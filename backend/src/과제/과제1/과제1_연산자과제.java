@@ -54,14 +54,15 @@ public class 과제1_연산자과제 {
 		
 		//문제7
 		/*System.out.println("숫자 입력 : "); int 숫자2 = scanner.nextInt();
-		String 확인1 = (숫자2%7 == 0 && 숫자2%2 == 0) ? "O" : "X";System.out.println(확인1); 
+		String 확인1 = (숫자2%7 == 0) ? "O" : "X";System.out.println("7의배수 : " + 확인1); 
+		String 확인2 = (숫자2%2 == 0) ? "O" : "X";System.out.println("홀수 : " + 확인2);*/
 		//문제 8
-		System.out.println("숫자 입력 : "); int 숫자3 = scanner.nextInt();
-		String 확인2 = (숫자3%7 == 0 || 숫자3%2 == 1) ? "O" : "X";System.out.println(확인2);*/
+		/*System.out.println("숫자 입력 : "); int 숫자3 = scanner.nextInt();
+		String 확인3 = (숫자3%7 == 0 || 숫자3%2 == 1) ? "O" : "X";System.out.println(확인3);*/
 		
 		//문제9
-		System.out.println("숫자 1 입력 : ");int 정수1 = scanner.nextInt();
-		System.out.println("숫자 2 입력 : ");int 정수2 = scanner.nextInt();
+		/*System.out.println("숫자 1 입력 : ");int 정수1 = scanner.nextInt();
+		System.out.println("숫자 2 입력 : ");int 정수2 = scanner.nextInt();*/
 		//?
 				
 		//문제10
@@ -76,13 +77,18 @@ public class 과제1_연산자과제 {
 		System.out.println("높이 : "); int 높이 = scanner.nextInt();
 		System.out.println("사다리꼴 넓이 : "+ ((윗변*밑변*높이)/2));*/
 		
-		//문제 13
+		/*//문제 13
 		System.out.println("키 : "); int 키 = scanner.nextInt();
 		int 표준체중 = (int) ((키-100)*0.9);
 		System.out.println("표준체중 : "+ 표준체중);
 		//문제14
 		System.out.println("몸무게 : "); double 몸무게 = scanner.nextDouble();
-		System.out.println("BMI : "+ (몸무게/( (키/100)*(키/100) ) ) );
+		System.out.println("BMI : "+ (몸무게/( (키/100)*(키/100) ) ) );*/
+		
+		//문제 15
+		System.out.println("인치 입력 : "); int 인치 = scanner.nextInt();
+		double cm = (int) (인치*2.54);
+		System.out.println(cm + "cm");
 		
 	
 	
