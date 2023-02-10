@@ -1,5 +1,6 @@
 package 과제.과제4;
 
+import 과제.과제4.view.Front;
 
 /*
 	MVC : 디자인패턴 [ 관점별 파일 구분 ] 

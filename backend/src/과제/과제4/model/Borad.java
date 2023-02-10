@@ -1,4 +1,4 @@
-package 과제.과제4;
+package 과제.과제4.model;
 
 public class Borad {
 	//필드

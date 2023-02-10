@@ -1,7 +1,9 @@
-package 과제.과제4;
+package 과제.과제4.controller;
 // * 처리/제어 담당
 
 import java.util.ArrayList;
+
+import 과제.과제4.model.Member;
 
 public class Mcontroller {
 	// DB 대신할 [ 데이터 저장소 ]

@@ -1,4 +1,4 @@
-package 과제.과제4;
+package 과제.과제4.model;
 // * 데이터 모델링
 public class Member {
 	//1. 필드

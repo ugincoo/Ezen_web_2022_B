@@ -1,7 +1,9 @@
-package 과제.과제4;
+package 과제.과제4.view;
 // * print , scanner
 
 import java.util.Scanner;
+
+import 과제.과제4.controller.Mcontroller;
 
 public class Front {
 	Scanner scanner = new Scanner(System.in);
