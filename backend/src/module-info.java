@@ -6,4 +6,5 @@
  *
  */
 module backend {
+	requires java.naming;
 }
