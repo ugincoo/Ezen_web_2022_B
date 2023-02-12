@@ -3,13 +3,15 @@ package 과제.과제4.view;
 
 import java.util.Scanner;
 
+import 과제.과제4.controller.Bcontroller;
 import 과제.과제4.controller.Mcontroller;
 
 public class Front {
 	Scanner scanner = new Scanner(System.in);
 	Mcontroller mc = new Mcontroller();
+	Bcontroller bc = new Bcontroller();
 	
-	public void index() {
+			public void index() {
 		while(true) {
 		System.out.println("1.회원가입 2.로그인 3.아이디찾기 4.비밀번호찾기 :");
 		int ch = scanner.nextInt();
@@ -63,12 +65,23 @@ public class Front {
 			else if (result == -1) {System.out.println("이름이 다릅니다.");}
 			else if(result == -2) {System.out.println("없는 회원입니다.");}
 	};	
+	
+	//로그인 성공시 출력 게시판
 	public void content() {	
 		while(true) {
-		System.out.println("메뉴>> 1.글삭제 2.글수정 3.뒤로가기 : ");
+			System.out.println("번호\t제목\t작성자\t조회수");
+			
+			System.out.println("메뉴>> 1.글삭제 2.글수정 3.뒤로가기 : ");
 		}
 	
-	
-	
+		
 	}
+	
+	// 글쓰기
+	
+	//글삭제
+	
+	
+	
+	
 }
