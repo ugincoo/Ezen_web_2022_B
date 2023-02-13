@@ -9,9 +9,7 @@ public class Bcontroller {
 	ArrayList<Board> boardDb= new ArrayList<>();
 	Mcontroller mc = new Mcontroller();
 	//게시판 출력
-	public int post() {
-		
-	}
+
 	
 	
 	
