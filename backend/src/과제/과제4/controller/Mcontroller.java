@@ -3,11 +3,13 @@ package 과제.과제4.controller;
 
 import java.util.ArrayList;
 
+import 과제.과제4.model.Board;
 import 과제.과제4.model.Member;
 
 public class Mcontroller {
 	// DB 대신할 [ 데이터 저장소 ]
 	ArrayList<Member> memberDb = new ArrayList<>();
+	ArrayList<Board> boardDb = new ArrayList<>();
 	
 	//1. 회원가입 로직
 	public int signup(String id,String pw ,String confirmpw,String name,String phone ) {
@@ -61,5 +63,20 @@ public class Mcontroller {
 		}//for e
 		return -2;
 	}
+	//글출력
+	public void print() {
+		String boardAll = "";
+		for (int i = 0 ; i < boardDb.size();i++) {
+			boardAll = i+"\t"+boardDb.get(i).title+"\t"
+					+boardDb.get(i).writer+"\t"+boardDb.get(i).view;
+		}
+	}
+	//글쓰기 함수 
+	public int write(String title, String content, String writer) {
+		Board board = new Board(title,content,writer);
+		boardDb.add(board);
+		return 0;
+	}
+	
 	
 }
