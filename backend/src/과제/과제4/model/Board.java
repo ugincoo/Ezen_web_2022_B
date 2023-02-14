@@ -2,14 +2,22 @@ package 과제.과제4.model;
 
 public class Board {
 	//필드
-	String content;
-	String writer;
-	String view;
+	public String title;
+	public String content;
+	public String writer;
+	public int view = 0 ;
 	//생성자
-	//깡통
+		//1.깡통
 	public Board () {}
-	public Board(String content, String writer, String view) {
-
+		//2.
+	public Board(String title, String content, String writer) {
+	this.title = title;
+	this.content = content;
+	this.writer = writer;
+}
+	public Board(String title, String content, String writer, int view) {
+		
+		this.title = title;
 		this.content = content;
 		this.writer = writer;
 		this.view = view;
@@ -17,7 +25,8 @@ public class Board {
 	//메소드
 	@Override
 	public String toString() {
-		return "Borad [content=" + content + ", Write=" + writer + ", view=" + view + "]";
+		return "Board [title=" + title + ", content=" + content + ", writer=" + writer + ", view=" + view + "]";
 	}
+
 	
 }

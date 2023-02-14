@@ -9,7 +9,7 @@ import 과제.과제4.controller.Mcontroller;
 public class Front {
 	Scanner scanner = new Scanner(System.in);
 	Mcontroller mc = new Mcontroller();
-	Bcontroller bc = new Bcontroller();
+
 	
 			public void index() {
 		while(true) {
@@ -40,7 +40,7 @@ public class Front {
 		System.out.println("아이디 : ");		String id = scanner.next();
 		System.out.println("비밀번호 : ");	String pw = scanner.next();
 		int result = mc.login(id,pw);
-		if(result >= 0 ) {System.out.println("로그인성공");
+		if(result >= 0 ) {System.out.println("로그인성공");memContent();
 		}else if(result == -1 ) {System.out.println("비밀번호가 다릅니다.");
 		}else if(result == -2)	{System.out.println("없는 회원입니다.");
 		}
@@ -67,21 +67,40 @@ public class Front {
 	};	
 	
 	//로그인 성공시 출력 게시판
-	public void content() {	
+	public void memContent() {	
 		while(true) {
+			System.out.println("------------커뮤니티------------");
 			System.out.println("번호\t제목\t작성자\t조회수");
 			
-			System.out.println("메뉴>> 1.글삭제 2.글수정 3.뒤로가기 : ");
+			System.out.println("메뉴>> 1.글쓰기 2.글수정 3.로그아웃 : ");
+			int ch = scanner.nextInt();
+			if (ch == 1) {write();}
+			else if(ch == 2) {delete();}
+			else if(ch==3) {logout();}
+			
 		}
 	
-		
 	}
 	
 	// 글쓰기
-	
+	 void write() {
+		System.out.println("------------글쓰기------------");
+		System.out.println("제목 : ");		String title = scanner.next();
+		System.out.println("내용 : ");		String content = scanner.next();
+		System.out.println("작성자 : "); 	String writer = scanner.next();
+		int view = 0;
+		int result = mc.write(title,content,writer);
+		if (result == 0) {
+			System.out.println("글쓰기 성공");
+		}
+		
+	}
 	//글삭제
-	
-	
-	
+	void delete() {}
+	//로그아웃
+	void logout() {
+		System.out.println("로그아웃 하였습니다 >> 메인이동");
+		index();	// 인덱스로 돌아가기
+	}
 	
 }
