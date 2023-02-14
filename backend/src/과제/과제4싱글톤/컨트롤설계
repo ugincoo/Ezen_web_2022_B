@@ -1,6 +1,6 @@
 	컨트롤 설계 [ 인수 반환 생각하기]
 		1. 회원가입처리
-			인수 : id pw confirmpw name phon 
+			인수 : id pw confirmpw name phone
 			반환 : 0 성공 / 1패스워드실패
 		2. 로그인
 			인수 : id pw		
