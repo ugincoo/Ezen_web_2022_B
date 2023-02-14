@@ -46,6 +46,11 @@ public class Front {
 			System.out.println(i + "\t" + memberList.get(i).name+ "\t" + memberList.get(i).phone);
 		}			
 	}
+
+	public static Front getInstance() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 		
 		
 }//class e
