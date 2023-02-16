@@ -4,8 +4,7 @@ public class SportCar extends Car{
 	public void speedup() {
 		super.speedUp();
 	}
-	@Override
-	public void stop() {
-		super.stop();
-	}
+	/*
+	 * @Override public void stop() { super.stop(); }
+	 */
 }

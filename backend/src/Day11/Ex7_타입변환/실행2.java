@@ -32,8 +32,8 @@ public class 실행2 {
 		//4. 배열, ArrauList
 		ArrayList<KumhoTire> kumhoList = new ArrayList<>();
 		kumhoList.add(kumhoTire);
-		kumhoList.add(hnakookTire);		// x
-		kumhoList.add(tire);			// x
+		//kumhoList.add(hnakookTire);		// x
+		//kumhoList.add(tire);			// x
 		//----->
 		ArrayList<Tire> tireList = new ArrayList<>();
 		tireList.add(kumhoTire);
