@@ -9,8 +9,11 @@ public class Coffee extends Drink {
 		super();
 	}
 
-	public Coffee(String type, String price) {
-		super(type, price);
+	public Coffee(String type, String price, String temperature) {
+		super();
+		this.type = type;
+		this.price = price;
+		this.temperature = temperature;
 	}	
 	//메소드
 	public void roast (String bean) {

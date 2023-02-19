@@ -10,9 +10,11 @@ public class Tea extends Drink{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Tea(String type, String price) {
-		super(type, price);
-		// TODO Auto-generated constructor stub
+	public Tea(String type, String price, String temperature) {
+		super();
+		this.type = type;
+		this.price = price;
+		this.temperature = temperature;
 	}	
 	//메소드
 	public void brew(String teaBag) {
