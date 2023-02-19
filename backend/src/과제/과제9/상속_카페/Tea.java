@@ -19,7 +19,7 @@ public class Tea extends Drink{
 	//메소드
 	public void brew(String teaBag) {
 		this.teaBag = teaBag;
-		System.out.println("차를 끓입니다.");
+		System.out.println("차를 끓입니다...");
 	}
 	
 	
