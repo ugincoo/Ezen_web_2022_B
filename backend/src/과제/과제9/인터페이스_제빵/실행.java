@@ -36,13 +36,13 @@ public class 실행 {
 				else if (select1 == 3) {bake.ingredient3();}
 				else {System.out.println("없는 종류 입니다. 다시 입력해주세요.");continue;}
 				System.out.println("----데코 시작----");
-				System.out.println(">> 1.초코 2.바나나 3.고구마");
+				System.out.println(">> 1.초코 2.바나나 3.치즈");
 				int select2 = sc.nextInt();
 				if(select2 == 1) {bake.decoration1();}
 				else if ( select2 == 2 ) {bake.decoration2();}
 				else if (select2 == 3) {bake.decoration3();}
 				else {System.out.println("없는 종류 입니다. 다시 입력해주세요.");continue;}
-				
+				System.out.println("빵 완성!");
 			}
 			
 		}

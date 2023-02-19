@@ -4,7 +4,7 @@ public class 실행 {
 	public static void main(String[] args) {
 		//1. phone 객체
 		Phone phone = new Phone();
-		//2. phone 객체의 인스턴스메ㅁ버 호출
+		//2. phone 객체의 인스턴스멤버 호출
 		phone.color = "빨강";
 		System.out.println(phone.color);
 		phone.bell();
