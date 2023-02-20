@@ -14,8 +14,8 @@ public class D extends A {
 	}
 	public void mathod2() {//불가능
 		
-		A a = new A();
-		a.field = "value"; 
-		a.method();
+		//A a = new A();
+		//a.field = "value"; 
+		//a.method();
 	}
 }

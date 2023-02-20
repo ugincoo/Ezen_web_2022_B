@@ -28,6 +28,8 @@ public class 실행 {
 			animals.eat(sno); 
 			}
 		}
+
+	
 	
 	}
 	
