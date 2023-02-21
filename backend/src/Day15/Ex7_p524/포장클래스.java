@@ -2,7 +2,7 @@ package Day15.Ex7_p524;
 
 import java.util.ArrayList;
 
-public class 포장클래스ㅜ {
+public class 포장클래스 {
 	public static void main(String[] args) {
 		
 		//1. 특정 API는 객체만 지원
