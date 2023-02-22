@@ -25,7 +25,7 @@ public class MemberDto {
 		return "BoardDto [mno=" + mno + ", mid=" + mid + ", mpw=" + mpw + "]";
 	}
 		//2.
-	private int getMno() {
+	int getMno() {
 		return mno;
 	}
 
