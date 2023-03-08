@@ -22,11 +22,26 @@
 	<h3> 예제2 : 방문록 [R] </h3>
 	<table class="boardtable" border="1">
 	
-	</div>
+	</table>
 
-
-
-
+	<!--  dto,서블릿,dao 새로 만들기
+		1. 제품등록
+		2. 제품출력
+		3. 제품삭제
+		4. 제품수정
+	
+	  -->
+	<h3> 제품등록 </h3>
+	제품명 : <input type="text" class="sname">	<br/>
+	가격 :  <input type="text" class="sprice">	<br/>
+	<button type="button" onclick="on()"> 등록 </button>
+	
+	<h3> 제품목록  </h3>
+	<table class="spring_table" border="1">	
+	</table>
+	
+	
+	
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="index.js" type="text/javascript"></script>
 </body>
