@@ -5,15 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+	<link href="/jspweb/css/index.css" rel="stylesheet" >
 </head>
 <body>
-	<%@ include file = "../header.jsp" %>
 	
-	<h3> 회원 명단 </h3>
-	<table border = "1" class="member_table">
-		
-	</table>
+	<div class="footer">
 	
-	<script src= "/jspweb/js/admin/info.js" type="text/javascript"></script>
+	</div>
+	
 </body>
 </html>

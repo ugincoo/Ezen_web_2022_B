@@ -61,6 +61,44 @@ public class MemberDao extends Dao {
 		return false;
 	}
 	
+	//로그인
+	public boolean login(String mid, String mpw) {
+		//아이디, 비밀번호 검증
+		String sql = "select * from member where mid =? and mpw=?";
+		try {
+			ps=con.prepareStatement(sql);
+			ps.setString(1, mid);
+			ps.setString(2, mpw);		
+			rs =ps.executeQuery();
+			if(rs.next()) {//만약에 레코드가 존재하면
+				return true; 
+			}
+		}catch (Exception e) {
+			System.out.println(e);
+		}
+		return false;
+	}
+	public MemberDto getMember(String mid) {
+		String sql ="select * from member where mid =?";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, mid);
+			rs=ps.executeQuery();
+			if(rs.next()) {	//비밀번호 재외한 검색된 레코드1개를 dto 1개로 만들기
+				MemberDto dto = new MemberDto(
+						rs.getInt(1),rs.getString(2),null,
+						rs.getString(4),rs.getString(5));
+				return dto; // 레코드 1개  --> 멤버 1개 -->
+				
+			}
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
+		return null;
+	}
+	
+	
 	
 }
 

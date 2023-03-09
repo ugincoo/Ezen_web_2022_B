@@ -1,1 +1,43 @@
 @charset "UTF-8";
+
+/*----------------- 기본설정----------------------*/
+*{ margin: 0; padding: 0; font-family: "맑은 고딕";}
+a{ text-decoration: none; color: black; }
+li{list-style-type: none;}
+#header{ width: 1200px; margin: 0 auto; height: 100px;}
+/*----------------------------------------------*/
+a:visited {/*클릭한 적이 있을때*/
+		color: black;
+}
+/*헤더 로그인 프로필*/
+.hpimg{
+	width: 50px;
+	height: 40px;
+	border: solid 1px #e8e8e8;
+	border-radius: 50%;
+}
+
+.header{
+
+	border :  solid 1px blue;
+	background-color: #F5F0ED;
+}
+.headerList{
+	display: flex; flex-direction: row-reverse; justify-content: flex-start;
+}
+.title{
+	margin: 0 auto;
+	text-align: center;
+}
+.title img{
+	width: 150px; height: 80px;
+
+	}
+
+
+/*-----------본문-------------*/
+.content{ border : solid 1px black;}
+
+/*-----------푸터-------------*/
+
+.footer{border : solid 1px red;}
