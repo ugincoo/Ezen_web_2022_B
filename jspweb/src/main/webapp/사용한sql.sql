@@ -28,3 +28,6 @@ create table mpoint(
     mno 		int,
     foreign key (mno) references member (mno) on delete set null
 );
+insert into member (mid,mpw,memail) values ('admin','qwe','admin@naver.com');
+delete from member where mno=3;
+select*from member;
