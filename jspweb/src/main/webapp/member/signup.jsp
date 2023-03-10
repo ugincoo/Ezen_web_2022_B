@@ -14,8 +14,8 @@
 	<div class="cotainar">		
 		<form class="signupForm"> <!-- form전송시 name으로 빼옴 -->
 		
-			<h3> MEOW Community</h3>
-			<p> 환영합니다. 다양한 커뮤니티 플랫폼을 제공합니다. </p>
+			<h3> MEOW Signup </h3>
+			<p> 회원가입 후 다양한 커뮤니티 이용이 가능합니다. </p>
 			
 			<div class="stitle"> 아이디 </div>
 			<input onkeyup="idcheck()" maxlength="30" type="text" 	name="mid" 	class="mid">
@@ -42,7 +42,7 @@
 			
 			<div class="stitle"> 프로필 </div>
 				<div class="imgbox">
-					<input class="imgboxinput" onchange="premimg(this)" type="file" 	name="mimg" class="mimg"> <br/>
+					<input class="imgboxinput" onchange="premimg(this)" type="file" name="mimg" class="mimg">
 					<img class="premimg" src="/jspweb/member/pimg/기본.jpg">
 				</div>
 			<button class="signupbtn" type="button" onclick="signup()" > 가입 </button>

@@ -57,8 +57,11 @@ a:visited {/*클릭한 적이 있을때*/
 .mainmenu li{
 	margin-right: 15px;
 	}	
-.mainmenu a{
-	color :#B5B5B5;
+.mainmenu a {
+	color :#B5B5B5;	
+}
+.mainmenu a:hover{
+	color : black;
 }
 .submenu{
 	width : 20%;
