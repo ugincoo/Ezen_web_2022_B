@@ -9,7 +9,7 @@
 <body>
 	<%@ include file = "../header.jsp" %>
 	
-	<h3> 회원 명단 </h3>
+	
 	<table border = "1" class="member_table">
 		
 	</table>

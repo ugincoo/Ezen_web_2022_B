@@ -17,5 +17,7 @@
 	<classpathentry kind="lib" path="C:/jackson-core-2.9.8.jar"/>
 	<classpathentry kind="lib" path="C:/jackson-databind-2.9.8.jar"/>
 	<classpathentry kind="lib" path="C:/cos.jar"/>
+	<classpathentry kind="lib" path="C:/java-activation.jar"/>
+	<classpathentry kind="lib" path="C:/java-mail.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

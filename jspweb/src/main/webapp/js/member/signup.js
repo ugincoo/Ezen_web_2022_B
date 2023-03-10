@@ -42,7 +42,7 @@
 function premimg(object){
 	console.log('첨부파일 바뀜'+object);
 	console.log(object.files[0]);	//현재 이벤트를 실행한 input의 등록한 파일명 호출
-	console.log(document.querySelector('.mimg').files[0])//해당 class input의 등록한 파일명 호출
+	console.log(document.querySelector('.mimg').files[0]); //해당 class input의 등록한 파일명 호출
 	//1. JS file클래스 사용
 	let file = new FileReader(); // 파일 읽기 클래스
 	//2. 첨부된 파일 읽어옴 (file.readAsDataURL(첨부파일))
@@ -124,17 +124,100 @@ function pwconfirmcheck(){
 		checkconfirm[2].innerHTML ='영대소문자+숫자 조합 5~20 글자'		
 	}
 }
-//이메일 체크
+//5. 이메일 체크
 function emailcheck(){
 	
 	let memail = document.querySelector('.memail').value;
 	//console.log(memail);
 	let memailj =/^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+$/
 	if(memailj.test(memail)){
-		checkconfirm[3].innerHTML = 'O';
+		checkconfirm[3].innerHTML = '이메일 인증 해주세요.';
+		document.querySelector('.authbtn').disabled = false; //인증버튼 사용
 	}else{
 		checkconfirm[3].innerHTML='이메일형식으로 입력 해주세요'
+		document.querySelector('.authbtn').disabled = true; //인증버튼 미사용
 	}
+	
+}
+//6. 이메일 인증 함수 
+function getauth(){//console.log('실행');
+	//-------------메일 전송 테스트 할 경우-------------
+	/*//ajax를 이용한 이메일 전송
+	$.ajax({
+		url : "/jspweb/email",
+		method : "post" ,
+		data : {"memail":document.querySelector('.memail')},
+		success : (re)=>{
+			console.log('통신확인');
+			console.log(re);
+			let html =`
+			<div class="timebox"> </div>
+			<input type="text" class="authinput" placeholder="인증코드">
+			<button onclick="authconfirm()" class="authconfirmbtn" type ="button"> 확인 </button>	`
+				
+			document.querySelector('.authbox').innerHTML = html;
+			//타이머 함수 실행
+			timer = 180;	//인증시간 대입
+			settimer()// 함수실행
+			auth = 1234; // 인증번호 대입	
+		}
+	});
+	*/
+	//-------------메일 전송 테스트 안할 경우-------------
+	let html =`
+				<div class="timebox"> </div>
+				<input type="text" class="authinput" placeholder="인증코드">
+				<button onclick="authconfirm()" class="authconfirmbtn" type ="button"> 확인 </button>	`
+				
+	document.querySelector('.authbox').innerHTML = html;
+	//타이머 함수 실행
+	timer = 180;	//인증시간 대입
+	settimer()// 함수실행
+	auth = 1234; // 인증번호 대입	
+}
+let auth = 0;
+let timer = 0;	// 인증시간
+let timerInter; // interval 함수를 저장 할 함수 
+//7. 타이머 함수
+function settimer(){
+	//setInterval( () =>{} , 시간/밀리초 ) 특정 시간 마다 함수 실행 시켜줌
+		//clearInterval 
+	timerInter =  setInterval( () => {
+		let minutes = parseInt(timer/60) ;//분 계산
+		let seconds = parseInt(timer%60) ; // 분 계산 후 나머지
+		// 한자리수이면 0추가
+		minutes = minutes < 10 ? "0"+minutes : minutes;
+		seconds = seconds < 10 ? "0"+seconds : seconds;
+		//시간구성
+		let timehtml = minutes + " : " + seconds;
+			console.log(timehtml);
+		//html 대입
+		document.querySelector('.timebox').innerHTML = timehtml;
+		//1초 차감
+		timer--;
+		//만약에 0보다 작아지면 clear
+		if(timer <0 ){
+			clearInterval( timerInter );
+			alert('인증시간이 초과 되었습니다.');
+				document.querySelector('.authbox').innerHTML = "";
+		}
+	}, 1000)// 1초 마다 {}함수 실행
+}
+//8. 인증코드 확인
+function authconfirm(){
+	console.log('인증확인실행')
+	let authinput = document.querySelector('.authinput').value;
+	//2. 발급된 인증 코드와 입력 코드 비교
+	if(auth == authinput){//인증코드 일치
+		clearInterval( timerInter );
+		document.querySelector('.authbox').innerHTML = "";
+		document.querySelector('.authbtn').innerHTML = "완료";
+		document.querySelector('.authbtn').disabled = true;
+		checkconfirm[3].innerHTML = 'O';
+	}else {//인증코드 불일치
+		checkconfirm[3].innerHTML="인증코드 일치하지 않습니다.";
+	}
+	
 	
 }
 	

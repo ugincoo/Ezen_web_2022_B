@@ -97,8 +97,53 @@ public class MemberDao extends Dao {
 		}
 		return null;
 	}
+	//6. 아이디 찾기
+	public String findid(String memail) {
+		String sql = "select *from member where memail = ?";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, memail);
+			rs=ps.executeQuery();
+			if(rs.next()) {
+				return rs.getString(2);
+			}
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		return "false";
+	}
 	
-	
-	
+	//7. 비밀번호 찾기
+	public String findpw(String mid , String memail , String updatePw) {
+		String sql = "select * from member where mid =? and memail = ?";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, mid);
+			ps.setString(2, memail);
+			rs=ps.executeQuery();
+			if(rs.next()) {
+				sql = "update member set mpw = ? where mno = ?";
+				ps = con.prepareStatement(sql);
+				ps.setString(1, updatePw);
+				ps.setInt(2, rs.getInt(1));
+				int result = ps.executeUpdate();	// 업데이트 한 레코드 개수 반환
+				if(result == 1) {
+					//이메일 테스트 하는 경우
+					//new MemberDto().sendEmail(memail, updatePw);	// 임시비밀번호를 이메일로 보내기
+					 //return "true";
+					 //ㅇㅣ메일 테스트 안하는 경우
+					 return updatePw;
+					}
+			
+			}
+			
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
+		return "false";
+	}
 }
 
