@@ -1,0 +1,7 @@
+@charset "UTF-8";
+.company{
+
+	display: inline-block;
+	align-items: center;
+	border : solid 1px black;
+}

@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<!-- 사용자 지정 css -->
+	<!-- 사용자 지정 css -->
 	<link href="/jspweb/css/modal1.css" rel="stylesheet" >
 	
 </head>
