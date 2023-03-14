@@ -33,7 +33,7 @@
 }
 .emailbox button, .authbox button {
 	width : 13%;
-	background-color:#F1E8FF;
+	background-color:#E0E4FE;
 	border: solid 1px white;
 	border-radius: 10px;
 	margin-left: 10px;
@@ -63,7 +63,7 @@
 .signupbtn{
 	font-family: 'ONE-Mobile-POP';
 	width: 100%;
-	background-color:#F1E8FF;
+	background-color:#E0E4FE;
 	font-size : 20px;
 	border: none;
 	padding: 20px;

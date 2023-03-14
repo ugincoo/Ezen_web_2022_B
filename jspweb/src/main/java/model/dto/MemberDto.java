@@ -16,6 +16,7 @@ public class MemberDto {
     private String mpw	;
     private String mimg;
     private String memail;
+    private int mpoint;	// 보유포인트 : db테이블에는 존재하지 않음
     
     //이메일 전송 메소드
     public boolean sendEmail(String toEmail,String contentHTML) {
@@ -73,6 +74,7 @@ public class MemberDto {
 		this.memail = memail;
 	}
 	
+
 	@Override
 	public String toString() {
 		return "MemberDto [mno=" + mno + ", mid=" + mid + ", mpw=" + mpw + ", mimg=" + mimg + ", memail=" + memail
@@ -110,7 +112,17 @@ public class MemberDto {
 		this.memail = memail;
 	}
     
-    
+	
+	public int getMpoint() {
+		return mpoint;
+	}
+
+
+	public void setMpoint(int mpoint) {
+		this.mpoint = mpoint;
+	}
+
+
     
     
     

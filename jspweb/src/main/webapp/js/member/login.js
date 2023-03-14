@@ -60,7 +60,7 @@ function findpw(){
 			if(r == 'false'){
 				document.querySelector('.checkconfirm').innerHTML = '일치하는 회원 정보가 없습니다.'
 			}else{
-				document.querySelector('.checkconfirm').innerHTML = '임시비밀번호를 메일로 전송 했습니다.';
+				document.querySelector('.checkconfirm').innerHTML = '임시비밀번호:' + r;
 			} 
 		}
 	})

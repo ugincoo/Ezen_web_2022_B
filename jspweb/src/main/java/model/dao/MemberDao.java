@@ -1,5 +1,6 @@
 package model.dao;
 
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import model.dto.MemberDto;
@@ -9,18 +10,33 @@ public class MemberDao extends Dao {
 	private static MemberDao dao = new MemberDao();
 	private MemberDao () {}
 	public static MemberDao getinstance(){return dao;}
-	
+	//회원가입
 	public boolean signup(MemberDto dto) {
 		String sql = "insert into member(mid,mpw,memail,mimg)values(?,?,?,?)";
 		
 		try {
-			ps = con.prepareStatement(sql);
+			ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
 			ps.setString(1,dto.getMid());
 			ps.setString(2,dto.getMpw());
 			ps.setString(3,dto.getMemail());
 			ps.setString(4,dto.getMimg());
 			ps.executeUpdate();
-			return true;
+			rs = ps.getGeneratedKeys(); // pk값을 rs로 받기
+			if(rs.next()) {int pk = rs.getInt(1);
+				//가입포인트지급 [ 내용, 개수, 방금 회원가입한 회원번호[pk] ]
+			/*
+			 	1.insert 이수에 자동으로 생성된 auto key 찾기
+			 	con.prepareStatement(sql)
+			 	2. 아래로 변경
+			 	con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+			 	3. 생성된 pk결과 담기
+			 	rs = ps.getGeneratedKeys();
+			 	4.검색된 레코드에서 pk 호출
+			 	rs.next() --> rs.getInt();
+			 
+			 */
+			setPoint("회원가입감사포인트", 100,pk); //회원가입시 포인트 지급 
+			} return true;
 		}catch (Exception e) {
 			System.out.println(e);
 			}
@@ -78,16 +94,21 @@ public class MemberDao extends Dao {
 		}
 		return false;
 	}
+	//특정회원 1명 + 보유 포인트 가져오기
 	public MemberDto getMember(String mid) {
-		String sql ="select * from member where mid =?";
+		String sql =" select m.mno, m.mid, m.mimg, m.memail, sum(p.mpamount) as point"
+				+ " from member m, mpoint p"
+				+ " where m.mno = p.mno and m.mid=?";
 		try {
 			ps = con.prepareStatement(sql);
 			ps.setString(1, mid);
 			rs=ps.executeQuery();
 			if(rs.next()) {	//비밀번호 재외한 검색된 레코드1개를 dto 1개로 만들기
+				//결과레코드 : mno , mid , mimig , memail , mpoint
 				MemberDto dto = new MemberDto(
 						rs.getInt(1),rs.getString(2),null,
-						rs.getString(4),rs.getString(5));
+						rs.getString(3),rs.getString(4));
+				dto.setMpoint(rs.getInt(5)); //  생성자에는 point 없기때문에 별도 호출 
 				return dto; // 레코드 1개  --> 멤버 1개 -->
 				
 			}
@@ -97,7 +118,7 @@ public class MemberDao extends Dao {
 		}
 		return null;
 	}
-	//6. 아이디 찾기
+	//아이디 찾기
 	public String findid(String memail) {
 		String sql = "select *from member where memail = ?";
 		try {
@@ -115,7 +136,7 @@ public class MemberDao extends Dao {
 		return "false";
 	}
 	
-	//7. 비밀번호 찾기
+	// 비밀번호 찾기
 	public String findpw(String mid , String memail , String updatePw) {
 		String sql = "select * from member where mid =? and memail = ?";
 		try {
@@ -145,5 +166,56 @@ public class MemberDao extends Dao {
 		}
 		return "false";
 	}
+	//포인트 지급 함수 [지급내용, 지급개수, 대상]
+	public boolean setPoint(String mpcomment , int mpamount ,int mno) {
+		String sql = "insert into mpoint(mpcomment , mpamount,mno) values (?,?,?)";
+		try {
+			ps=con.prepareStatement(sql);
+			ps.setString(1, mpcomment);
+			ps.setInt(2, mpamount);
+			ps.setInt(3, mno);
+			ps.executeUpdate();
+			return true;			
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
+		return false;
+	}
+	//회원탈퇴[인수-mid  반환 - t/f]
+	public boolean Delete(String mid,String mpw) {
+		String sql = "delete from member where mid = ? and mpw =?";
+		try {
+			ps=con.prepareStatement(sql);
+			ps.setString(1, mid);
+			ps.setString(2, mpw);
+			int count = ps.executeUpdate(); // 삭제된 레코드 수 반환
+			if(count == 1 ) {return true;} // 레코드 1개 삭제 성공시 
+			
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
+		return false;
+	}
+	//회원수정[ 인수 - mpw,email ]
+	public boolean update(String npw ,String mid, String mpw , String memail, String newmimg) {
+		String sql = "update member set mpw =? , memail = ? , mimg = ? where mid=? and mpw = ?";
+		try {
+			ps=con.prepareStatement(sql);
+			ps.setString(1, npw);
+			ps.setString(2, memail);
+			ps.setString(3, newmimg);
+			ps.setString(4, mid);
+			ps.setString(5, mpw);
+			int count = ps.executeUpdate();	// 수정된 레코드 수 반환
+			if(count == 1) {return true;}	// 레코드 1개 수정 성공시 
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
+		return false;
+	}
+	
 }
 

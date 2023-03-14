@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 
 	<link href="/jspweb/css/signup.css" rel="stylesheet" >
+	<link href="/jspweb/css/modal1.css" rel="stylesheet" >
 </head>
 <body>
 	<%-- include file = "../header.jsp" --%>
@@ -49,15 +50,22 @@
 		</form>
 	
 	</div>
+	<div class="modal_wrap">
+		<div  class="modal_box">
+			<h3  class="modal_title"> 환영합니다 </h3>
+			<div>
+				 회원가입감사 '100포인트' 지급!
+			</div>
+			<div>
+				<button class="closemodal" type="button" onclick="closemodal()"> 닫기 </button>
+			</div>
+		</div>
+	</div>
 	
 	
-	
-	
-	
-	
-	
-	
+
 	<script src= "/jspweb/js/member/signup.js" type="text/javascript"></script>
+	
 
 </body>
 </html>

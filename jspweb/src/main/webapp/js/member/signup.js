@@ -98,13 +98,13 @@ function pwcheck(){
 	//1. 입력받은 값가져오기
 	let mpw = document.querySelector('.mpw').value;
 		//console.log(mpw)
-	let mpwj = /^(?=.*[A-za-z])(?=.*\d)[A-Za-z\d]{5,20}$/
+	let mpwj = /^(?=.*[a-z])(?=.*\d)[a-z\d]{5,20}$/
 		//console.log(mpwj.test(mpw));
 	//제어
 	if(mpwj.test(mpw)){
 		checkconfirm[1].innerHTML = 'O'; pwconfirmcheck(); //정규표현식 적합하면 비밀번호확인 실행
 	}else{
-		checkconfirm[1].innerHTML ='영대소문자+숫자 조합 5~20 글자'
+		checkconfirm[1].innerHTML ='영소문자+숫자 조합 5~20 글자'
 	}
 }
 
@@ -115,7 +115,7 @@ function pwconfirmcheck(){
 	let mpwconfirm = document.querySelector('.mpwconfirm').value;
 	//console.log(mpwconfirm)
 	//
-	let mpwj = /^(?=.*[A-za-z])(?=.*\d)[A-Za-z\d]{5,20}$/
+	let mpwj = /^(?=.*[a-z])(?=.*\d)[a-z\d]{5,20}$/
 	if(mpwj.test(mpwconfirm)){//정규표현식이 같으면
 		
 		if(mpw != mpwconfirm){//두 비밀번호간의 동일성 체크 (다르면)
@@ -124,7 +124,7 @@ function pwconfirmcheck(){
 			checkconfirm[2].innerHTML ='O'
 		}
 	}else{//정규표현식이 다르면
-		checkconfirm[2].innerHTML ='영대소문자+숫자 조합 5~20 글자'		
+		checkconfirm[2].innerHTML ='영소문자+숫자 조합 5~20 글자'		
 	}
 }
 //5. 이메일 체크
@@ -266,9 +266,9 @@ function signup(){
 		success : (re)=>{
 			console.log('ajax');
 			console.log(re);
-				if(re =='true'){
-				alert('가입성공');
-				location.href="/jspweb/index.jsp";
+				if(re =='true'){			
+				openmodal();
+				//location.href="/jspweb/index.jsp";
 			}else{alert('가입실패')}
 		}	
 	})

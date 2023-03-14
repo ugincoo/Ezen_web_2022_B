@@ -99,7 +99,7 @@ public class Info extends HttpServlet {
 		
 		//1. Dao에게 모든 회원명단 요청 후 저장
 			ArrayList<MemberDto> result = MemberDao.getinstance().mdata();
-		//2. jaja -> 
+		//2. java -> 
 			ObjectMapper mapper = new ObjectMapper();
 			String jsonArray = mapper.writeValueAsString(result);
 			response.setCharacterEncoding("UTF-8");	
@@ -110,14 +110,58 @@ public class Info extends HttpServlet {
 	
 	//3. 회원 정보 수정
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-		
+		String path = request.getSession().getServletContext().getRealPath("/member/pimg");
+		//2. 객체
+		MultipartRequest multi = new MultipartRequest(
+				request, 						//요청방식
+				path,							//첨부파일 가져와서 저장 할 서버 내 폴더
+				1024*1024*10,					//첨부파일 허용 범위 용량[바이트단위] 10MB
+				"UTF-8",						//한글인코딩
+				new DefaultFileRenamePolicy()	//동일한 첨부파일명이 존재하면 식별깨짐 -> 뒤에 숫자 붙여짐 
+				);
+		String mid = (String)request.getSession().getAttribute("login");
+			System.out.println(mid);
+		String mpw 		= multi.getParameter("mpw");
+			System.out.println(mpw);
+		String npw 		= multi.getParameter("npw");
+			System.out.println(npw);
+		String memail 	= multi.getParameter("memail"); //첨부파일된 파일명 호출 [ getFilesystemName ]
+			System.out.println(memail);
+		String newmimg 		= multi.getFilesystemName("newmimg");
+			System.out.println(newmimg);
+		String defaultimg = multi.getParameter("defaultimg");
+		if(newmimg == null) {
+			//기존이미지 사용 
+			newmimg = MemberDao.getinstance().getMember(mid).getMimg();
+		}
+		if(defaultimg.equals("true") ) {
+			newmimg = null;
+		}
+			
+			
+		boolean result = MemberDao.getinstance().update(npw, mid, mpw, memail, newmimg);
+		response.getWriter().print(result);
 	}
 
 	//4.회원탈퇴
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		//1. 로그인된 회원탈퇴
+			//1. 로그인된 회원 아이디 가져오기 [ 세션 ]
+		String mid = (String)request.getSession().getAttribute("login");
+		String mpw = request.getParameter("mpw");
+			System.out.println("mid"+mid);
+			//2.dao 호출
+		boolean result = MemberDao.getinstance().Delete(mid,mpw);
+		response.getWriter().print(result);
 	}
 
 }
+
+/*
+ * //1. 로그인된 회원 수정 String mid =
+ * (String)request.getSession().getAttribute("login"); String mpw =
+ * request.getParameter("mpw"); String npw = request.getParameter("npw"); String
+ * memail = request.getParameter("memail"); System.out.println(mpw+"-"+memail);
+ * boolean result = MemberDao.getinstance().update(mid, mpw,npw, memail);
+ * response.getWriter().print(result);
+ */
