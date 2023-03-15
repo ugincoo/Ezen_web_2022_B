@@ -1,5 +1,14 @@
 console.log('열림');
 
+let temp_cno = 0; // 임시 cno 전역변수
+
+function openmodal3(cno){
+   document.querySelector('.modal_wrap3').style.display='flex';
+   
+   // 값 세팅
+   temp_cno = cno;
+}
+
 function premimg( object ){	//  object : 해당 함수를 실행시킨 태그의 객체
 	console.log( '첨부파일 바뀜'+object );
 	console.log( object.files[0] );	// 현재 이벤트를 실행한 input의 등록한 파일명 호출 
@@ -108,48 +117,71 @@ function getData(){
       }
    })
  }
- 
- //탈퇴
-  function out(cno){
-	let info ={
-		cedate : document.querySelector('.cedate').value,
-		cecontent : document.querySelector('.cecontent').value,
-	}
-	 console.log('setDelete()함수 열림')
-  	 $.ajax({
-      url : "/jspweb/out" , 
-      method : "post" , 
-      data : info ,
+
+//퇴사
+function openmodal2(cno){
+   document.querySelector('.modal_wrap2').style.display='flex';
+   
+   // 값 세팅
+   temp_cno = cno;
+}
+
+ //퇴사
+  function out(){
+
+   let   cedate = document.querySelector('#cedate').value;
+   let   cecontent = document.querySelector('#cecontent').value;
+   let   cno= temp_cno;
+   
+
+   console.log("Company. js cedate"+cedate);
+
+    console.log('setDelete()함수 열림')
+      $.ajax({
+      url : "/jspweb/company" , 
+      method : "delete" , 
+      data : {"cedate":cedate,"cecontent":cecontent, "cno":cno },
       success : (r)=>{   console.log( '통신' ); console.log(r);
          if( r == 'true'){
-			 alert('퇴사 하였습니다.')
-    		location.href="/jspweb/pratice/과제1/Company.jsp"
+          alert('퇴사 하였습니다.')
+          location.href="/jspweb/practice/과제1/Company.jsp"
          }else{ alert('퇴사못해여'); }
       }
    })
  }
 //수정
-function onupdate(cno){
-	console.log('눌림');
-	// form 객체 가져오기
-	let updateForm = document.querySelectorAll('.updateForm')[1]; // 첫번째 form 가져오기
-	//formData
-	let updateFormData = new FormData(updateForm);
-	updateFormData.set("cno",cno);
-	$.ajax({
-		url : "/jspweb/company",
-		method : "put",
-		contentType :false, // 매개변수형식의 문자열 타입 해제
-		processData : false,
-		data : updateFormData,
-		success : (r)=>{
-			console.log(r);
-			if(r == 'true'){
-				alert('정보수정 되었습니다.');
-				location.href="/jspweb/pratice/과제1/Company.jsp"
-			}else{
-				alert('수정 실패');		
-			}	
-		}
-	})
+function onupdate(){
+   console.log('눌림');
+   console.log("Company.js onUpdate cno : " + temp_cno);
+   // form 객체 가져오기
+   // let updateForm = document.querySelectorAll('.updateForm')[0]; // 첫번째 form 가져오기
+   //formData
+   // let updateFormData = new FormData(updateForm);
+   
+   let clevel =  document.querySelector('#clevel').value
+   let cform =  document.querySelector('#cform').value
+   let cclassfy =  document.querySelector('#cclassfy').value
+   let cno = temp_cno;
+   
+    $.ajax({
+      url : "/jspweb/company",
+      method : "put",
+/*      contentType :false, // 매개변수형식의 문자열 타입 해제
+      processData : false,*/
+      data : {"clevel": clevel,
+            "cform":cform,
+            "cclassfy":cclassfy,
+            "cno":cno 
+            },
+      success : (r)=>{
+         console.log(r);
+         if(r == 'true'){
+            alert('정보수정 되었습니다.');
+            location.href="/jspweb/pratice/과제1/Company.jsp";
+         }else{
+            alert('수정 실패');      
+         }   
+      }
+   })
+ 
 } 

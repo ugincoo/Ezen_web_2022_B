@@ -62,6 +62,7 @@ a:visited {/*클릭한 적이 있을때*/
 }
 .mainmenu a:hover{
 	color : black;
+	
 }
 .submenu{
 	width : 30%;

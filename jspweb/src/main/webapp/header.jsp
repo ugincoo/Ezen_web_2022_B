@@ -22,7 +22,7 @@
 				<a  href = "/jspweb/index.jsp"><img src="/jspweb/img/먕.png"></a>
 			</div>		
 			<ul class="mainmenu">
-					<li> <a href="#"> 메뉴 1 </a> </li>
+					<li> <a href="/jspweb/board/list.jsp"> 게시판 </a> </li>
 					<li> <a href="#"> 메뉴 2 </a> </li>
 					<li> <a href="#"> 메뉴 3 </a> </li>
 					<li> <a href="#"> 메뉴 4 </a> </li>

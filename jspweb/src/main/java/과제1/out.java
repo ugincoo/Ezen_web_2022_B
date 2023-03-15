@@ -41,8 +41,8 @@ public class out extends HttpServlet {
 		String cecontent = request.getParameter("cecontent");
 		   	System.out.println(cecontent);
 		      // 2. Dao에게 요청후 결과 받기 
-		   	EDto dto = new EDto(cedate, cecontent, 0);
-		   boolean result = Dao.getInstance().out(dto) ;    
+		   	SDto dto = new SDto(0, null, null, null, null, null, null, cedate, cecontent);
+		   boolean result = Dao.getInstance().out(cedate ,cecontent,0) ;    
 		   System.out.println( "result : " + request );
 		      // 3. 결과 ajax에게 보내기 
 		   response.setCharacterEncoding("UTF-8");

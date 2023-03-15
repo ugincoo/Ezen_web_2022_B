@@ -72,8 +72,12 @@ public class Company extends HttpServlet {
 			System.out.println(cclassfy);
 		String csdate = multi.getParameter("csdate");
 			System.out.println(csdate);
+		String cedate = multi.getParameter("cedate");
+			System.out.println(csdate);
+		String cecontent = multi.getParameter("cecontent");
+			System.out.println(csdate);
 			
-		SDto dto = new SDto(0, cimg, cname, clevel, cform, cclassfy, csdate);
+		SDto dto = new SDto(0, cimg, cname, clevel, cform, cclassfy, csdate, csdate, csdate);
 			System.out.println(dto);
 		boolean result = Dao.getInstance().signup(dto);
 		response.setCharacterEncoding("UTF-8");

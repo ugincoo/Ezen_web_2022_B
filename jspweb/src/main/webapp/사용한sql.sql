@@ -28,9 +28,43 @@ create table mpoint(
     mno 		int,
     foreign key (mno) references member (mno) on delete set null
 );
+
+-- 카테고리 테이블[ 공지사항,커뮤니티,QnA,노하우 ] 
+create table category(
+	cno int auto_increment primary key,
+    cname varchar(50) not null
+);
+
+
+-- 게시물 테이블 [ 번호, 제목,내용,첨부파일1개,작성일,조회수,좋아요수,싫어요수 ,작성자,카테고리 ]
+create table board(
+	bno int auto_increment primary key,
+    btitle varchar(30) not null,
+    bcontent longtext not null,
+    bfile longtext,
+    bdate datetime default now(),
+    bview int default 0,
+    bgood int default 0,
+    bbad int default 0,
+    mno int,
+    cno int,
+    foreign key (mno) references member(mno) on delete set null,
+    foreign key (cno) references category (cno) on delete cascade
+);
+-- on delete cascade : pk가 삭제되면 fk도 같이 삭제 
+-- on delete set null : pk가 삭제되면 fk는 null로 변경 
+-- 생략				 : fk에 존재하는 식별키는 삭제 불가능
+
+-- 카테고리 추가 
+insert into category(cname)values('공지사항');
+insert into category(cname)values('커뮤니티');
+insert into category(cname)values('QnA');
+insert into category(cname)values('노하우');
+select * from category;
+
+-- 관리자 추가
 insert into member (mid,mpw,memail) values ('admin','qwe','admin@naver.com');
-delete from member where mno=3;
-select*from member;
+
 /*
 	테이블 설계 주의점
 		1. 서로 다른 테이블간의 중복필드 x

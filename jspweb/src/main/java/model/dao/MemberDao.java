@@ -216,6 +216,22 @@ public class MemberDao extends Dao {
 		}
 		return false;
 	}
+	// 회원 id- > 회원 mno 반환
+	public int getMno(String mid) {
+		String sql ="select mno from member where mid =?";
+		try {
+			ps=con.prepareStatement(sql);
+			ps.setString(1, mid);
+			rs=ps.executeQuery();
+			if(rs.next())  return rs.getInt(1);
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
+		return 0;
+	}
+	
+	
 	
 }
 

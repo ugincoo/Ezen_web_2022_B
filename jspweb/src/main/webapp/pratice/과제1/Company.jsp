@@ -88,9 +88,9 @@
 			<h3  class="modal_title2"> 퇴사처리 </h3>
 			<div>
 				<div> 퇴사일 </div>
-				<input type="date" class="cedate">
+				<input type="date" class="cedate" id="cedate">
 				<div> 퇴사 사유 </div> 
-				<input type="text" class="cecontent">
+				<input type="text" class="cecontent" id="cecontent">
 			</div>
 			<div>
 				<button class="modalcheck" type="button" onclick="out()"> 퇴사처리 </button>
@@ -110,12 +110,12 @@
 			
 			<div >
 				<div > 사원명 </div>
-				<div class="cname"  name="cname">  </div>
+				<div class="cname"  name="cname" id="cname">  </div>
 			</div>
 			
 			<div>
 				<div> 직급 </div>
-				<select  name="clevel" class="clevel">
+				<select  name="clevel" class="clevel" id="clevel">
 					<option> 사원 </option>
 					<option> 대리 </option>
 					<option> 부장 </option>
@@ -126,7 +126,7 @@
 			
 			<div>
 				<div> 고용형태 </div>
-					<select  name="cform" class="cform">
+					<select  name="cform" class="cform" id="cform">
 						<option> 일용직 </option>
 						<option> 계약직 </option>
 						<option> 정규직 </option>		
@@ -135,7 +135,7 @@
 			</div>
 			<div>
 				<div> 부서 </div>
-					<select  name="cclassfy" class="cclassfy">
+					<select  name="cclassfy" class="cclassfy" id="cclassfy">
 						<option> 인사팀 </option>
 						<option> 개발팀 </option>
 						<option> 영업팀 </option>		
