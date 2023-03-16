@@ -27,7 +27,8 @@ function writebtn(){
 			console.log('통신');
 			console.log(re);
 			if(re=='true'){
-				alert('글 등록 되었습니다.')
+				alert('글 등록 되었습니다.');
+				location.href="/jspweb/board/list.jsp";
 			}else{
 				alert('[관리자문의]글 등록 실패하였습니다.')
 			}

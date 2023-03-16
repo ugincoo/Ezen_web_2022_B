@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.net.URLEncoder;
 
 import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -70,6 +71,7 @@ public class download extends HttpServlet {
 					//1. response 응답 객체에서 출력 스트림 호출하여 파일 출력 스트림객체 만들기 
 					//response.getOutputStream() : HTTP스트림 단위 전송
 		BufferedOutputStream fout = new BufferedOutputStream(response.getOutputStream());
+			//or / ServletOutputStream fout = response.getOutputStream()
 		// FileOutputStream fout = new FileOutputStream(response.getOutputStream());
 					//2. 파일 입력스트림객체에서 읽어온 바이트들[바이트배열]
 					//파일출력스트림객체 write() : 해당 배열내 바이트를 출력하는 함수

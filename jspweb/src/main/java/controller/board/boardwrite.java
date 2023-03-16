@@ -16,6 +16,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import model.dao.BoardDao;
 import model.dao.MemberDao;
 import model.dto.BoardDto;
+import model.dto.PageDto;
 
 /**
  * Servlet implementation class boardwrite
@@ -37,10 +38,51 @@ public class boardwrite extends HttpServlet {
 		int type = Integer.parseInt( request.getParameter("type") );
 		
 		if( type == 1 ) { // 1. 전체 출력 
-			ArrayList<BoardDto> result =BoardDao.getinstance().getBoardList();
+			//----------------------검색----------------
+			//1.카테고리 매개변수 요청 	2.gettotalsize,getBoardLis
+			int cno = Integer.parseInt(request.getParameter("cno"));
+			
+			
+			
+			//----------------------검색----------------
+			//1. 검색에 필요한 매개변수 요청[ key- 필드 keyword ] 2.gettotalsize,getBoardList 조건 전달
+			String key = request.getParameter("key");
+				System.out.println(key);
+			String keyword = request.getParameter("keyword");
+				System.out.println(keyword);
+			
+			//페이징 처리
+			//1. 현재페이지[요청] 2.현재페이지[게시물시작번호,게시물 끝번호 - 몇개씩 출력할건지..]
+			int page = Integer.parseInt(request.getParameter("page"));
+			int listsize = Integer.parseInt(request.getParameter("listsize")); //화면에 표시할 게시물 수 요청 ->js
+			int startrow = (page-1)*listsize; //해당 페이지에서 게시물의 시작 번호
+			//-----------page 버튼 만들기 ------------
+			//1. 전체 페이지수[총게시물(레코드)수 / 페이지당 표시 수 ] 2.페이지에 표시할 최대 버튼수  3.시작버튼 번호
+			
+				//1. 검색이 없을때
+			//int totalsize = BoardDao.getinstance().gettotalsize();
+				//2. 검색이 있을때
+			int totalsize = BoardDao.getinstance().gettotalsize(key,keyword,cno);
+			
+			int totalpage = totalsize % listsize == 0 ? totalsize/listsize : totalsize/listsize+1;
+							//만약에 나머지가 0이면
+			int btnsize = 5; //최대 버튼 출력수
+			int startbtn = ( (page-1)/btnsize ) * btnsize+1;
+
+			int endbtn = startbtn+btnsize-1 ;
+			//* 마지막 버튼수가 총 페이지수보다 커지면 막는다 -> 마지막버튼은 총페이지로
+			if(endbtn > totalpage) endbtn = totalpage;
+			
+			//검색이 없을때
+			//ArrayList<BoardDto> result =BoardDao.getinstance().getBoardList(startrow,listsize);							
+			//검색이 있을때
+			ArrayList<BoardDto> result =BoardDao.getinstance().getBoardList(startrow,listsize,key,keyword,cno);	
+			//pagsDto 만들기
+			PageDto pagedto = new PageDto(page, listsize, startrow, totalsize, totalpage, btnsize, startbtn, endbtn, result);
+					
 			// java 형식 ---> js형식 
 			ObjectMapper mapper = new ObjectMapper();
-			String jsonArray =  mapper.writeValueAsString( result );
+			String jsonArray =  mapper.writeValueAsString( pagedto ); //pageDto 사용 전 - result 
 			// 응답
 			response.setCharacterEncoding("UTF-8");
 			response.setContentType("applcation/json");
@@ -108,3 +150,34 @@ public class boardwrite extends HttpServlet {
 	}
 
 }
+
+/*
+	1페이지 : 1-1 / *5 +1	-> 0*5+1 ->1
+	2페이지 : 2-1 / *5 +1	-> 0*5+1 ->1
+	3페이지 : 3-1 / *5 +1	-> 0*5+1 ->1
+	4페이지 : 4-1 / *5 +1	-> 0*5+1 ->1
+	5페이지 : 5-1 / *5 +1	-> 0*5+1 ->1
+	6페이지 : 6-1 / *5 +1	-> 1*5+1 ->6
+*/
+
+/*
+	ex) 
+	총 게시물 = 10 , 페이지당 게시물 수 = 3
+	1. 총 페이지수 - 123, 456, 789, 10 총 4개
+		총 레코드수/페이지당 표시 게시물 수
+			1. 나머지가 없으면 =>몫		9/3->3페이지
+			2. 나머지가 있으면 =>몫+1		10/3->4페이지
+	2. 페이지별 게시물 시작 pk번호 
+		--> 1페이지 요청시 : (1-1)*3 = 0,  2페이지 요청시 : (2-1)*3 = 3
+						-> 레코드 시작번호 : 0
+	3. 시작버툰,마지막버튼 수 
+	7페이지	btnsize = 5
+			시작번호 - 1 6 11 16
+	1페이지 -> 12345
+	2페이지 -> 12345
+	3페이지 -> 12345
+	4페이지 -> 12345
+	5페이지 -> 12345
+	6페이지 -> 67
+	7페이지 -> 67
+*/

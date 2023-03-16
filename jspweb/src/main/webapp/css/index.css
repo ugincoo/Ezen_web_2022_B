@@ -17,12 +17,16 @@
 *{ margin: 0; padding: 0;}
 a{ text-decoration: none; color: black; }
 li{list-style-type: none;}
-.header{ 
-	width: 1200px; 
+.header{  
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	margin: 20px 0p}
+h3{
+	font-family: 'ONE-Mobile-POP';
+ 	color : #B5B5B5; text-align: center;
+ 	margin-bottom: 10px;
+  }	
 /*----------------------------------------------*/
 a:visited {/*클릭한 적이 있을때*/
 		color: black;
@@ -83,15 +87,31 @@ a:visited {/*클릭한 적이 있을때*/
 .logout{
 	font-size: 12px;
 }
-/*-----------본문-------------*/
-.content{ 
-	width :1200px;
-	height: 700px;
-	border : solid 1px black;}
-
-/*-----------푸터-------------*/
-
-.footer{
-	width :1200px;
-	height: 100px;
-	border : solid 1px red;}
+.btnbox{
+	display: flex; justify-content: flex-end;
+	margin-bottom: 10px;
+}
+.writebtn{
+	background-color: transparent;
+	color: #8280D8;
+	border: none;
+	font-size: 15px;
+}
+.boardtable{
+	text-align: center;
+}
+.searchbox, .pagebox{
+	display: flex;  justify-content: center;
+	text-align: center;
+}
+.searchbox select,input{
+	border: solid 1px #e8e8e8;
+}
+.keyword{
+	margin: 0px 10px;
+}
+.pagebox button, .searchbox button{
+	background-color: transparent;
+	border: none;
+	padding: 10px 10px;
+}

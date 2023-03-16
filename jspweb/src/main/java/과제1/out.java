@@ -34,19 +34,20 @@ public class out extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		
-		String cedate = request.getParameter("cedate");
-			System.out.println(cedate);
-		String cecontent = request.getParameter("cecontent");
-		   	System.out.println(cecontent);
-		      // 2. Dao에게 요청후 결과 받기 
-		   	SDto dto = new SDto(0, null, null, null, null, null, null, cedate, cecontent);
-		   boolean result = Dao.getInstance().out(cedate ,cecontent,0) ;    
-		   System.out.println( "result : " + request );
-		      // 3. 결과 ajax에게 보내기 
-		   response.setCharacterEncoding("UTF-8");
-		   response.getWriter().print(result);
-	}
+        System.out.println("Company.java:::열림");
+        request.setCharacterEncoding("UTF-8");   
+       
+        
+        String cedate=request.getParameter("cedate");
+        System.out.println("Company.java doDelete cedate :::"+cedate);
 
+        String cecontent=request.getParameter("cecontent");
+        System.out.println("Company.java doDelete cecontent :::"+cecontent);
+        
+        int cno = Integer.parseInt(request.getParameter("cno"));
+        System.out.println("Company.java doDelete cno:::"+cno);
+        
+        boolean result = Dao.getInstance().out(cedate,cecontent,cno);
+        response.getWriter().print(result);
+	}
 }

@@ -51,6 +51,7 @@ function getbtn(){
 			if(r == 'true'){
 				alert('사원이 등록 되었습니다.');
 				getData();
+				
 			}
 			else{alert('사원 등록 실패하였습니다.');
 			}
@@ -92,7 +93,6 @@ function getData(){
 					<td> ${o.cecontent} </td>
 					<td> 
 						<button type="button" onclick="openmodal3(${o.cno})" > 수정 </button>
-						<button type="button" onclick="openmodal(${o.cno})" > 삭제 </button>
 						<button type="button" onclick="openmodal2(${o.cno})"> 퇴사 </button>
 					 </td>
 			</tr>		
@@ -102,7 +102,7 @@ function getData(){
 		}		
 	});
 }
- function setDelete(){
+/* function setDelete(){
 
 	 console.log('setDelete()함수 열림')
   	 $.ajax({
@@ -117,14 +117,14 @@ function getData(){
       }
    })
  }
-
-//퇴사
+*/
+/*//퇴사
 function openmodal2(cno){
    document.querySelector('.modal_wrap2').style.display='flex';
    
    // 값 세팅
    temp_cno = cno;
-}
+}*/
 
  //퇴사
   function out(){
@@ -138,13 +138,13 @@ function openmodal2(cno){
 
     console.log('setDelete()함수 열림')
       $.ajax({
-      url : "/jspweb/company" , 
-      method : "delete" , 
+      url : "/jspweb/out" , 
+      method : "post" , 
       data : {"cedate":cedate,"cecontent":cecontent, "cno":cno },
       success : (r)=>{   console.log( '통신' ); console.log(r);
          if( r == 'true'){
           alert('퇴사 하였습니다.')
-          location.href="/jspweb/practice/과제1/Company.jsp"
+          location.href="/jspweb/pratice/과제1/Company.jsp"
          }else{ alert('퇴사못해여'); }
       }
    })

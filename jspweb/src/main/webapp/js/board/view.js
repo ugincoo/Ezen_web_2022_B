@@ -12,7 +12,10 @@ function getBoard(){
 		success : (re)=>{
 			console.log('통신');
 			console.log(re);
-			let html=`${re.bdate} / ${re.bview} / ${re.bgood} / ${re.bbad} /`
+			let html=`${re.bdate} /
+				 	${re.bview} / 
+					<button onclick="bIncrease(2)" type="button">${re.bgood}</button> / 
+			 		<button onclick="bIncrease(3)" type="button">${re.bbad}</button> /`
 			
 			document.querySelector('.btitle').innerHTML =re.btitle;
 			document.querySelector('.infobox').innerHTML = html;
@@ -46,7 +49,23 @@ function bdownload(bfile){
 	
 	location.href="/jspweb/download?bfile="+bfile
 }
-
+//3. 조회수1/좋아요2/싫어요3 증가
+bIncrease(1); //혅
+function bIncrease(type){
+	//현재 게시물의 번호 
+	let bno = document.querySelector('.bno').innerHTML;
+	console.log(bno);
+	$.ajax({
+		url : "/jspweb/board/view",
+		method : "get",
+		data : {"type":type,"bno":bno},
+		success : (r)=>{
+			console.log('통신');
+			console.log(r);
+			getBoard();
+		}	
+	})
+}
 /*	onclick = JS코드 작성 구역
 		//1. 첨부파일.jpg : ./확장자가 아닌 연산자 취급
 	<button onclick="bdownload(${re.bfile})" type="button">

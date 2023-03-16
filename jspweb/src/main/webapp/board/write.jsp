@@ -9,7 +9,7 @@
 <body>
 	<%@ include file="/header.jsp" %>
 	
-	 로그인 여부 -script
+	<!--  로그인 여부 -script -->
 		 <script type="text/javascript">
 			if(memberInfo.mid ==  null){
 				alert('[회원게시물] 로그인 하고 이용해주세요');

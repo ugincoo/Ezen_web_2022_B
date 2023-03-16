@@ -20,7 +20,7 @@
 	border-radius: 20%;
 	align-items: center;
 }
-.modal_wrap, .modal_wrap2,.modal_wrap3 button{
+.modal_wrap, .modal_wrap2, .modal_wrap3 button{
 	background-color: white;
 	border : solid 1px #BAC3FF;
 	border-radius : 10px;

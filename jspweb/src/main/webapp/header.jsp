@@ -22,11 +22,13 @@
 				<a  href = "/jspweb/index.jsp"><img src="/jspweb/img/먕.png"></a>
 			</div>		
 			<ul class="mainmenu">
-					<li> <a href="/jspweb/board/list.jsp"> 게시판 </a> </li>
-					<li> <a href="#"> 메뉴 2 </a> </li>
-					<li> <a href="#"> 메뉴 3 </a> </li>
-					<li> <a href="#"> 메뉴 4 </a> </li>
+					<li> <a href="/jspweb/board/list.jsp?cno=1"> 공지사항 </a> </li>
+					<li> <a href="/jspweb/board/list.jsp?cno=2"> 커뮤니티 </a> </li>
+					<li> <a href="/jspweb/board/list.jsp?cno=3"> QnA </a> </li>
+					<li> <a href="/jspweb/board/list.jsp?cno=4"> 노하우 </a> </li>
 					<li> <a href="#"> 메뉴 5 </a> </li>
+					<li> <a href="#"> 메뉴 6 </a> </li>
+					<li> <a href="#"> 메뉴 7 </a> </li>
 			</ul>
 
 			<div class="submenu"><!-- 서브메뉴 -->

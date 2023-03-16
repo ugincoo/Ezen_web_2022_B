@@ -73,7 +73,7 @@
          <div class="modal_content">
             사원삭제하시겠습니까?
             <br>
-            사원이름: <input type="text" class="cname">
+            사원이름: <input type="text" class="cname" id="cname">
          </div>
          <div class="modal_btns">
             <button onclick="setDelete()" class="modalcheck" type="button">삭제하기</button>
@@ -99,7 +99,7 @@
 		</div>
 	</div>
 	
-<!--  퇴사 모달  -->
+<!-- 수정 모달  -->
 	<div class="modal_wrap3">
 		<div  class="modal_box3">
 			<h3  class="modal_title3"> 정보수정 </h3>
