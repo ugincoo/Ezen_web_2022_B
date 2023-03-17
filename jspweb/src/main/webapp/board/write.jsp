@@ -35,8 +35,7 @@
 			<div>내용</div>
 			<textarea rows="" cols="" name="bcontent"></textarea>
 			<div>카테고리</div>
-			<select name="cno">
-				<option > 카테고리 </option>	
+			<select name="cno" class="cno">
 				<option value="1"> 공지사항 </option>	
 				<option value="2"> 커뮤니티 </option>	
 				<option value="3"> QnA </option>	

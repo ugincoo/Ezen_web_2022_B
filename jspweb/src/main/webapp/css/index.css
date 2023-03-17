@@ -18,8 +18,8 @@
 a{ text-decoration: none; color: black; }
 li{list-style-type: none;}
 .header{  
-	display: flex;
-	align-items: center;
+	width : 1200px; height : 200px;
+	display: flex;	align-items: center;
 	justify-content: space-between;
 	margin: 20px 0p}
 h3{
@@ -91,11 +91,12 @@ a:visited {/*클릭한 적이 있을때*/
 	display: flex; justify-content: flex-end;
 	margin-bottom: 10px;
 }
-.writebtn{
+.writebtn, #allsearch{
 	background-color: transparent;
 	color: #8280D8;
 	border: none;
 	font-size: 15px;
+	margin-right: 20px;
 }
 .boardtable{
 	text-align: center;
@@ -114,4 +115,11 @@ a:visited {/*클릭한 적이 있을때*/
 	background-color: transparent;
 	border: none;
 	padding: 10px 10px;
+}
+.searchcount{
+	display: flex; justify-content: flex-end;
+}
+/*-----------본문----------*/
+.content{  
+	width : 1200px; height: 700px;
 }

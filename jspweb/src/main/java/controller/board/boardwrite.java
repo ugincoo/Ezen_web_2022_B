@@ -1,5 +1,6 @@
 package controller.board;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -139,14 +140,72 @@ public class boardwrite extends HttpServlet {
 	 * @see HttpServlet#doPut(HttpServletRequest, HttpServletResponse)
 	 */
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		String path = request.getSession().getServletContext().getRealPath("/board/bfile");
+		System.out.println( "path : "+ path );
+		// 3. 파일 복사 [ 입력받은[file] 대용량 바이트 복사하기 ]
+		MultipartRequest multi = new MultipartRequest(
+				request ,  path ,  1024*1024*10 , "UTF-8" ,
+				new DefaultFileRenamePolicy() );
+		System.out.println( "multi : " + multi );
+
+		//수정된 정보 호출
+		int bno = Integer.parseInt( multi.getParameter("bno") );
+		int cno = Integer.parseInt( multi.getParameter("cno") );
+		String btitle = multi.getParameter("btitle");
+		String bcontent = multi.getParameter("bcontent");
+		String bfile = multi.getFilesystemName("bfile");
+		/*첨부파일의 수정 경우의 수 
+			//1. 기존에 첨부파일이 없었다 --> 새로운 첨부파일이 있다.
+								   --> 새로운 첨부파일이 없다.
+			//2. 기존에 첨부파일이 있었다 -->	새로운 첨부파일이 있다
+			 					   --> 새로운 첨부파일이 없다	
+		*/
+		//1. 수정된 기존 첨부파일명 가져오기
+		String oldfile = BoardDao.getinstance().getBoard(bno).getBfile();
+		if(bfile == null) {	//새로운 첨부파일이 없다 
+			bfile = oldfile;	//기존 첨부파일명 대입
+		}else { // 새로운 첨부파일이 있다
+			//삭제할 첨부파일 경로 찾기 
+			String filepath = request.getSession().getServletContext().getRealPath("/board/bfile/"+oldfile);
+			//파일 삭제 처리
+			File file = new File(filepath);
+			if(file.exists()) file.delete();
+		}
+		
+		BoardDto dto = new BoardDto(bno, cno, btitle, bcontent, bfile);
+			System.out.println("dto : " + dto);
+		//dao	
+		boolean result = BoardDao.getinstance().bupdate(dto);
+		//응답
+		response.getWriter().print(result);
+	
+		
 	}
 
-	/**
-	 * @see HttpServlet#doDelete(HttpServletRequest, HttpServletResponse)
-	 */
+
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		int bno = Integer.parseInt(request.getParameter("bno"));
+		int type = Integer.parseInt(request.getParameter("type"));
+		boolean result = true;
+		//[공통] 삭제 전 첨부파일 명 구하기 
+		String bfile = BoardDao.getinstance().getBoard(bno).getBfile();
+		
+		if(type==1) {//db삭제
+			 result =  BoardDao.getinstance().bdelete(bno);
+		}else if(type==2) {//db업데이트+파일삭제
+			result = BoardDao.getinstance().filedelete(bno);
+		}
+		
+		
+		if(result) {// [공통] 파일삭제
+			String path = request.getSession().getServletContext().getRealPath("/board/bfile/"+bfile);
+			File file = new File(path);
+			if(file.exists() ) {//만약에 파일이 존재하면
+				file.delete(); //파일삭제
+			}
+			
+		}		
+		response.getWriter().print(result);
 	}
 
 }

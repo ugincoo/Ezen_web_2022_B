@@ -61,7 +61,16 @@ public class BoardDto {
 		this.cno = cno;
 	}
 	
-	// 출력용
+	//업데이트용
+		public BoardDto(int bno, int cno , String btitle, String bcontent, String bfile) {
+		super();
+		this.bno = bno;
+		this.cno = cno;
+		this.btitle = btitle;
+		this.bcontent = bcontent;
+		this.bfile = bfile;
+		
+	}
 	
 	@Override
 	public String toString() {
@@ -70,6 +79,9 @@ public class BoardDto {
 				+ ", cno=" + cno + "]";
 	}
 	
+
+
+
 	public int getBno() {
 		return bno;
 	}

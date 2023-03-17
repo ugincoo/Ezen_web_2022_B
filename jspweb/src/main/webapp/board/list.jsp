@@ -31,9 +31,12 @@
 		<table  class="boardtable table table-hover">
 
 		</table>
+		
 		<div class="btnbox">
+		
+		<button id="allsearch" type="button" onclick="allsearch()"> 전체보기 </button>
 		<a href="write.jsp" ><button class="writebtn" type="button">글쓰기</button></a>
-		<button type="button" onclick="allsearch()"> 전체보기 </button>
+		
 		</div>
 		<!-- 페이징 처리 버튼들 -->
 		<div class="pagebox">

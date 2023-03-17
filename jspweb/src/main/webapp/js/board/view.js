@@ -28,7 +28,15 @@ function getBoard(){
 				html = `${re.bfile} <button onclick="bdownload('${re.bfile}')" type="button">다운로드</button>`
 				document.querySelector('.bfile').innerHTML = html;
 			}
-
+			//---------------------------------------------------------------
+			//로그인된 회원과 작성자가 일치하면 버튼 보이기
+			if(memberInfo.mid == re.mid){
+				html = `
+				 <button onclick="bupdate(${bno})" type="button"> 수정 </button>
+				 <button onclick="bdelete(${bno},${re.cno})"  type="button"> 삭제 </button>
+				`
+				document.querySelector('#btnbox').innerHTML =html;
+			}
 		}
 	})
 }
@@ -66,6 +74,32 @@ function bIncrease(type){
 		}	
 	})
 }
+
+//삭제버튼
+function bdelete(bno, cno){
+	$.ajax({
+		url : "/jspweb/boardwrite",
+		method : "delete",
+		data :{ "bno":bno, "type":1},	//1게시물 삭제 ,2. 첨부파일삭제
+		success :(re)=>{
+			console.log(re);
+			if(re == 'true'){
+				alert('삭제성공');
+				location.href="/jspweb/board/list.jsp?cno="+cno;
+			}
+		}
+	})
+}
+//수정페이지로 이동
+function bupdate(bno){
+	location.href="/jspweb/board/bupdate.jsp?bno="+bno;
+}
+
+
+
+
+
+
 /*	onclick = JS코드 작성 구역
 		//1. 첨부파일.jpg : ./확장자가 아닌 연산자 취급
 	<button onclick="bdownload(${re.bfile})" type="button">

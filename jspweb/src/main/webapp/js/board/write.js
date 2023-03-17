@@ -28,7 +28,8 @@ function writebtn(){
 			console.log(re);
 			if(re=='true'){
 				alert('글 등록 되었습니다.');
-				location.href="/jspweb/board/list.jsp";
+				// 선택한 카테고리 페이지로 이동 
+				location.href="/jspweb/board/list.jsp?cno="+document.querySelector('.cno').value;
 			}else{
 				alert('[관리자문의]글 등록 실패하였습니다.')
 			}

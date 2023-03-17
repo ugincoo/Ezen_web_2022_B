@@ -97,6 +97,7 @@ public class BoardDao extends Dao {
 		}return null;
 		
 	}
+	//조회수/좋아요/싫어요 증가
 	public boolean bIncrease(int type,int bno) {
 		String sql ="";
 		if(type == 1) {sql="update board set bview = bview+1 where bno = "+bno;}
@@ -112,5 +113,48 @@ public class BoardDao extends Dao {
 		}
 		return false;
 	}
+	 public boolean bdelete(int bno) {
+		 String sql = "delete from board where bno="+bno;
+		 try {
+			ps=con.prepareStatement(sql);
+			int count = ps.executeUpdate();
+			if(count == 1)return true;
+		 }
+		 catch (Exception e) {
+			System.out.println(e);
+		}
+		 return false;
+	 }
+	// 게시물 수정
+	 public boolean bupdate(BoardDto dto) {
+		 String sql = "update board set btitle=?, bcontent =? ,bfile =?,cno=? where bno=?";
+		 try {
+			 ps=con.prepareStatement(sql);
+			 ps.setString(1, dto.getBtitle());
+			 ps.setString(2, dto.getBcontent());
+			 ps.setString(3, dto.getBfile());
+			 ps.setInt(4, dto.getCno());
+			 ps.setInt(5, dto.getBno());
+			 int count = ps.executeUpdate();
+			 if(count==1)return true;
+		 }
+		 catch (Exception e) {
+			System.out.println(e);
+		}
+		 return false;
+	 }
+	//파일만 삭제 수정
+	 public boolean filedelete(int bno) {
+		 String sql = "update board set bfile=null where bno="+bno;
+		 try {
+			 ps=con.prepareStatement(sql);
+			 int count = ps.executeUpdate();
+			 if(count ==1)return true;
+		 }
+		 catch (Exception e) {
+			System.out.println(e);
+		}
+		 return false;
+	 }
 	
-}
+}//class e
