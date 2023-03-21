@@ -32,43 +32,40 @@ function getBoardList(page){
 			console.log('통신');
 			console.log(re);
 			//--------------------테이블출력----------------------------------
-			let html = 
-			`<tr>
-				<th width="5%"> 번호 </th>
-				<th width="10%"> 작성자 </th>	
-				<th width="10%">제목</th>
-				<th width="25%"> 날짜 </th>
-				<th width="10%"> 조회수 </th>
-				<th width="10%"> 좋아요 </th>
-				<th width="10%"> 싫어요 </th>		
-			</tr>`
+			let html = 	``;
 			re.boardList.forEach( (o,i )=>{
 				html+= 
-				`<tr>
-					<td> ${o.bno} </td>
-					<td> ${o.mid} </td>	
-					<td><a href="/jspweb/board/view.jsp?bno=${o.bno}"> ${o.btitle}</a> </td>
-					<td> ${o.bdate} </td>
-					<td> ${o.bview} </td>
-					<td> ${o.bgood} </td>
-					<td> ${o.bbad} </td>
-				</tr>`			
+				`<div  class="bcontentbox">
+					<div>
+						<img class="hpimg" alt="" src="/jspweb/member/pimg/${o.mimg == null? 기본.jpg : o.mimg }">
+						<span class="mid">${o.mid}</span>
+						<span class="bdate">${o.bdate} </span>		
+					</div>
+					<div class="btitle"> <a href ="/jspweb/board/view.jsp?bno=${o.bno}">${o.btitle} </a></div>
+					<div class="vcontent">
+						<span ><i class="far fa-eye"></i> <span class="bview"> ${o.bview} </span>  </span>
+						<span ><i class="far fa-thumbs-up"></i>  <span class="bgood"> ${o.bgood} </span>  </span>
+						<span><i class="far fa-thumbs-down"></i> <span class="bbad"> ${o.bbad} </span>  </span>
+						<span ><i class="far fa-comment-dots"></i><span class="rrcount"> ${o.rcount} </span> </span>
+					</div>
+				</div>
+			</div>	`			
 			})
 			document.querySelector('.boardtable').innerHTML = html;
 			//--------------------페이징출력----------------------------------
 			html='';	// 기존에 들어있던 내용 제거
 			//이전 [만약에 현재 페이지가 1이하이면 이전페이지 없음]
 			html+= page <=1? `` :
-			`<button onclick="getBoardList(${page-1})" type="button"> 이전 </button>	`
+			`<button onclick="getBoardList(${page-1})" type="button" class="bbtn" > < </button>	`
 			//페이징 번호 버튼
 			for(let i = re.startbtn ; i <= re.endbtn ; i++){//시작버튼 번호부터 마지막버튼번호까지 버튼 생성
 			html +=
-			`<button onclick="getBoardList(${i})" type="button"> ${i} </button>	`
+			`<button onclick="getBoardList(${i})" type="button" class="pagebtn"> ${i} </button>	`
 			}
 			//다음페이지
 			html+= page >= re.totalpage ?
 			``	:
-			`<button onclick="getBoardList(${page+1})" type="button"> 다음 </button>	`
+			`<button onclick="getBoardList(${page+1})" type="button" class="bbtn"> > </button>	`
 			document.querySelector('.pagebox').innerHTML = html;
 			//--------------------게시물 수 출력----------------------------------
 			document.querySelector('.searchcount').innerHTML=`게시물 수 : ${re.totalsize}`;

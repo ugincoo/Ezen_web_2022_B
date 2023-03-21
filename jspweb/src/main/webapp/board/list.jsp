@@ -5,6 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+	<link href="/jspweb/css/board.css" rel="stylesheet" >
+	<!-- 폰트어썸 -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
 </head>
 <body>
 	<%@ include file="/header.jsp" %>
@@ -17,46 +20,57 @@
 	<input type="hidden" class="cno" value="<%=cno %>">
 	
 	<div class="container">
-		<h3 class="cname"></h3>
-
-		<div class="searchcount"> 	</div>
-		
-		<select onchange="setlistsize()" class="listsize">
-			<option>3</option>
-			<option>5</option>
-			<option>10</option>
-		</select>
-				
 	
-		<table  class="boardtable table table-hover">
-
-		</table>
-		
-		<div class="btnbox">
-		
-		<button id="allsearch" type="button" onclick="allsearch()"> 전체보기 </button>
-		<a href="write.jsp" ><button class="writebtn" type="button">글쓰기</button></a>
-		
-		</div>
-		<!-- 페이징 처리 버튼들 -->
-		<div class="pagebox">
-		
-
-		</div>
-
-		<br/>
-		<div class="searchbox">
-			<select class="key">
-				<option value="b.btitle"> 제목 </option>
-				<option value="b.bcontent"> 내용	 </option>
-				<option value="m.mid"> 작성자 </option>
-			</select>
-			<input class="keyword" type="text">
-			<button onclick="getsearch()" type="button"> 검색 </button>
+		<div class="boardbox">
+			<div class="boardtop">
+				<h3 class="cname"></h3>	
+				<p>다양한 사람들과 정보를 공유 해보세요.</p>
+			</div>
+			<div class="topmenu">
+				<a href="write.jsp" >
+					<button class="bbtn" type="button"><i class="fas fa-pencil-alt"></i>글쓰기</button>
+				</a>
+				
+				<div>
+					<span class="searchcount"> 	</span>
+					<button class="bbtn" type="button" onclick="allsearch()"> 전체보기 </button>
+					<select onchange="setlistsize()" class="listsize bbtn">
+						<option>3</option>
+						<option>5</option>
+						<option>10</option>
+					</select>
+				</div>
+			</div>	
+			
+			<div class="boardtable">
+				
+			</div>	
+			<div class="bbottombox">
+			<!-- 페이징처리 버튼  -->	
+				<div class="pagebox">	</div>
+				<!-- 검색 버튼 -->
+				<div class="searchbox">
+					<select class="key bbtn">
+						<option value="b.btitle"> 제목 </option>
+						<option value="b.bcontent"> 내용	 </option>
+						<option value="m.mid"> 작성자 </option>
+					</select>
+					<input class="keyword" type="text">
+					<button class="bbtn" onclick="getsearch()" type="button"> 검색 </button>
+				</div>
+			</div>	
 		</div>
 	</div>
 	
 	
+
+		
+
+
+		<!-- 페이징 처리 버튼들 -->
+	
+	
+
 	<script src="/jspweb/js/board/list.js" type="text/javascript"></script>
 </body>
 </html>

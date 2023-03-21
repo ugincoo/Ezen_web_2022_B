@@ -37,7 +37,7 @@ function setUpdate(){
 				alert('다시 로그인 해주세요.');
 				location.href="/jspweb/member/logout.jsp"
 			}else{
-				alert('비밀번호가 다릅니다.')
+				alert('수정실패');
 			}
 		}
 		

@@ -1,8 +1,16 @@
-console.log('열림');
+console.log(memberInfo);
+if(memberInfo.mid == null){
+	document.querySelector('.rcontent').disabled = true;
+	document.querySelector('.rcontent').value = '로그인 후 이용 가능';
+	document.querySelector('.rwrite').disabled = true;
+}
+//헤당 보고있는 게시물 번호
+let bno = document.querySelector('.bno').value
+
+//해당 게시물 호출
 getBoard();
 function getBoard(){
-	
-	let bno = document.querySelector('.bno').innerHTML
+
 	console.log(bno);
 	
 	$.ajax({
@@ -12,20 +20,23 @@ function getBoard(){
 		success : (re)=>{
 			console.log('통신');
 			console.log(re);
-			let html=`${re.bdate} /
-				 	${re.bview} / 
-					<button onclick="bIncrease(2)" type="button">${re.bgood}</button> / 
-			 		<button onclick="bIncrease(3)" type="button">${re.bbad}</button> /`
+			let html=``;
 			
+			document.querySelector('.mimg').src=`/jspweb/member/pimg/${re.mimg == null ? '기본/jpg' : re.mimg}`
+			document.querySelector('.mid').innerHTML = re.mid;
+			document.querySelector('.bdate').innerHTML = re.bdate;
+			document.querySelector('.bview').innerHTML = re.bview;
+			document.querySelector('.bgood').innerHTML = re.bgood;
+			document.querySelector('.bbad').innerHTML = re.bbad;			
 			document.querySelector('.btitle').innerHTML =re.btitle;
-			document.querySelector('.infobox').innerHTML = html;
-			document.querySelector('.pimgbox').innerHTML =re.mid;
 			document.querySelector('.bcontent').innerHTML =re.bcontent;
 			
 			if(re.bfile== null){//첨부파일 없을때
-				document.querySelector('.bfile').innerHTML = '';
+				
 			}else {//첨부파일 있을때
-				html = `${re.bfile} <button onclick="bdownload('${re.bfile}')" type="button">다운로드</button>`
+				html = `<a href="/jspweb/download?bfile=${re.bfile}">
+					<i class="fas fa-download"></i>${re.bfile}
+				</a>`
 				document.querySelector('.bfile').innerHTML = html;
 			}
 			//---------------------------------------------------------------
@@ -33,10 +44,11 @@ function getBoard(){
 			if(memberInfo.mid == re.mid){
 				html = `
 				 <button onclick="bupdate(${bno})" type="button"> 수정 </button>
-				 <button onclick="bdelete(${bno},${re.cno})"  type="button"> 삭제 </button>
-				`
-				document.querySelector('#btnbox').innerHTML =html;
+				 <button onclick="bdelete(${bno},${re.cno})" type="button"> 삭제 </button>
+				`;
+				document.querySelector('.btnbox').innerHTML =html;
 			}
+			getReplyList();
 		}
 	})
 }
@@ -61,7 +73,6 @@ function bdownload(bfile){
 bIncrease(1); //혅
 function bIncrease(type){
 	//현재 게시물의 번호 
-	let bno = document.querySelector('.bno').innerHTML;
 	console.log(bno);
 	$.ajax({
 		url : "/jspweb/board/view",
@@ -94,8 +105,102 @@ function bdelete(bno, cno){
 function bupdate(bno){
 	location.href="/jspweb/board/bupdate.jsp?bno="+bno;
 }
-
-
+//댓글 쓰기
+function rwrite(){
+	//console.log('눌림');
+	$.ajax({
+		url : "/jspweb/board/reply",
+		method : "post",
+		data : {"type":1, // type 1 상위댓글 2하위댓글
+				"bno":bno , 
+				"rcontent":document.querySelector('.rcontent').value},
+		success : (re)=>{
+			//console.log('통신'); console.log(re);
+			if(re == 'true'){
+				alert('댓글작성 완료');
+				document.querySelector('.rcontent').value='';
+				//특정 div만 새로고침
+				//$('.replytable').load(location.href=' .replytable');
+				//현재페이지 새로고침
+				location.reload();
+			}else {
+				alert('댓글작성 실패');
+			}
+		}
+	});
+}
+//댓글출력
+function getReplyList(){
+	$.ajax({
+		url : "/jspweb/board/reply",
+		method : "get",
+		data : {"type":1,"bno":bno},
+		success:(re)=>{
+			console.log(re);
+			let html = '';
+			
+			re.forEach( (o,i)=>{
+				html += `<div>
+				<span>${o.mid}</span>
+				<span>${o.mimg}</span> 
+				<span>${o.rcontent}</span> 
+				<span>${o.rdate}</span>
+				<button onclick="rereplyview(${o.rno})" type="button"> 대댓글 보기</button>
+				<div class="rereplbox${o.rno}">	</div>
+				</div>`
+					
+				
+			})
+			document.querySelector('.replybox').innerHTML = html;
+		}
+	})
+}
+//대댓글 작성창
+function rereplyview(rno){
+	$.ajax({
+		url : "/jspweb/board/reply",
+		async : 'false',
+		method : "get",
+		data : {"type":2,"rindex":rno,"bno":bno},
+		success : (r)=>{
+			let html = '';
+			r.forEach ( (o,i) =>{
+				html += `-----------------
+				<div>
+					<span>${o.mid}</span>
+					<span>${o.mimg}</span> 
+					<span>${o.rcontent}</span> 
+					<span>${o.rdate}</span>
+				</div>`
+			})
+		html +=
+		 	`
+		<textarea class="rrcontent${rno}"> </textarea>
+		<button onclick="rrwrite(${rno})" type="button"> 대댓글작성 </bitton>
+		`
+	document.querySelector('.rereplbox'+rno).innerHTML=html;	
+			}
+		})
+	
+	//console.log('대댓글열림');
+	
+	
+}
+//대댓글 쓰기
+function rrwrite(rno){
+	//bno,rno,rcontetn,rindex(상위댓글번호)
+	$.ajax({
+		url : "/jspweb/board/reply",
+		method : "post",
+		data: {"type":2 , "bno":bno ,"rindex":rno,"rcontent":document.querySelector('.rrcontent'+rno).value},
+		success : (re)=>{
+			console.log(re);
+			if(re == 'true'){
+			location.reload();
+			}
+		}
+	})
+}
 
 
 

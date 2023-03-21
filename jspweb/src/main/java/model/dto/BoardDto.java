@@ -1,5 +1,8 @@
 package model.dto;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class BoardDto {
 	private int bno ;
 	private String btitle;
@@ -13,6 +16,8 @@ public class BoardDto {
 	private int cno;
 	//추가 필드 --> 작성자 id
 	private String mid ;
+	private String mimg; // 프로필
+	private int rcount; // 댓글개수
 	
 	public BoardDto() {}
 	
@@ -41,7 +46,21 @@ public class BoardDto {
 		this.btitle = btitle;
 		this.bcontent = bcontent;
 		this.bfile = bfile;
-		this.bdate = bdate;
+		// 오늘 날짜와 작성일이 동일하면 시간 표시/ 아니면 날짜 표기
+			//1. 오늘날짜
+		Date date =new Date();
+		System.out.println(date);
+			//2. DB에서 사용하고 있는 날짜형식과동일하게 형 변환
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		String now = sdf.format(date);
+		System.out.println(now);
+			//2. 만약에 오늘날짜와 작성일이 동일하면
+		if(now.split(" ")[0].equals(bdate.split(" ")[0] ) ) { // 띄어쓰기 기준으로 0 날짜 / 1 시간
+			this.bdate = bdate.split(" ")[1];
+		}else {
+			this.bdate = bdate.split(" ")[0];
+		}
+
 		this.bview = bview;
 		this.bgood = bgood;
 		this.bbad = bbad;
@@ -143,14 +162,32 @@ public class BoardDto {
 		this.cno = cno;
 	}
 
-
 	public String getMid() {
 		return mid;
 	}
 
-
 	public void setMid(String mid) {
 		this.mid = mid;
+	}
+
+
+	public String getMimg() {
+		return mimg;
+	}
+
+
+	public void setMimg(String mimg) {
+		this.mimg = mimg;
+	}
+
+
+	public int getRcount() {
+		return rcount;
+	}
+
+
+	public void setRcount(int rcount) {
+		this.rcount = rcount;
 	}
 	
 }

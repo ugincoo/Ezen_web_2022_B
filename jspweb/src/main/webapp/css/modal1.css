@@ -1,7 +1,10 @@
 @charset "UTF-8";
+
 .modal_wrap, .modal_wrap2, .modal_wrap3{
 	background-color: rgba(224,227,254,50%);
 	position: fixed; /* 고정위치 */
+	/*카카오지도 z-index*/
+	z-index :999 ; /* 다른포지션의 css와 겹쳤을때의 우선순위 */
 	top:0; 
 	left : 0;
 	width: 100%;

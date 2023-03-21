@@ -13,6 +13,7 @@
 	<link href="/jspweb/css/index.css" rel="stylesheet" >
 	<link href="/jspweb/css/signup.css" rel="stylesheet">
 	<link href="/jspweb/css/modal1.css" rel="stylesheet" >
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
 	
 </head>
 <body>
@@ -26,18 +27,18 @@
 					<li> <a href="/jspweb/board/list.jsp?cno=2"> 커뮤니티 </a> </li>
 					<li> <a href="/jspweb/board/list.jsp?cno=3"> QnA </a> </li>
 					<li> <a href="/jspweb/board/list.jsp?cno=4"> 노하우 </a> </li>
-					<li> <a href="#"> 메뉴 5 </a> </li>
-					<li> <a href="#"> 메뉴 6 </a> </li>
-					<li> <a href="#"> 메뉴 7 </a> </li>
+					<li> <a href="/jspweb/api/api1.jsp"> API 1 </a> </li>
+					<li> <a href="/jspweb/api/api2.jsp">  API 2 </a> </li>
+					<li> <a href="/jspweb/api/api3.jsp">  API 3 [과제] </a> </li>
 			</ul>
 
 			<div class="submenu"><!-- 서브메뉴 -->
 		
 		
 			</div>
-	</div>	
+		</div>	
 	
-	
+	</div>
 	
 	<!-- 모든 페이지 공통 js -->
 	<!-- jquery -->
