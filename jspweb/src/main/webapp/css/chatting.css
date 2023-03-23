@@ -1,11 +1,24 @@
 @charset "UTF-8";
+/* 채팅과 명단 */
+.chattingwrap{
+
+	display: flex;
+	justify-content: center;
+}
+.connectlistbox{width : 15%;}
+.connectbox{
+	display: flex; align-items: flex-end;
+	margin-bottom: 20px;
+	}
+
 .cattingbox{ /* 채팅 전체 구역 */
 	width: 35%;
-    margin: 50px auto;
 }
+
+.connectbox  .name { margin-left: 10px;}
 .contentbox{	/* 채팅 정보가 출력되는 구역 */
-	background-color: #bacee0;
-	height: 700px;
+	background-image : url("/jspweb/img/배경.jpg");
+	height: 500px;
 	/* 해당 구역크기보다 내용물이 커지면 스크롤 생성 */
 	overflow-y:scroll; 
 	padding: 20px;
@@ -17,13 +30,13 @@
 	margin-top: 15px;
 }
 .secontent .content { /*보낼때 내용상자 색상 */
-	background-color: #ffeb33;
+	background-color: #FBFEB6;
 }
 .date{ /*시간 */
 	font-size: 2px;  margin: 0px 5px;
 }
 .content{ /* 내용물 */
-	background-color: #ffffff;
+	background-color: #B7EAD8;
 	border-radius: 10px;
 	padding: 10px;
 	/* 해당 구역크기보다 내용물이 커지면 자동줄바꿈처리 */
@@ -35,7 +48,7 @@
 	width: 70%; margin: 20px auto;
 	font-size: 5px;
 	text-align: center;
-	background-color: #b1c3d5;
+	background-color: #D1CFD0;
 	border-radius: 10px;
 }
 .tocontent{
@@ -54,8 +67,11 @@
     justify-content: flex-start;
 }
 
+/*스크롤숨기기*/
 
-
+.contentbox::-webkit-scrollbar  {
+    display: none; /* 크롬, 사파리, 오페라, 엣지 */
+}
 
 .msgbox{
 	width: 100%;
@@ -63,14 +79,31 @@
 	padding: 15px;
 	resize: none;
 }
+/* 이모티콘,보내기 버튼*/
 .cattingbtnbox{
 	display: flex;
-	justify-content: flex-end;
+	justify-content: space-between;
 }
+.emobtn{
+	background-color: transparent;
+	border: none;
+	padding: 5px 5px;
+	font-size: 20px;
+}
+
+.emolist{
+	width: 300px; height: 300px;	
+	overflow-y:scroll; 
+}
+
 .sendbtn{
 	padding : 10px;
 	font-size : 12px;
-	background-color: yellow;
+	background-color: #DDE0FF;
 	border: none;
 	border-radius: 5px;
+}
+/* 내용물안에 사진이 있으면 배경 투명 */
+.emocontent{
+	background-color: transparent  !important;
 }

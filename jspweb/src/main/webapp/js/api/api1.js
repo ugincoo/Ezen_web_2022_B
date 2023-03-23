@@ -26,7 +26,7 @@ $.ajax({
 	method : "get",
 	success : (r) =>{
 		console.log(r);
-		document.querySelector('.totalCount').innerHTML ='전기차 충전소 개수 : ' +r.totalCount;
+		document.querySelector('.totalcount').innerHTML ='전기차 충전소 개수 : ${r.totalCount}';
 		let html = `
 				<tr>
 					<th width="10%"> 시군명 </th>

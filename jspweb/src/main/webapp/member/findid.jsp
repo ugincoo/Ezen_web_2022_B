@@ -5,10 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="/jspweb/css/signup.css" rel="stylesheet">
 </head>
 <body>
-	<%@ include file="/header.jsp" %>	<!--  (webapp이하생략)절대경로 -->
+		<%@ include file="/header.jsp" %>	<!--  (webapp이하생략)절대경로 -->
 	<div class="cotainar">		
 		<form class="signupForm"> <!-- form전송시 name으로 빼옴 -->
 			<h3> 아이디찾기 </h3>
