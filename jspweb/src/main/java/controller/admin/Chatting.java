@@ -56,7 +56,7 @@ public class Chatting {
 				//1. 문자열타입의 JSON형식 직접 작성하기[vs ObjectMapper]
 					//{ "필드명" : "데이터 ","필드명2" : "데이터2" }
 				String msg = "{\"type\":\"alarm\",\"msgbox\":\""+dto.getMid()+"님이 채팅방을 나갔습니다.\"}";
-				
+				onMessage(session, msg);
 				
 				// 접속 종료한 클라이언트소켓 접속명단 목록 알림 메시지 보냄
 				onMessage(session, "enter");			

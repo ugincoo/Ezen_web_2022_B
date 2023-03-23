@@ -18,6 +18,7 @@
 .connectbox  .name { margin-left: 10px;}
 .contentbox{	/* 채팅 정보가 출력되는 구역 */
 	background-image : url("/jspweb/img/배경.jpg");
+	background-size : 150px;
 	height: 500px;
 	/* 해당 구역크기보다 내용물이 커지면 스크롤 생성 */
 	overflow-y:scroll; 

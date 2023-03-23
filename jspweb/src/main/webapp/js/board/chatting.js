@@ -61,6 +61,7 @@ if( memberInfo.mid == null ){ // memberInfo : 헤더js 존재하는 객체
 	클라이언트소켓.onmessage = function(e){ 메시지받기(e); }
 	클라이언트소켓.onclose = function(e){ 연결해제(e) }
 }
+
 // 2. 클라이언트소켓이 접속했을때 이벤트/함수 정의
 function 서버소켓연결( e ){ 
 	
@@ -100,18 +101,13 @@ function 메시지타입구분(msg){
 	return html;
 }
 
-
-
-
-
-
 // 4. 서버로부터 메시지가 왔을때 메시지 받기
 function 메시지받기( e ){	// <------  e <----- getBasicRemote().sendText(msg)
 	console.log( e) ; console.log( e.data ); // e.data : 문자열타입  vs JSON.parse( e.data ) : 객체타입
 	console.log( JSON.parse( e.data ) ); // 문자열json -> 객체json 형변환 
 	
 	let data = JSON.parse( e.data );	// 전달받은 메시지 dto 
-	
+		console.log(data);
 	//let msg = JSON.parse( data );	// 명단에는 data.msg 없음
 	
 	//명단 [여러개 / Arraylist] vs 메시지정보 [1개 / dto]
@@ -165,7 +161,8 @@ function 메시지받기( e ){	// <------  e <----- getBasicRemote().sendText(ms
 
 // 5. 서버와 연결이 끊겼을때. [ 클라이언소켓 객체가 초기화될때 -> F5 , 페이지 전환할때 등등 ]
 function 연결해제(e){ 
-	자료보내기(memberInfo.mid+"님이 퇴장하셨습니다.","alarm") 
+	//이미 세션이 종료후에 발생하는 함수이므로 아래 코드는 다른 세션에 전달 불가능
+	//자료보내기(memberInfo.mid+"님이 퇴장하셨습니다.","alarm") 
 	}
 
 // 6. 엔터키를 눌렀을때
@@ -185,6 +182,8 @@ function getemo(){
 	}
 	document.querySelector('.emolist').innerHTML = html;
 }
+
+//타입형 메시지 전송하기
 function 자료보내기(msgbox , type){
 	let msg ={
 			type : type,

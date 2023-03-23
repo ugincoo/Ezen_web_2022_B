@@ -37,7 +37,7 @@ function getBoardList(page){
 				html+= 
 				`<div  class="bcontentbox">
 					<div>
-						<img class="hpimg" alt="" src="/jspweb/member/pimg/${o.mimg == null? 기본.jpg : o.mimg }">
+						<img class="hpimg" alt="" src="/jspweb/member/pimg/${o.mimg == null? '기본.jpg' : o.mimg }">
 						<span class="mid">${o.mid}</span>
 						<span class="bdate">${o.bdate} </span>		
 					</div>

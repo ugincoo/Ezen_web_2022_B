@@ -1,4 +1,4 @@
-
+console.log('헤더js열림');
 let memberInfo = null;
 
 // 로그인한 회원정보 호출 

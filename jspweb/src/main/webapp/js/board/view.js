@@ -22,7 +22,7 @@ function getBoard(){
 			console.log(re);
 			let html=``;
 			
-			document.querySelector('.mimg').src=`/jspweb/member/pimg/${re.mimg == null ? '기본/jpg' : re.mimg}`
+			document.querySelector('.mimg').src=`/jspweb/member/pimg/${re.mimg == null ? '기본.jpg' : re.mimg}`
 			document.querySelector('.mid').innerHTML = re.mid;
 			document.querySelector('.bdate').innerHTML = re.bdate;
 			document.querySelector('.bview').innerHTML = re.bview;
