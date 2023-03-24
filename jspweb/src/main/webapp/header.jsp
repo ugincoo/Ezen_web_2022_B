@@ -12,7 +12,7 @@
 	<!-- 사용자 지정 css -->
 	<link href="/jspweb/css/index.css" rel="stylesheet" >
 	<link href="/jspweb/css/signup.css" rel="stylesheet">
-	<link href="/jspweb/css/modal1.css" rel="stylesheet" >
+	<link href="/jspweb/css/modal.css" rel="stylesheet" >
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
 	
 </head>

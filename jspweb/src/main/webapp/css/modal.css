@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+.modal_wrap{
+	background-color: rgba(224,227,254,50%);
+	position: fixed; /* 고정위치 */
+	/*카카오지도 z-index*/
+	z-index :999 ; /* 다른포지션의 css와 겹쳤을때의 우선순위 */
+	top:0; 
+	left : 0;
+	width: 100%;
+	height: 100%;
+	/* 내용물 중앙정렬 */
+	display: flex; justify-content: center;
+	align-items: center;
+	/* 처음에는 숨겨 */
+	display: none;
+}
+.modal_box{
+	background-color: white;;
+	width: 50%; height: 50%;
+	padding : 100px 150px;
+	border : none;
+	border-radius: 20%;
+	align-items: center;
+}
+.modal_wrapbutton{
+	background-color: white;
+	border : solid 1px #BAC3FF;
+	border-radius : 10px;
+	margin: 10px 5px;
+	padding: 10px 10px;
+}

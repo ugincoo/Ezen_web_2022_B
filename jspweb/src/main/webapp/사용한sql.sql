@@ -130,3 +130,40 @@ insert into mpoint(mpcomment , mpamount,mno) values ('귀엽둥이포인트',500
 
 -- 포인트 사용
 insert into mpoint(mpcomment , mpamount,mno) values ('츄르구매',-3000,2);
+
+
+/*
+	제품 1개당 사진1개 
+		제품테이블(사진필드)
+	제품 1개 사진 여러개
+		제품테이블
+        사진테이블
+*/
+/*
+	제품테이블 / 사진테이블 / 찜(즐겨찾기)테이블 / 쪽찌테이블
+*/
+
+-- 제품테이블
+
+create table product(
+	pno int auto_increment primary key,		
+    pname varchar(20) not null,
+    pcomment text not null,
+    pprice bigint not null ,
+    pstate int default 1, -- 상태 [1:판매중 2:거래중 3:판매완료 등등]
+    plat varchar(100) not null,-- 위도(x)
+    plng varchar(100) not null ,-- 경도(y)
+    pview int default 0,
+    pdate datetime default now()
+);
+select * from product;
+/*사진 테이블*/
+create table plike(
+	-- 누가 어떤제품을 찜 했는지
+    plikno bigint auto_increment primary key,
+    mno int,	-- 회원번호 누가
+    pno int,	-- 어떤제품을
+	foreign key (mno) references member (mno) on delete cascade,
+  	foreign key (pno) references product (pno) on delete cascade
+);
+select * from plike;

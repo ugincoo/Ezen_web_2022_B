@@ -17,7 +17,6 @@
 			<button type="button" onclick="onwrite()"> 제품등록 </button>
 		</form>
 	
-	
 	</div>
 
 	<!-- 카카오지도 -->

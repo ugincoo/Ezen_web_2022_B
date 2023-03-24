@@ -14,6 +14,8 @@ function onwrite(){
 	writeFormData.set("plat",plat);
 	writeFormData.set("plng",plng);
 	
+	if(plat == 0 || plng == 0){alert('등록 할 위치를 선택해주세요'); return;}
+	
 	$.ajax({
 		url : "/jspweb/product/info",
 		method : "post",
@@ -22,6 +24,12 @@ function onwrite(){
 		processData : false,
 		success : (r) => {
 			console.log('통신');	console.log(r); 
+			if(r=='true'){
+				alert('제품 등록 되었습니다.');
+				location.href="/jspweb/index.jsp"
+			}else{
+				alert('제품등록 실패하였습니다.')
+			}
 		}
 	})
 	
