@@ -24,7 +24,7 @@ function onwrite(){
 		processData : false,
 		success : (r) => {
 			console.log('통신');	console.log(r); 
-			if(r=='true'){
+			if(r =='true'){
 				alert('제품 등록 되었습니다.');
 				location.href="/jspweb/index.jsp"
 			}else{

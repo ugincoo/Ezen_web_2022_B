@@ -1,5 +1,7 @@
 package model.dto;
 
+import java.util.List;
+
 public class ProductWriteDto {
 		
 	private int pno;	
@@ -11,24 +13,29 @@ public class ProductWriteDto {
 	private String plng;
 	private int  pview ;
 	private String pdate ;
+	//추가필드 
+	private int mno;//등록한 회원번호
+	private String mid;//등록한 회원아이디
+	private List<String> pmimglist;//등록한 사진목록들
 	
+	//등록용 생성자 [제품명,설명,가격,위도,경도,등록회원번호,등록사진목록들]
+	
+	//빈필드
 	public ProductWriteDto() {}
-	
-	//제품등록 Dto
-	public ProductWriteDto(String pname, String pcomment, long pprice, String plat, String plng) {
+	public ProductWriteDto(String pname, String pcomment, long pprice, String plat, String plng, int mno,
+			List<String> pmimglist) {
 		super();
 		this.pname = pname;
 		this.pcomment = pcomment;
 		this.pprice = pprice;
 		this.plat = plat;
 		this.plng = plng;
+		this.mno = mno;
+		this.pmimglist = pmimglist;
 	}
-
-
-
-
+	//풀
 	public ProductWriteDto(int pno, String pname, String pcomment, long pprice, int pstate, String plat, String plng,
-			int pview, String pdate) {
+			int pview, String pdate, int mno, String mid, List<String> pmimglist) {
 		super();
 		this.pno = pno;
 		this.pname = pname;
@@ -39,13 +46,9 @@ public class ProductWriteDto {
 		this.plng = plng;
 		this.pview = pview;
 		this.pdate = pdate;
-	}
-	
-	@Override
-	public String toString() {
-		return "ProductWriteDto [pno=" + pno + ", pname=" + pname + ", pcomment=" + pcomment + ", pprice=" + pprice
-				+ ", pstate=" + pstate + ", plat=" + plat + ", plng=" + plng + ", pview=" + pview + ", pdate=" + pdate
-				+ "]";
+		this.mno = mno;
+		this.mid = mid;
+		this.pmimglist = pmimglist;
 	}
 	
 	public int getPno() {
@@ -102,7 +105,31 @@ public class ProductWriteDto {
 	public void setPdate(String pdate) {
 		this.pdate = pdate;
 	}
-
+	public int getMno() {
+		return mno;
+	}
+	public void setMno(int mno) {
+		this.mno = mno;
+	}
+	public String getMid() {
+		return mid;
+	}
+	public void setMid(String mid) {
+		this.mid = mid;
+	}
+	public List<String> getPmimglist() {
+		return pmimglist;
+	}
+	public void setPmimglist(List<String> pmimglist) {
+		this.pmimglist = pmimglist;
+	}
+	@Override
+	public String toString() {
+		return "ProductWriteDto [pno=" + pno + ", pname=" + pname + ", pcomment=" + pcomment + ", pprice=" + pprice
+				+ ", pstate=" + pstate + ", plat=" + plat + ", plng=" + plng + ", pview=" + pview + ", pdate=" + pdate
+				+ ", mno=" + mno + ", mid=" + mid + ", pmimglist=" + pmimglist + "]";
+	}
+	
 	
 	
 }

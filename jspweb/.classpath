@@ -6,7 +6,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src/main/java"/>
-	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/apache-tomcat-9.0.65">
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v9.0">
 		<attributes>
 			<attribute name="owner.project.facets" value="jst.web"/>
 		</attributes>
@@ -19,5 +19,7 @@
 	<classpathentry kind="lib" path="C:/jsp-cos.jar"/>
 	<classpathentry kind="lib" path="C:/java-activation.jar"/>
 	<classpathentry kind="lib" path="C:/java-mail.jar"/>
+	<classpathentry kind="lib" path="C:/commons-fileupload.jar"/>
+	<classpathentry kind="lib" path="C:/commons-io.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

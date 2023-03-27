@@ -1,0 +1,19 @@
+@charset "UTF-8";
+*{
+	justify-content : center;
+	text-align : center;
+	background-image: url("/테니스코트 배경.jpg");
+}
+.maintitle{
+	display: inline-block;
+}
+
+.mainbtnbox{
+	display: flex; justify-content: center;
+}
+.mainbtnbox button{
+	margin-left: 10px;
+	padding: 15px ;
+	border: 1px solid #E6D9CF;
+	border-radius: 10px;
+}
