@@ -12,25 +12,52 @@ let productlist = null;
 
 function getproductlistprint(){
 
-       let html ='<h3>제품 목록</h3>';
-       productlist.forEach( (p)=>{
-		   html += `
-		   <div>
-		   		<span> ${p.pname} </span>
-		   		<span> ${p.pcomment}  </span>
-		   		<span> ${p.pprice}  </span>
-		   		<span> ${p.pstate}  </span>
-		   		<span> ${p.pview}  </span>
-		   		<span> ${p.pdate}  </span>
-		   
-		   </div>
-		   `
+       let html ='';
+       productlist.forEach( (p,i)=>{
+		    html +=`			<!-- 제품 1개  -->
+								<div onclck="productprint(${i})" class="productbox">
+									<div class="pimgbox">
+										<img src="/jspweb/product/pimg/${p.pimglist[0] }" >
+									</div>
+									<div class="pcontentbox">
+									<div class="pname"> ${p.pname}</div>
+									<div class="pprice">${p.pprice.toLocaleString()}원 </div>
+									<div class="pdate"> ${p.pdate} </div>
+									<div class="petc">
+										<i class="far fa-eye"></i>  ${p.pview}
+										<i class="far fa-thumbs-up"></i>  2
+										<i class="far fa-comment-dots"></i> 10
+									</div>
+				</div>
+			</div>	`
 	   } )
 	   document.querySelector('.productListbox').innerHTML = html;
        
        
        
 }
+//제품개별조회
+function productprint( i ){
+let p = productlist[i];
+	 let html = `<button onclick="getproductlistprint()"> <- </button><h3> 제품 상세페이지 </h3>`;
+	     			 html += `
+					  	 <div>
+					   		<span> ${p.pname} </span>
+					   		<span> ${p.pcomment}  </span>
+					   		<span> ${p.pprice}  </span>
+					   		<span> ${p.pstate}  </span>
+					   		<span> ${p.pview}  </span>
+					   		<span> ${p.pdate}  </span>
+					   		<div><button class="plikebtn" onclick="setplike(${p.pno})" type="button"> </button></div>
+					   </div>
+					   `
+					 
+				
+			    document.querySelector('.productListbox').innerHTML = html;
+			   	getplike(p.pno);
+	
+}
+
 //----------------------- 지도생성 -----------------------
  var map = new kakao.maps.Map(document.getElementById('map'), { // 지도를 표시할 div
         center : new kakao.maps.LatLng(37.321917560942296,  126.83083441420393), // 지도의 중심좌표 
@@ -81,7 +108,7 @@ function  fproductlist(동, 서, 남, 북){
 	       
 	      //----------------------- 사이드바 작업 -----------------------  
 	      productlist = r;	//제품목록 결과를 전역변수에 담아주기
-	       getproductlistprint();
+	      getproductlistprint();
 	      //----------------------- 마커 작업 -----------------------  
 	        var markers = $(r).map( (i,p)=> {
 				console.log(p)
@@ -91,21 +118,7 @@ function  fproductlist(동, 서, 남, 북){
 	            });
 	            // 마커에 클릭이벤트를 등록합니다
 				kakao.maps.event.addListener(marker, 'click', function() {
-					let html = `<button onclick="getproductlistprint()"> <- </button><h3> 제품 상세페이지 </h3>`;
-	     			 html += `
-					  	 <div>
-					   		<span> ${p.pname} </span>
-					   		<span> ${p.pcomment}  </span>
-					   		<span> ${p.pprice}  </span>
-					   		<span> ${p.pstate}  </span>
-					   		<span> ${p.pview}  </span>
-					   		<span> ${p.pdate}  </span>
-					   		<div><button class="plikebtn" onclick="setplike(${p.pno})" type="button"> </button></div>
-					   </div>
-					   `
-				
-			    document.querySelector('.productListbox').innerHTML = html;
-			   	getplike(p.pno);
+					productprint( i )
 				});// 마커이벤트 end
 	            return marker;
 	      	  });// map end

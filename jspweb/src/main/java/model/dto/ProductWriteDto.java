@@ -16,14 +16,15 @@ public class ProductWriteDto {
 	//추가필드 
 	private int mno;//등록한 회원번호
 	private String mid;//등록한 회원아이디
-	private List<String> pmimglist;//등록한 사진목록들
+	private String mimg;
+	private List<String> pimglist;//등록한 사진목록들
 	
 	//등록용 생성자 [제품명,설명,가격,위도,경도,등록회원번호,등록사진목록들]
 	
 	//빈필드
 	public ProductWriteDto() {}
 	public ProductWriteDto(String pname, String pcomment, long pprice, String plat, String plng, int mno,
-			List<String> pmimglist) {
+			List<String> pimglist) {
 		super();
 		this.pname = pname;
 		this.pcomment = pcomment;
@@ -31,11 +32,13 @@ public class ProductWriteDto {
 		this.plat = plat;
 		this.plng = plng;
 		this.mno = mno;
-		this.pmimglist = pmimglist;
+		this.pimglist = pimglist;
 	}
+
 	//풀
+	
 	public ProductWriteDto(int pno, String pname, String pcomment, long pprice, int pstate, String plat, String plng,
-			int pview, String pdate, int mno, String mid, List<String> pmimglist) {
+			int pview, String pdate, int mno, String mid, String mimg, List<String> pimglist) {
 		super();
 		this.pno = pno;
 		this.pname = pname;
@@ -48,9 +51,9 @@ public class ProductWriteDto {
 		this.pdate = pdate;
 		this.mno = mno;
 		this.mid = mid;
-		this.pmimglist = pmimglist;
+		this.mimg = mimg;
+		this.pimglist = pimglist;
 	}
-	
 	public int getPno() {
 		return pno;
 	}
@@ -117,17 +120,24 @@ public class ProductWriteDto {
 	public void setMid(String mid) {
 		this.mid = mid;
 	}
-	public List<String> getPmimglist() {
-		return pmimglist;
+	public List<String> getpimglist() {
+		return pimglist;
 	}
-	public void setPmimglist(List<String> pmimglist) {
-		this.pmimglist = pmimglist;
+	public void setpimglist(List<String> pimglist) {
+		this.pimglist = pimglist;
+	}
+	
+	public String getMimg() {
+		return mimg;
+	}
+	public void setMimg(String mimg) {
+		this.mimg = mimg;
 	}
 	@Override
 	public String toString() {
 		return "ProductWriteDto [pno=" + pno + ", pname=" + pname + ", pcomment=" + pcomment + ", pprice=" + pprice
 				+ ", pstate=" + pstate + ", plat=" + plat + ", plng=" + plng + ", pview=" + pview + ", pdate=" + pdate
-				+ ", mno=" + mno + ", mid=" + mid + ", pmimglist=" + pmimglist + "]";
+				+ ", mno=" + mno + ", mid=" + mid + ", pimglist=" + pimglist + "]";
 	}
 	
 	

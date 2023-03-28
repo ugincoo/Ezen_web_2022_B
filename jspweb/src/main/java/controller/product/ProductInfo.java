@@ -100,7 +100,7 @@ public class ProductInfo extends HttpServlet {
 						//2. UUID : 범용 고유 식별자 [ 중복이 없는 식별자 만들기 ]
 						//3. 최종 식별 파일명 : UUID 파일명
 						// UUID - 네트워크상에서 고유성을 보장하는 ID를 만들기 위한 표준 규약
-					String filename = UUID .randomUUID() +" "+ item.getName().replace(" ", "-");
+					String filename = UUID .randomUUID() +" "+ item.getName().replaceAll(" ", "-");
 					//String filename = 날짜/시간 +" "+ item.getName().replace(" ", "-");
 					
 					파일필드목록.add(filename);
@@ -124,9 +124,11 @@ public class ProductInfo extends HttpServlet {
 			
 			int mno = MemberDao.getinstance().getMno((String)request.getSession().getAttribute("login"));
 			
-			ProductWriteDto  dto = new ProductWriteDto(일반필드목록.get(0), 일반필드목록.get(1), Integer.parseInt( 일반필드목록.get(3) ) ,
-					일반필드목록.get(4), 일반필드목록.get(5), mno, 파일필드목록);
-			System.out.println("dto : "+ dto);
+			ProductWriteDto  dto = new ProductWriteDto(일반필드목록.get(0), 일반필드목록.get(1), Integer.parseInt( 일반필드목록.get(2) ) ,
+					일반필드목록.get(3), 일반필드목록.get(4), mno, 파일필드목록);
+			System.out.println("dto : "+ dto.toString());
+			boolean result = ProductWriteDao.getInstence().write(dto);
+			response.getWriter().print(result);
 		}catch (Exception e) {
 			System.out.println("파일등록실패");
 		}

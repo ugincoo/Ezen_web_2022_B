@@ -13,10 +13,10 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="C:/mysql-connector-j-8.0.32.jar"/>
-	<classpathentry kind="lib" path="C:/jackson-annotations.jar"/>
-	<classpathentry kind="lib" path="C:/jackson-core.jar"/>
-	<classpathentry kind="lib" path="C:/jackson-databind.jar"/>
-	<classpathentry kind="lib" path="C:/jsp-cos.jar"/>
+	<classpathentry kind="lib" path="C:/jackson-annotations-2.14.2.jar"/>
+	<classpathentry kind="lib" path="C:/jackson-core-2.14.2.jar"/>
+	<classpathentry kind="lib" path="C:/jackson-databind-2.14.2.jar"/>
+	<classpathentry kind="lib" path="C:/cos.jar"/>
 	<classpathentry kind="lib" path="C:/java-activation.jar"/>
 	<classpathentry kind="lib" path="C:/java-mail.jar"/>
 	<classpathentry kind="lib" path="C:/commons-fileupload.jar"/>

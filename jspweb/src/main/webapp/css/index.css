@@ -89,3 +89,63 @@ a:visited {/*클릭한 적이 있을때*/
 	display: flex; justify-content: flex-end;
 	margin-bottom: 10px;
 }
+/*-----------------------------------------------------------*/
+html, body{
+	height: 100%;
+	/*부모요소의 사이즈가 존재해야 자식요소 사이즈 지정 가능*/
+	/*해당구역 스크롤바 제거*/
+	-ms-overflow-style : none;
+}
+/*브라우저의 스크롤바 제거 [크롬기준]*/
+::-webkit-scrollbar{display: none;}
+/*--------------------------카카오지도-------------------------*/
+.contentbox{
+	display:flex;width:100%;height:100%;
+}
+.searchbox{
+	position:fixed; left : 10px; top:50px; z-index : 100;
+		width:200px; height:200px; background-color : white;
+}
+/*사이드바구역*/
+.productListbox{
+	width: 20%;
+	height: 100%;
+}
+.productbox{
+	display: flex;
+	padding: 0px 5px 20px 5px;
+	border-bottom: solid 1px #e8e8e8;
+	margin: 0px 5px 20px 5px;
+}
+.pimgbox img{
+	width: 100px; 
+	height: 100px;
+	/*  */
+	object-fit : cover;
+}
+.pcontentbox{
+	width: 100%;
+}
+.pname{
+	font-family: 'ONE-Mobile-POP';
+	font-size: 20px;
+	height : 30%;
+	/* 내용물이 구역 사이즈보다 커지면*/
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis; /* 넘치면 ...*/
+	max-width: 230px;
+}
+.pprice{
+	text-align: right;
+	font-family: 'ONE-Mobile-POP';
+	 font-size: 17px;
+	 margin-top: 20px;
+}
+.pdate{
+	font-size: 10px;
+}
+.petc{
+	font-size: 10px;
+	text-align: right;
+}
