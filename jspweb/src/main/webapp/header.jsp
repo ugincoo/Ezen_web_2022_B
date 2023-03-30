@@ -18,6 +18,11 @@
 	
 </head>
 <body>
+	<div class="msgbox">
+		메시지가 도착했어욤 
+	</div>
+
+
 	<div class="cotainar">
 		<div class="header">
 			<div class="title"> <!-- 로고 -->

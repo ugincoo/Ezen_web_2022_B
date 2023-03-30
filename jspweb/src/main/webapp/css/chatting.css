@@ -12,14 +12,14 @@
 	}
 
 .cattingbox{ /* 채팅 전체 구역 */
-	width: 35%;
+	width: 35%; height: 1000px;
 }
 
 .connectbox  .name { margin-left: 10px;}
 .contentbox{	/* 채팅 정보가 출력되는 구역 */
 	background-image : url("/jspweb/img/배경.jpg");
-	background-size : 150px;
-	height: 500px;
+	background-size :100%;
+	height: 200px;
 	/* 해당 구역크기보다 내용물이 커지면 스크롤 생성 */
 	overflow-y:scroll; 
 	padding: 20px;
@@ -44,8 +44,10 @@
 	max-width: 70%;	/* 해당 구역크기의 최대 사이즈 */
 	word-break : break-all;
 	font-size: 12px;
+	display: inline-block;
 }
 .alarm{	/* 알람메시지 */
+	height : 25px;
 	width: 70%; margin: 20px auto;
 	font-size: 5px;
 	text-align: center;

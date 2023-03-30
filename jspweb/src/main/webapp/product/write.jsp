@@ -16,7 +16,7 @@
 			제품명 : 	<input type="text" name="pname">							<br/>
 			제품설명 :  	<input type="text" name="pcomment">							<br/>
 			제품가격 :  	<input type="text" name="pprice">							<br/>
-			거래위치 :  	<div id="map" style="width:100%; height:350px;"></div>	
+			거래위치 :  	<div id="map" style="width:100%; height:400px;"></div>	
 			
 			<!--   <h5> 첨부파일 여러개 [ multiple / cos.jar 불가능 , commons 사용 ]</h5>
 			<input type="file" name="pfiles" multiple="multiple" accept="image/*">
