@@ -11,7 +11,12 @@
 
 	
 	<div class="conainer">
-	
+		
+		<h3> chart.js 사용</h3>
+		<div>
+  			<canvas id="myChart" width="300" height="100"></canvas>
+		</div>
+		
 		<table class="member_table table table-hover">
 			
 		</table>
@@ -30,6 +35,10 @@
 			<button type="button" onclick="adsearch()"> 검색 </button>
 		 </div>
 	</div>
+	
+	<!-- chart.js -->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	s
 	<script src= "/jspweb/js/admin/info.js" type="text/javascript"></script>
 </body>
 </html>

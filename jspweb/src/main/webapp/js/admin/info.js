@@ -1,4 +1,40 @@
 console.log("열림");
+//Dom 객체
+const ctx = document.getElementById('myChart');
+
+$.get("/jspweb/point",(r)=>{
+	console.log(r);
+	console.log(Object.keys(r));	//키
+	console.log(Object.values(r))	//값
+	
+	//----------------chart.js---------------------
+	//new Chart('dom객체',{차트옵션});
+	//{type : '차트이름',data : {차트에 표시 할 데이터} , option : {차트옵션} }
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: Object.keys(r),
+      datasets: [{	//list
+	        label: '포인트충전내역',
+	        data: Object.values(r),
+	        borderWidth: 10,
+	        backgroundColor: '#E3E4FD',
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+})
+
+
+//-------------------------------------------------------------------------------------------------
 //페이지,검색,타입 보관된 객체 
 let apageObject = {
 	page : 1,
