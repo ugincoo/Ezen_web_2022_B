@@ -7,8 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<%@ include file="header.jsp" %>
 	<center>
-		[*푸터] 시험장에서 보이는 그대로 작성
-	</center>
+		[*] 시험지 내용 본문
+	</center>	
+	<%@ include file="footer.jsp" %>
 </body>
 </html>
