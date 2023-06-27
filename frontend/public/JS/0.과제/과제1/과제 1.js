@@ -93,19 +93,22 @@ function onAdd(){
 	
 		console.log('1.함수 실행')					 //1.확인
 	//2.<input> 태그 가져와서 변수에 저장 [DOM객체]
-	let stu_num = document.querySelector('.stu_num')
+	let stu_num = document.querySelector('.stu_num').value;
 	//2.2 <input>에 입력된 value 가져와서 변수에 저장
-	let stu_numValue = stu_num . value
+/*	let stu_numValue = stu_num . value*/
 	//2. 확인
-		console.log('2.입력값 확인: ' + stu_numValue) //2. 확인
+		console.log('2.입력값 확인: ' + stu_num) //2. 확인
 	
 	// ! 검사 변수 [유효성검사 체크리스트]
 	let confirm = 0;
 	
 	//추가 코드 1. 입력 값 공백
-	if(stu_numValue==''){console.log('학번을 입력 해주세요.');confirm++ }
+	if(stu_num == ''){alert('학번을 입력 해주세요.'); confirm++}
 	//추가 코드 2. 입략 값 8자리x
-	if(confirm == 0 && stu_numValue.lemgth!=8){console.log('8자리 숫자를 입력해주세요.');confirm++ }
+	if(confirm ==0 && stu_num.length!=8){
+		alert('8자리 숫자를 입력해주세요.');
+		confirm++
+		}
 	
 	
 	
@@ -113,19 +116,20 @@ function onAdd(){
 		//입력받은 값[stu_numValue]이 있고 기존에 있는 값들과 비교
 	
 	let box = document.querySelector('.box')	// if{]와 else{}에서 같이 사용할 변수 이기에 if 밖에 선언	
-	if( confirm == 0) // 만약에 confirm 0 일때만 아래 코드 실행
-		if(studentArray.indexOf(stu_numValue)==-1){ // 중복 없다
-			//console.log('학번이 등록 되었습니다.')
-			studentArray.push(stu_numValue)
-			 	console.log(box)
-			box.innerHTML= ('학번 등록 되었습니다.')
-			//추가코드 3. 등록 성공시 초기화
-			stu_num.value = ''
-		}
-		else{//중복 있음
-			console.log('이미 등록 된 학번입니다.')
-			
-			box.innerHTML= ('이미 등록 된 학번입니다.')
+	if( confirm == 0) {/// 만약에 confirm 0 일때만 아래 코드 실행
+			if(studentArray.indexOf(stu_num)==-1){ // 중복 없다
+				//console.log('학번이 등록 되었습니다.')
+				studentArray.push(stu_num)
+				 	console.log(studentArray);
+				box.innerHTML= ('학번 등록 되었습니다.')
+				//추가코드 3. 등록 성공시 초기화
+				stu_num.value = ''
+			}
+			else{//중복 있음
+				console.log('이미 등록 된 학번입니다.')
+				
+				box.innerHTML= ('이미 등록 된 학번입니다.')
+			}
 		}
 }
  
